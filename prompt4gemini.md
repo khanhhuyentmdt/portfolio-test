@@ -1,0 +1,4 @@
+https://gemini.google.com/gem/coding-partner/95fe35a6bb5da893
+
+Tôi dự kiến xây dựng một website mini trình bày portfolio của cá nhân tôi với html, react js, tailwind css. Tôi dự kiến khi mở file index.html thì có thể tương tác chuyển tab, load nội dung. Tất cả các file html, js, css, image, video... đều nằm trong cùng một folder portfolio. Tất cả các đường dẫn đều được thiết kế theo dạng relative để khi tôi copy folder sang máy tính khác thì website portfolio của tôi vẫn hoạt động tốt. Hãy giúp tôi soạn prompt để nhờ Claude code dùng chế độ /plan (chỉ lên plan không thực thi code) xây dựng trang index.html theo như hình index.png đính kèm (file index.png hiện đang nằm trong thư mục portfolio/index.png)
+Kết quả của plan xuất ra thành file plan.md để tôi đọc, kiểm tra và sửa tay nếu cần. Sau khi hoàn thiện file plan.md theo ý muốn, bước tiếp theo sau đó tôi sẽ nhờ claude code triển khai build code dựa trên file plan.md

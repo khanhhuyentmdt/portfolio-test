@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trần Khánh Huyền — Business Analyst Portfolio</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React 18 -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel Standalone -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans (heading) + Nunito Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind custom tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:     '#000046',
+            lavender: '#c9c4e0',
+            'lav-bg': '#f0eef8',
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'ui-sans-serif', 'sans-serif'],
+            body:    ['Nunito Sans', 'ui-sans-serif', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Nunito Sans', sans-serif; }
+
+    section[id], footer[id] { scroll-margin-top: 72px; }
+
+    .tag { transition: background 0.18s, color 0.18s, border-color 0.18s; }
+    .tag:hover { background: #000046; color: #fff; border-color: #000046; }
+
+    .pill:active { transform: scale(0.97); }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    /* ══════════════════════════════════════════════
+       1.  BI-LINGUAL CONTENT OBJECT
+    ══════════════════════════════════════════════ */
+    const CONTENT = {
+      vi: {
+        nav: [
+          { label: 'TRANG CHỦ', href: '#home'    },
+          { label: 'KỸ NĂNG',   href: '#skills'  },
+          { label: 'LIÊN HỆ',   href: '#contact' },
+        ],
+
+        hero: {
+          name:          'TRẦN KHÁNH HUYỀN',
+          title:         'IT BUSINESS ANALYST',
+          intro: [
+            'Là một IT Business Analyst với kinh nghiệm thực tế trong các dự án phần mềm doanh nghiệp. Với tinh thần chủ động và ham học hỏi, tôi luôn tìm cách hiểu sâu bài toán nghiệp vụ, phân tích yêu cầu và xây dựng tài liệu đặc tả rõ ràng, nhằm hỗ trợ phát triển các hệ thống hướng người dùng và có khả năng mở rộng.',
+            'Về định hướng, tôi tập trung phát triển năng lực BA thông qua các dự án thực tế, và trong 3–5 năm tới hướng đến vị trí Senior Business Analyst — có khả năng kết nối nghiệp vụ với công nghệ, dẫn dắt quá trình khám phá sản phẩm và đóng góp vào việc xây dựng các sản phẩm số bền vững.',
+          ],
+          downloadCV:    'DOWNLOAD CV',
+          linkedinLabel: 'LINKEDIN',
+          email:         'tkhuyen1714@gmail.com',
+          phone:         '+84915 085 900',
+          linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
+        },
+
+        skills: {
+          heading: 'KỸ NĂNG',
+          cards: [
+            {
+              id:        'system',
+              title:     'THIẾT KẾ HỆ THỐNG',
+              tags:      ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
+              desc:      'Tiếp cận thiết kế hệ thống theo hướng có cấu trúc và bám sát nghiệp vụ thực tế. Từ việc thu thập yêu cầu qua User Story, mô hình hóa quy trình bằng BPMN, đến xây dựng Use Case Diagram, viết Use Case Specification và thiết kế Activity Diagram. Tất cả đều hướng đến mục tiêu tạo ra tài liệu rõ ràng, dễ hiểu cho cả đội ngũ kỹ thuật lẫn khách hàng.',
+              hasButton: true,
+            },
+            {
+              id:        'uiux',
+              title:     'THIẾT KẾ UI/UX',
+              tags:      ['Figma'],
+              desc:      'Thiết kế prototype UI/UX trên Figma giúp mô phỏng thao tác thực tế của người dùng để hỗ trợ đội ngũ phát triển hiểu đúng yêu cầu và giảm thiểu sai lệch trong quá trình triển khai.',
+              hasButton: true,
+            },
+            {
+              id:        'vibe',
+              title:     'VIBE CODING',
+              tags:      [],
+              desc:      'Với nền tảng tài liệu phân tích đã được xây dựng từ User Story, Use Case đến thiết kế UI/UX, tôi đã từng trải nghiệm ứng dụng Vibe Coding để nhanh chóng hiện thực hóa ý tưởng thành bản demo trực quan giúp khách hàng dễ dàng hình dung sản phẩm thực tế, đồng thời rút ngắn vòng lặp phản hồi và điều chỉnh yêu cầu ngay trong quá trình phát triển.',
+              hasButton: false,
+            },
+            {
+              id:        'elicitation',
+              title:     'KHƠI GỢI & THU THẬP YÊU CẦU NGƯỜI DÙNG',
+              tags:      [],
+              desc:      'Từng có cơ hội phỏng vấn trực tiếp với khách hàng và các bên liên quan để hiểu đúng bài toán nghiệp vụ. Từ đó, yêu cầu được chuyển hóa thành User Story có cấu trúc làm nền tảng cho toàn bộ quá trình phân tích và thiết kế hệ thống phía sau.',
+              hasButton: false,
+            },
+            {
+              id:        'agile',
+              title:     'AGILE/SCRUM',
+              tags:      [],
+              desc:      'Tôi hiểu rõ phương pháp Agile/Scrum, tôi tự tin có thể hòa nhập nhanh và đóng góp hiệu quả vào các dự án áp dụng Agile, đặc biệt trong việc phối hợp với đội ngũ phát triển để đảm bảo yêu cầu được hiểu đúng và triển khai đúng hướng.',
+              hasButton: false,
+            },
+          ],
+          viewMore: 'XEM THÊM',
+        },
+
+        contact: {
+          heading: 'LIÊN HỆ',
+          columns: [
+            { type: 'email',    label: 'EMAIL',       value: 'tkhuyen1714@gmail.com',                        href: 'mailto:tkhuyen1714@gmail.com'                          },
+            { type: 'linkedin', label: 'LINKEDIN',    value: 'linkedin.com/in/khanh-huyen-tran',             href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+            { type: 'phone',    label: 'ĐIỆN THOẠI',  value: '+84 915 085 900',                              href: 'tel:+84915085900'                                      },
+          ],
+          copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
+          footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+          footerPhone:    { value: '+84915 085 900',   href: 'tel:+84915085900' },
+          footerEmail:    { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+        },
+      },
+
+      /* ───────────── ENGLISH ───────────── */
+      en: {
+        nav: [
+          { label: 'HOME',    href: '#home'    },
+          { label: 'SKILLS',  href: '#skills'  },
+          { label: 'CONTACT', href: '#contact' },
+        ],
+
+        hero: {
+          name:          'TRAN KHANH HUYEN',
+          title:         'IT BUSINESS ANALYST',
+          intro: [
+            'An IT Business Analyst with hands-on experience in enterprise software projects. With a proactive mindset and passion for continuous learning, I focus on deeply understanding business problems, analyzing requirements, and building clear specifications to support the development of user-centric, scalable systems.',
+            'In terms of career direction, I am dedicated to growing my BA capabilities through real-world projects, with a 3–5 year goal of reaching Senior Business Analyst — someone who bridges business and technology, leads product discovery, and contributes to building sustainable digital products.',
+          ],
+          downloadCV:    'DOWNLOAD CV',
+          linkedinLabel: 'LINKEDIN',
+          email:         'tkhuyen1714@gmail.com',
+          phone:         '+84915 085 900',
+          linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
+        },
+
+        skills: {
+          heading: 'SKILLS',
+          cards: [
+            {
+              id:        'system',
+              title:     'SYSTEM DESIGN',
+              tags:      ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
+              desc:      'Approaching system design in a structured manner that stays close to real business processes — from capturing requirements via User Stories, modeling workflows with BPMN, to building Use Case Diagrams, writing Use Case Specifications, and designing Activity Diagrams. The goal is always to produce clear, understandable documentation for both the technical team and the client.',
+              hasButton: true,
+            },
+            {
+              id:        'uiux',
+              title:     'UI/UX DESIGN',
+              tags:      ['Figma'],
+              desc:      'Designing UI/UX prototypes in Figma to simulate real user interactions, helping the development team correctly understand requirements and minimize discrepancies during implementation.',
+              hasButton: true,
+            },
+            {
+              id:        'vibe',
+              title:     'VIBE CODING',
+              tags:      [],
+              desc:      'Building on a solid foundation of analytical documents — from User Stories and Use Cases to UI/UX designs — I have experienced applying Vibe Coding to quickly turn ideas into visual demos, helping clients easily envision the final product while shortening the feedback loop during development.',
+              hasButton: false,
+            },
+            {
+              id:        'elicitation',
+              title:     'REQUIREMENTS ELICITATION & GATHERING',
+              tags:      [],
+              desc:      'Have had the opportunity to directly interview clients and stakeholders to correctly understand the business problem. Requirements are then translated into structured User Stories that form the foundation for all subsequent analysis and system design.',
+              hasButton: false,
+            },
+            {
+              id:        'agile',
+              title:     'AGILE/SCRUM',
+              tags:      [],
+              desc:      'I have a solid understanding of Agile/Scrum methodology and am confident in quickly integrating and contributing effectively to Agile projects — especially in collaborating with the development team to ensure requirements are correctly understood and implemented.',
+              hasButton: false,
+            },
+          ],
+          viewMore: 'VIEW MORE',
+        },
+
+        contact: {
+          heading: 'CONTACT',
+          columns: [
+            { type: 'email',    label: 'EMAIL',    value: 'tkhuyen1714@gmail.com',            href: 'mailto:tkhuyen1714@gmail.com'                          },
+            { type: 'linkedin', label: 'LINKEDIN', value: 'linkedin.com/in/khanh-huyen-tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+            { type: 'phone',    label: 'PHONE',    value: '+84 915 085 900',                  href: 'tel:+84915085900'                                      },
+          ],
+          copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
+          footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+          footerPhone:    { value: '+84915 085 900',   href: 'tel:+84915085900' },
+          footerEmail:    { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+        },
+      },
+    };
+
+
+    /* ══════════════════════════════════════════════
+       2.  ICON HELPERS (inline SVG)
+    ══════════════════════════════════════════════ */
+    const IconLinkedIn = ({ className = 'w-5 h-5' }) => (
+      <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    );
+
+    const IconMail = ({ className = 'w-5 h-5' }) => (
+      <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    );
+
+    const IconPhone = ({ className = 'w-5 h-5' }) => (
+      <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+    );
+
+    /* Heroicons: arrow-top-right-on-square (↗) */
+    const IconArrowUpRight = ({ className = 'w-4 h-4' }) => (
+      <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+      </svg>
+    );
+
+    const IconMenu = () => (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    );
+
+    const IconClose = () => (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    );
+
+    function ContactColIcon({ type, className }) {
+      if (type === 'email')    return <IconMail     className={className} />;
+      if (type === 'linkedin') return <IconLinkedIn className={className} />;
+      if (type === 'phone')    return <IconPhone    className={className} />;
+      return null;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       3.  LANG TOGGLE — nền trắng
+    ══════════════════════════════════════════════ */
+    function LangToggle({ lang, setLang }) {
+      return (
+        <div className="flex items-center border border-navy/25 rounded-full p-0.5 gap-0.5">
+          {['vi', 'en'].map((l) => (
+            <button
+              key={l}
+              onClick={() => setLang(l)}
+              className={[
+                'pill font-heading px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase transition-all',
+                lang === l ? 'bg-navy text-white shadow-sm' : 'text-navy/40 hover:text-navy',
+              ].join(' ')}
+              aria-pressed={lang === l}
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       4.  HEADER — nền TRẮNG, chữ Navy, sticky
+    ══════════════════════════════════════════════ */
+    function Header({ lang, setLang, activeSection }) {
+      const c = CONTENT[lang];
+      const [open, setOpen] = useState(false);
+
+      return (
+        <header className="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+
+            {/* Logo */}
+            <a href="#home" className="flex-shrink-0 min-w-0">
+              <div className="font-heading font-black text-sm md:text-base tracking-widest truncate text-navy">
+                TRẦN KHÁNH HUYỀN
+              </div>
+              <div className="font-body text-gray-400 text-[10px] font-semibold tracking-[0.25em] mt-0.5">
+                BUSINESS ANALYST
+              </div>
+            </a>
+
+            {/* Desktop nav */}
+            <nav className="hidden md:flex items-center gap-7 flex-shrink-0">
+              {c.nav.map((item) => {
+                const sectionId = item.href.replace('#', '');
+                const isActive  = activeSection === sectionId;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className={[
+                      'font-heading text-xs font-semibold tracking-widest uppercase pb-0.5 border-b-2 transition-all duration-200',
+                      isActive
+                        ? 'border-navy text-navy'
+                        : 'border-transparent text-gray-400 hover:text-navy hover:border-navy/30',
+                    ].join(' ')}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+              <LangToggle lang={lang} setLang={setLang} />
+            </nav>
+
+            {/* Mobile: lang + hamburger */}
+            <div className="flex md:hidden items-center gap-3 flex-shrink-0">
+              <LangToggle lang={lang} setLang={setLang} />
+              <button
+                onClick={() => setOpen(!open)}
+                className="text-navy p-1"
+                aria-label={open ? 'Đóng menu' : 'Mở menu'}
+              >
+                {open ? <IconClose /> : <IconMenu />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile dropdown */}
+          {open && (
+            <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-1">
+              {c.nav.map((item) => {
+                const sectionId = item.href.replace('#', '');
+                const isActive  = activeSection === sectionId;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={[
+                      'font-heading text-left text-sm font-semibold tracking-wider py-2.5 border-b border-gray-100 last:border-0 transition-colors',
+                      isActive ? 'text-navy' : 'text-gray-400 hover:text-navy',
+                    ].join(' ')}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
+          )}
+        </header>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       5.  HERO SECTION (id="home")
+    ══════════════════════════════════════════════ */
+    function HeroSection({ lang }) {
+      const h = CONTENT[lang].hero;
+
+      return (
+        <section id="home" className="min-h-[calc(100vh-72px)] flex items-center bg-white">
+          <div className="max-w-6xl mx-auto w-full px-6 py-16 md:py-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+              {/* Avatar */}
+              <div className="flex justify-center order-1 md:order-none">
+                <div className="relative">
+                  <div className="absolute -inset-3 bg-lav-bg rounded-[2.5rem] -z-10" />
+                  <div
+                    className="w-64 h-72 md:w-80 md:h-96 rounded-2xl overflow-hidden shadow-lg"
+                    style={{ background: '#c9c4e0' }}
+                  >
+                    <img
+                      src="./avatar.jpg"
+                      alt="Trần Khánh Huyền"
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        e.target.src = './avatar.png';
+                        e.target.onerror = () => {
+                          e.target.style.display = 'none';
+                          e.target.parentNode.innerHTML =
+                            '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#000046;font-family:Plus Jakarta Sans,sans-serif;font-size:4rem;font-weight:900">TKH</div>';
+                        };
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="flex flex-col gap-5 order-2 md:order-none text-center md:text-left">
+                <div>
+                  <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-navy leading-tight tracking-tight">
+                    {h.name}
+                  </h1>
+                  <p className="font-body mt-2 text-xs md:text-sm font-semibold tracking-[0.3em] text-gray-400 uppercase">
+                    {h.title}
+                  </p>
+                </div>
+
+                {/* Pill buttons */}
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                  <a
+                    href={h.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pill font-body inline-flex items-center gap-2 border border-navy text-navy rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider hover:bg-navy hover:text-white transition-all"
+                  >
+                    <IconLinkedIn className="w-3.5 h-3.5" />
+                    {h.linkedinLabel}
+                  </a>
+                  <a
+                    href={`mailto:${h.email}`}
+                    className="pill font-body inline-flex items-center gap-2 border border-navy text-navy rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider hover:bg-navy hover:text-white transition-all"
+                  >
+                    <IconMail className="w-3.5 h-3.5" />
+                    {h.email}
+                  </a>
+                  <a
+                    href={`tel:${h.phone.replace(/\s/g, '')}`}
+                    className="pill font-body inline-flex items-center gap-2 border border-navy text-navy rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider hover:bg-navy hover:text-white transition-all"
+                  >
+                    <IconPhone className="w-3.5 h-3.5" />
+                    {h.phone}
+                  </a>
+                </div>
+
+                {/* Intro — 2 paragraphs */}
+                <div className="flex flex-col gap-3">
+                  {h.intro.map((p, i) => (
+                    <p key={i} className="font-body text-gray-500 leading-relaxed text-sm md:text-base">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+
+                {/* Download CV */}
+                <div className="flex justify-center md:justify-start">
+                  <button className="pill font-heading bg-navy text-white font-bold text-xs tracking-[0.2em] uppercase rounded-full px-8 py-3 shadow-lg hover:shadow-xl hover:opacity-90 transition-all">
+                    {h.downloadCV}
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       6.  SKILLS SECTION (id="skills")
+    ══════════════════════════════════════════════ */
+    function SkillsSection({ lang }) {
+      const s = CONTENT[lang].skills;
+
+      return (
+        <section id="skills" className="bg-gray-50 py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-6">
+
+            <div className="mb-10">
+              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight">
+                {s.heading}
+              </h2>
+              <div className="mt-3 h-1 w-12 rounded-full bg-lavender" />
+            </div>
+
+            <div className="flex flex-col gap-5">
+              {s.cards.map((card) => (
+                <div key={card.id} className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm">
+
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <h3 className="font-heading text-sm font-extrabold tracking-normal text-navy uppercase leading-relaxed">
+                      {card.title}
+                    </h3>
+                    {card.hasButton && (
+                      <button className="pill font-heading flex-shrink-0 bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-4 py-1.5 hover:opacity-90 transition-all">
+                        {s.viewMore}
+                      </button>
+                    )}
+                  </div>
+
+                  {card.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {card.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="tag font-body border border-gray-400 text-gray-600 rounded-full px-4 py-1 text-xs font-medium cursor-default select-none"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <p className="font-body text-gray-500 text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       7.  CONTACT FOOTER (id="contact")
+           • Navy section: title + 1 card / divide-x / icon + arrow
+           • Copyright bar: nền trắng, trái + phải 3 links
+    ══════════════════════════════════════════════ */
+    function ContactFooter({ lang }) {
+      const c = CONTENT[lang].contact;
+
+      return (
+        <footer id="contact">
+
+          {/* ─── Navy section ─── */}
+          <div className="bg-navy text-white py-16 px-6">
+            <div className="max-w-4xl mx-auto">
+
+              {/* Title */}
+              <h2 className="font-heading text-2xl md:text-3xl font-black tracking-normal text-center mb-10 uppercase">
+                {c.heading}
+              </h2>
+
+              {/* Contact card: single container with divide-x */}
+              <div className="rounded-xl border border-white/20 bg-white/10 overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-white/20 md:divide-y-0 md:divide-x md:divide-white/20">
+                  {c.columns.map((col) => (
+                    <a
+                      key={col.label}
+                      href={col.href}
+                      target={col.href.startsWith('http') ? '_blank' : undefined}
+                      rel="noopener noreferrer"
+                      className="group p-6 flex flex-col gap-6 hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+                    >
+                      {/* Top row: icon left — arrow right */}
+                      <div className="flex items-start justify-between">
+                        <div className="text-white/60 group-hover:text-white transition-colors duration-200">
+                          <ContactColIcon type={col.type} className="w-6 h-6" />
+                        </div>
+                        <div className="text-white/25 group-hover:text-white/60 transition-colors duration-200">
+                          <IconArrowUpRight className="w-4 h-4" />
+                        </div>
+                      </div>
+
+                      {/* Bottom: label + value */}
+                      <div>
+                        <p className="font-heading text-[10px] font-bold tracking-normal text-white/40 uppercase mb-2">
+                          {col.label}
+                        </p>
+                        <p className="font-body text-sm font-semibold text-white leading-relaxed break-all">
+                          {col.value}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* ─── Copyright bar — nền TRẮNG ─── */}
+          <div className="bg-white border-t border-gray-200 py-4 px-6">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+
+              {/* Trái */}
+              <p className="font-body text-xs text-gray-500 font-medium tracking-wider whitespace-nowrap">
+                {c.copyright}
+              </p>
+
+              {/* Phải: LinkedIn + Phone + Email */}
+              <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2">
+                <a
+                  href={c.footerLinkedIn.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-navy transition-colors"
+                >
+                  <IconLinkedIn className="w-3.5 h-3.5 flex-shrink-0" />
+                  {c.footerLinkedIn.name}
+                </a>
+                <a
+                  href={c.footerPhone.href}
+                  className="font-body inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-navy transition-colors"
+                >
+                  <IconPhone className="w-3.5 h-3.5 flex-shrink-0" />
+                  {c.footerPhone.value}
+                </a>
+                <a
+                  href={c.footerEmail.href}
+                  className="font-body inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-navy transition-colors"
+                >
+                  <IconMail className="w-3.5 h-3.5 flex-shrink-0" />
+                  {c.footerEmail.value}
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </footer>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       8.  APP ROOT — one-page, scroll active nav
+    ══════════════════════════════════════════════ */
+    function App() {
+      const [lang, setLang]                   = useState('vi');
+      const [activeSection, setActiveSection] = useState('home');
+
+      useEffect(() => {
+        const SECTIONS = ['home', 'skills', 'contact'];
+        const handleScroll = () => {
+          const scrollY = window.scrollY + 96;
+          let current = 'home';
+          for (const id of SECTIONS) {
+            const el = document.getElementById(id);
+            if (el && el.offsetTop <= scrollY) current = id;
+          }
+          setActiveSection(current);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      return (
+        <div>
+          <Header lang={lang} setLang={setLang} activeSection={activeSection} />
+          <main>
+            <HeroSection   lang={lang} />
+            <SkillsSection lang={lang} />
+            <ContactFooter lang={lang} />
+          </main>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
