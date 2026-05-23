@@ -19,6 +19,19 @@ Xây dựng một trang portfolio cá nhân dạng SPA (Single Page Application)
  ├── <SkillsSection>      — Danh sách 5 thẻ (card) kỹ năng chi tiết (id="skills")
  └── <ContactFooter>      — Section Liên hệ nền Navy + Copyright (id="contact")
 ```
+### Bổ sung Component Điều hướng nội bộ (Bottom Navigation)
+Vì ứng dụng hiện tại là SPA (chuyển trang bằng state `currentPage`), tại cuối mỗi trang chi tiết (nằm ngay trên CopyrightFooter), cần thêm component `<BottomNav>`:
+- **Tại trang Thiết Kế Hệ Thống (<SystemDesignView>):** + Nút trái: "< Trở về trang chủ" (onClick -> `setCurrentPage('home')`)
+  + Nút phải: "Xem tiếp: Thiết kế UI/UX >" (onClick -> `setCurrentPage('uiux')`)
+- **Tại trang Thiết Kế UI/UX (<UiUxDesignView>):**
+  + Nút trái: "< Trở về trang chủ" (onClick -> `setCurrentPage('home')`)
+  + Nút phải: "Xem tiếp: Thiết kế hệ thống >" (onClick -> `setCurrentPage('system')`)
+- **UI Nút bấm:** Nút dạng Pill (bo tròn `rounded-full`), nền Navy (`bg-navy`), chữ trắng (`text-white`). Chữ viết in hoa chữ cái đầu (Title Case), sử dụng icon Chevron mảnh (`<`, `>`). Hỗ trợ song ngữ VI/EN.
+
+### Bổ sung Component Nút cuộn lên đầu trang (BackToTop)
+- **Vị trí & Trạng thái:** `fixed bottom-8 right-8 z-50`. Chỉ hiển thị (fade in) khi người dùng cuộn trang xuống một khoảng nhất định (vd: `scrollY > 400`).
+- **UI:** Nút hình tròn (`rounded-full`), nền màu Navy, icon Chevron Up chỉ lên trên màu trắng. Bóng đổ `shadow-lg`, có hiệu ứng hover mượt mà.
+- **Chức năng:** Khi click sẽ kích hoạt cuộn mượt lên đầu trang (`window.scrollTo({ top: 0, behavior: 'smooth' })`).
 
 ### Chi tiết từng component
 
