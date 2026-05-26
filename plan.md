@@ -1,337 +1,148 @@
-# Kế hoạch xây dựng Portfolio Website — index.html
+# Kế hoạch xây dựng Portfolio Website (SPA) — index.html
 
 ## Context
 
-Xây dựng một trang portfolio cá nhân dạng SPA (Single Page Application) cho **Trần Khánh Huyền — Business Analyst**. Toàn bộ ứng dụng nằm trong một file `index.html` duy nhất, chạy trực tiếp từ `file://` mà không cần server. Stack không có build step: React qua CDN, Babel in-browser, Tailwind Play CDN.
+Xây dựng một trang portfolio cá nhân dạng SPA (Single Page Application) cho **Trần Khánh Huyền — Business Analyst**. Toàn bộ ứng dụng (bao gồm Trang chủ, Trang chi tiết Kỹ năng, Trang chi tiết Dự án) nằm gọn trong một file `index.html` duy nhất, chạy trực tiếp từ `file://` mà không cần server. Stack: React qua CDN, Babel in-browser, Tailwind Play CDN.
 
 ---
 
-## 1. Phân tích cấu trúc Component
+## 1. Phân tích cấu trúc Component & Routing
 
-```
-<App>
+Do là SPA, giao diện sẽ được quyết định bởi state `currentPage` và `selectedProject`.
+
+```text
+<App> (Quản lý state currentPage, selectedProject, lang)
  ├── <Header>
- │    ├── <Logo>          — Tên + chức danh bên trái
- │    ├── <NavMenu>       — Các nút: Trang chủ | Kỹ năng | Liên hệ (Click để scroll)
- │    └── <LangToggle>    — Nút VI / EN
+ │    ├── <Logo>          — Tên + chức danh bên trái (Inline)
+ │    ├── <NavMenu>       — Trang chủ | Dự án | Kỹ năng | Liên hệ
+ │    └── <LangToggle>    — Nút dạng text VI | EN
  │
- ├── <HeroSection>        — Hero: ảnh trái + thông tin phải + Download CV (id="home")
- ├── <SkillsSection>      — Danh sách 5 thẻ (card) kỹ năng chi tiết (id="skills")
- └── <ContactFooter>      — Section Liên hệ nền Navy + Copyright (id="contact")
-```
-### Bổ sung Component Điều hướng nội bộ (Bottom Navigation)
-Vì ứng dụng hiện tại là SPA (chuyển trang bằng state `currentPage`), tại cuối mỗi trang chi tiết (nằm ngay trên CopyrightFooter), cần thêm component `<BottomNav>`:
-- **Tại trang Thiết Kế Hệ Thống (<SystemDesignView>):** + Nút trái: "< Trở về trang chủ" (onClick -> `setCurrentPage('home')`)
-  + Nút phải: "Xem tiếp: Thiết kế UI/UX >" (onClick -> `setCurrentPage('uiux')`)
-- **Tại trang Thiết Kế UI/UX (<UiUxDesignView>):**
-  + Nút trái: "< Trở về trang chủ" (onClick -> `setCurrentPage('home')`)
-  + Nút phải: "Xem tiếp: Thiết kế hệ thống >" (onClick -> `setCurrentPage('system')`)
-- **UI Nút bấm:** Nút dạng Pill (bo tròn `rounded-full`), nền Navy (`bg-navy`), chữ trắng (`text-white`). Chữ viết in hoa chữ cái đầu (Title Case), sử dụng icon Chevron mảnh (`<`, `>`). Hỗ trợ song ngữ VI/EN.
+ ├── <HomeView> (Khi currentPage === 'home')
+ │    ├── <HeroSection>      — Avatar bo góc đổ bóng (trái) + Thông tin & Nút liên hệ (phải)
+ │    ├── <ProjectsSection>  — Danh sách dự án nổi bật (Thẻ nằm ngang full-width)
+ │    ├── <SkillsSection>    — Lưới 2 cột thẻ kỹ năng
+ │    └── <ContactFooter>    — Section Liên hệ nền trắng (3 thẻ rời) + Copyright
+ │
+ ├── <ProjectDetailView> (Khi currentPage === 'project_detail')
+ │    ├── <PageHero>         — Tên dự án căn giữa, 2 đường kẻ ngang
+ │    ├── <OverviewBlock>    — Khối Giới thiệu & Phạm vi (Grid 2 cột)
+ │    ├── <ProjectContent>   — Thanh Navy phân cách + Các sơ đồ (BPMN, Use Case, ERD...)
+ │    └── <BottomNav>        — Điều hướng ma trận (Dự án trước / Dự án tiếp / Về trang chủ)
+ │
+ ├── <SystemDesignView> / <UiUxDesignView> (Khi xem chi tiết theo Kỹ năng)
+ │    └── ... (Các component tương tự, có <BottomNav> để chuyển qua lại giữa các kỹ năng)
+ │
+ └── <BackToTop>             — Nút cuộn lên đầu trang (Fixed góc dưới phải)
+2. Giải pháp quản lý State, Routing và Scroll
+Dùng React.useState để điều hướng mà không cần reload trang:
 
-### Bổ sung Component Nút cuộn lên đầu trang (BackToTop)
-- **Vị trí & Trạng thái:** `fixed bottom-8 right-8 z-50`. Chỉ hiển thị (fade in) khi người dùng cuộn trang xuống một khoảng nhất định (vd: `scrollY > 400`).
-- **UI:** Nút hình tròn (`rounded-full`), nền màu Navy, icon Chevron Up chỉ lên trên màu trắng. Bóng đổ `shadow-lg`, có hiệu ứng hover mượt mà.
-- **Chức năng:** Khi click sẽ kích hoạt cuộn mượt lên đầu trang (`window.scrollTo({ top: 0, behavior: 'smooth' })`).
-
-### Chi tiết từng component
-
-| Component | Trách nhiệm | Props nhận |
-|---|---|---|
-| `Header` | Render logo, nav, lang toggle | `activeTab`, `setActiveTab`, `lang`, `setLang` |
-| `NavMenu` | Render các nút tab | `activeTab`, `setActiveTab`, `lang` |
-| `LangToggle` | Nút VI/EN | `lang`, `setLang` |
-| `HomeSection` | Hero layout 2 cột | `lang` |
-| `SkillsSection` | Grid tags + nút xem thêm | `lang` |
-| `AboutSection` | Văn bản giới thiệu | `lang` |
-| `ContactSection` | Thông tin liên hệ | `lang` |
-
----
-
-## 2. Giải pháp quản lý State và Scroll
-
-Dùng `React.useState` thuần cho đa ngôn ngữ. Giao diện hiển thị dạng One-page scroll:
-
-```js
-// Trong <App> (root component)
+JavaScript
 const [lang, setLang] = React.useState('vi');
-```
+const [currentPage, setCurrentPage] = React.useState('home'); // 'home' | 'system' | 'uiux' | 'project_detail'
+const [selectedProject, setSelectedProject] = React.useState(null); // Lưu id dự án đang xem
+Logic Điều hướng Ma trận (BottomNav)
+Sử dụng currentIndex của dự án trong mảng PROJECTS:
 
-- `setActiveTab` truyền xuống `NavMenu` qua props
-- Không có router, không hash URL — đủ cho yêu cầu portfolio tĩnh
-- Khi `lang` thay đổi, tất cả component re-render với nội dung mới từ object `CONTENT`
+Dự án đầu tiên: Trái: < Trở về trang chủ, Phải: Dự án tiếp theo >
 
----
+Dự án ở giữa: Trái: < Dự án trước, Phải: Dự án tiếp theo >
 
-## 3. Phương pháp xử lý tài nguyên — Đường dẫn tương đối
+Dự án cuối cùng: Trái: < Dự án trước, Phải: Trở về trang chủ >
 
-Vì chạy từ `file://`, không có server gốc (`/`). Cần dùng đường dẫn tương đối thuần túy.
+Lưu ý Scroll: Bất cứ khi nào gọi setCurrentPage hoặc setSelectedProject, phải gọi kèm window.scrollTo({ top: 0, behavior: 'smooth' }).
 
-### Ảnh đại diện
+3. Phương pháp xử lý tài nguyên — Đường dẫn tương đối
+Vì chạy từ file://, mọi đường dẫn tài nguyên phải là đường dẫn tương đối (relative path).
 
-```jsx
-// Đúng — tương đối, cùng thư mục
-<img src="avatar.png" alt="Trần Khánh Huyền" />
+Ảnh: <img src="./avatar.jpg" />, <img src="./assets/yummy-erd.png" />
 
-// Sai — tuyệt đối sẽ fail khi mở file://
-<img src="/avatar.png" />
-```
+CDN: Sử dụng link https:// cho Tailwind, React, ReactDOM, Babel, Google Fonts.
 
-### CDN Links (dùng HTTPS, không cần local)
+4. Cấu trúc Dữ liệu (Song ngữ VI / EN)
+Tập trung toàn bộ text vào các Object:
 
-```html
-<!-- Tailwind Play CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+CONTENT: Dữ liệu cho <HomeView> (hero, about, list skills, list projects...).
 
-<!-- React + ReactDOM -->
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+PROJECTS: Object chứa mảng dự án chi tiết { vi: [...], en: [...] }.
 
-<!-- Babel standalone (biên dịch JSX trên browser) -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-```
+SHARED: Các nhãn dùng chung (nút bấm, điều hướng, footer, title).
 
-### Script JSX phải khai báo type đúng
+5. Thiết kế giao diện (UI/UX)
+Màu sắc & Typography
+Màu sắc: Navy chính (#000046), Lavender nhạt (#c9c4e0), Trắng (#ffffff).
 
-```html
-<script type="text/babel">
-  // Toàn bộ React component ở đây
-</script>
-```
+Font chữ: Plus Jakarta Sans cho Tiêu đề/Heading. Nunito Sans cho Nội dung/Body text.
 
----
+Header
+Nền trắng, chữ màu Navy, sticky top.
 
-## 4. Đa ngôn ngữ (VI / EN)
+Chữ logo nằm trên 1 dòng: TRẦN KHÁNH HUYỀN / BUSINESS ANALYST.
 
-Dùng một object `CONTENT` tập trung:
+Nút đổi ngôn ngữ (VI | EN): Dạng text thuần (không nền), ngôn ngữ active in đậm màu Navy.
 
-```js
-const CONTENT = {
-  vi: {
-    nav: ['Trang chủ', 'Kỹ năng', 'Liên hệ'],
-    hero: {
-      // Giữ nguyên như cũ...
-    },
-    skillsData: [
-      {
-        title: 'THIẾT KẾ HỆ THỐNG',
-        tags: ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
-        desc: 'Tiếp cận thiết kế hệ thống theo hướng có cấu trúc...',
-        hasButton: true
-      },
-      {
-        title: 'THIẾT KẾ UI/UX',
-        tags: ['Figma'],
-        desc: 'Thiết kế prototype UI/UX trên Figma giúp mô phỏng thao tác...',
-        hasButton: true
-      },
-      {
-        title: 'VIBE CODING',
-        tags: [],
-        desc: 'Với nền tảng tài liệu phân tích đã được xây dựng...',
-        hasButton: false
-      },
-      // Thêm tiếp cho "Khởi gợi yêu cầu" và "Agile/Scrum"
-    ],
-    contact: {
-      title: 'LIÊN HỆ',
-      copyright: '2026 | Tran Khanh Huyen | Business Analyst'
-      footerLinks: {
-        linkedin: 'Khanh Huyen Tran',
-        phone: '+84915 085 900',
-        email: 'tkhuyen1714@gmail.com'
-      }
-    }
-  },
-  // Khai báo tương tự cho phần 'en'
-};
-```
+Hero Section (Trang chủ)
+Ảnh đại diện không lót nền màu phía sau, chỉ bo góc rounded-2xl và đổ bóng shadow-xl.
 
-Mỗi component nhận `lang` prop và truy cập `CONTENT[lang].*`.
+Các nút liên hệ (LinkedIn, Mail, Phone): Viền mỏng, chữ mảnh, KHÔNG CÓ ICON bên trong.
 
----
+Projects Section (Trang chủ) & Skills Section
+Dự án: Layout xếp dọc (flex-col), mỗi dự án là một thẻ nằm ngang rộng (full-width). Nút "XEM THÊM" nền navy bo tròn nằm góc dưới phải.
 
-## 5. Thiết kế giao diện — Mapping từ homepage.png
+Kỹ năng: Lưới 2 cột (grid grid-cols-1 md:grid-cols-2 gap-6).
 
-### Màu sắc (Tailwind custom config)
+Contact Section (Footer)
+Container: Nền trắng (bg-white), padding rộng.
 
-| Vai trò | Màu | Class gợi ý |
-|---|---|---|
-| Navy chính | `#000046` | `bg-navy` / `text-navy` |
-| Lavender nhạt | `#c9c4e0` | `bg-lavender` |
-| Nền trang | Trắng | `bg-white` |
+Tiêu đề: Chữ 'LIÊN HỆ' bên trái + Đường kẻ ngang kéo dài hết phần còn lại (flex items-center gap-4).
 
-**Bổ sung thêm quy tắc Font:**
-- **Tiêu đề (Headings, Logo, Tên, Title các thẻ):** Sử dụng font `Plus Jakarta Sans`.
-- **Nội dung (Đoạn văn, Mô tả, Tags):** Sử dụng font `Nunito Sans`.
+Khối Cards: Grid 3 cột (gap-6), 3 thẻ hoàn toàn riêng biệt. Mỗi thẻ bo góc rounded-xl, viền mỏng, nền trắng.
 
-### Header layout
+Bố cục Card: Icon Navy (trên trái) + Icon mũi tên chéo (trên phải). Nhãn in hoa tracking rộng (dưới) + Giá trị thông tin. Tất cả text và icon dùng màu Navy.
 
-```
-[TRẦN KHÁNH HUYỀN / BUSINESS ANALYST]  [Menu...] [VI | EN]
-```
-- `flex justify-between items-center`
-- Nền trắng (bg-white), text màu navy (text-navy), có thể thêm border-b mỏng.
-- NavMenu dùng `flex gap-6`; tab active có underline hoặc text đậm.
+Copyright Bar: Nền trắng, viền trên mỏng, text trái, 3 links mạng xã hội bên phải.
 
-### Hero Section layout (HomeSection)
+Nút bấm & Điều hướng
+BottomNav: Nút dạng Pill (rounded-full), nền Navy chữ trắng. Chữ viết in hoa chữ cái đầu (Title Case). Dùng icon Chevron mảnh (<, >).
 
-```
-[Ảnh — lavender bg rounded]   [Tên lớn]
-                               [LinkedIn] [Email] [SĐT]  ← pill buttons
-                               [Đoạn giới thiệu]
-                               [DOWNLOAD CV]
-```
-- `grid grid-cols-2 gap-8 items-center`
-- Ảnh: `rounded-2xl`, nền lavender, `object-cover`
-- Buttons liên hệ: `border rounded-full px-4 py-1 text-sm`
-- CV button: `bg-slate-900 text-white rounded-full px-6 py-2`
+BackToTop: Nút tròn nhỏ góc dưới phải (fixed bottom-8 right-8 z-50). Chỉ hiện khi scrollY > 400. Nền navy, icon Chevron Up trắng.
 
-### Skills Section
-
-- Dùng cấu trúc Card (thẻ): Mỗi thẻ có border, rounded-xl, p-6, nền trắng.
-
-- Header của thẻ: flex justify-between items-center (chứa Tiêu đề và nút XEM THÊM nền Navy).
-
-- Tags bên trong thẻ: border border-gray-400 rounded-full text-sm.
-
-- Description: text-gray-600 mt-4.
-
-### Contact Section
-
-### Contact Section
-
-- Container chính: bg-navy text-white py-12 px-8.
-- Tiêu đề "LIÊN HỆ": Căn giữa, text màu trắng, font Outfit, margin-bottom lớn.
-- Khối thông tin liên hệ (Card): 
-  - Là một thẻ div duy nhất: Bo góc (rounded-xl), nền dạng kính hoặc màu sáng hơn navy một chút (ví dụ: bg-white/10), có viền mỏng (border border-white/20).
-  - Bố cục bên trong: Grid 3 cột (grid-cols-3), sử dụng `divide-x divide-white/20` để tạo đường kẻ dọc mỏng ngăn cách giữa 3 cột.
-  - Layout từng cột (padding p-6): 
-    - Top: Flex justify-between. Chứa Icon đại diện bên trái và Icon mũi tên chéo (↗) bên phải (kích thước nhỏ, màu trắng mờ).
-    - Bottom (margin-top): Nhãn (EMAIL, LINKEDIN, PHONE) viết hoa, text nhỏ màu xám nhạt (text-gray-300). Ngay bên dưới là giá trị thông tin text màu trắng.
-- Thanh bản quyền dưới cùng: Nền trắng, text màu navy đậm. Dùng `flex justify-between items-center`. Bên trái là text copyright. Bên phải là cụm 3 thông tin (LinkedIn, Phone, Email) xếp ngang có kèm icon.
-
----
-
-## 6. Cấu trúc file index.html
-
-```html
+6. Khung HTML cơ bản
+HTML
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trần Khánh Huyền — Portfolio</title>
-
-  <!-- CDN: Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- CDN: React 18 -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-  <!-- CDN: Babel -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- Tailwind custom config (màu, font) -->
+  <title>Trần Khánh Huyền — Business Analyst Portfolio</title>
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script src="[https://unpkg.com/react@18/umd/react.development.js](https://unpkg.com/react@18/umd/react.development.js)" crossorigin></script>
+  <script src="[https://unpkg.com/react-dom@18/umd/react-dom.development.js](https://unpkg.com/react-dom@18/umd/react-dom.development.js)" crossorigin></script>
+  <script src="[https://unpkg.com/@babel/standalone/babel.min.js](https://unpkg.com/@babel/standalone/babel.min.js)"></script>
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)" />
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
+  <link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap)" rel="stylesheet" />
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: { navy: '#000046', lavender: '#c9c4e0' },
-          fontFamily: { 
-            heading: ['Plus Jakarta Sans', 'sans-serif'], 
-            body: ['Nunito Sans', 'sans-serif'] 
-          },
-        },
-      },
+      theme: { extend: { colors: { navy: '#000046', lavender: '#c9c4e0' }, fontFamily: { heading: ['Plus Jakarta Sans', 'sans-serif'], body: ['Nunito Sans', 'sans-serif'] } } }
     };
   </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white">
+<body class="bg-white text-gray-800">
   <div id="root"></div>
   <script type="text/babel">
-</head>
-<html lang="vi" class="scroll-smooth">
-</head>
-<body>
-  <div id="root"></div>
-  <script type="text/babel">
-    // 1. CONTENT object (VI + EN)
-    // 2. Component definitions
-    // 3. App root với useState
-    // 4. ReactDOM.createRoot('#root').render(<App />)
+    // Toàn bộ React Code (Data, Components, Views, App Root) nằm ở đây
   </script>
 </body>
 </html>
-```
+7. Danh sách các bước thực hiện mã nguồn
+Chuẩn bị Dữ liệu: Gộp toàn bộ CONTENT, PROJECTS (song ngữ) vào một khối duy nhất đầu script.
 
----
+Components dùng chung: Xây dựng Header, BackToTop, BottomNav, ContactFooter (nền trắng 3 card), LangToggle.
 
-## 7. Danh sách các bước thực hiện
+HomeView: Xây dựng HeroSection (Sửa ảnh, nút), ProjectsSection (Thẻ ngang), SkillsSection (Thẻ grid 2).
 
-### Bước 1 — Khung HTML cơ bản
-- Tạo file `portfolio/index.html`
-- Thêm tất cả CDN tags (Tailwind, React, ReactDOM, Babel)
-- Cấu hình `tailwind.config` với màu custom navy + lavender
-- Thêm Google Fonts Inter
+ProjectDetailView: Xây dựng PageHero (tên dự án), OverviewBlock (2 thẻ ngang), ProjectContent (Thanh Navy phân cách + Hình ảnh không bo góc viền).
 
-### Bước 2 — Object dữ liệu CONTENT
-- Viết object `CONTENT` với đầy đủ key VI và EN
-- Bao gồm: nav labels, hero text, skills tags, about text, contact info
+App Root: Khởi tạo state routing. Viết logic switch-case để render đúng View theo currentPage.
 
-### Bước 3 — Component Header
-- Logo: tên + chức danh (trái)
-- NavMenu: map qua CONTENT[lang].nav, gán href tương ứng (#home, #skills, #contact) để kích hoạt tính năng scroll smooth".
-- LangToggle: hai nút VI / EN
-
-### Bước 4 — HomeSection (Hero)
-- Layout 2 cột (grid)
-- Cột trái: `<img src="avatar.png" />` với container lavender
-- Cột phải: tên, pill buttons (LinkedIn/Email/Phone), intro, Download CV button
-
-### Bước 5 — SkillsSection (Render danh sách Card)
-- Map qua mảng CONTENT[lang].skillsData, render thành các khối card chứa title, tags (nếu có), description và nút bấm.
-
-### Bước 6 — ContactFooter
-- Xây dựng khối background xanh Navy chia 3 cột thông tin chính.
-- Xây dựng thanh bản quyền (copyright bar) ở dưới cùng: Nền trắng, flex ngang. Bên trái hiển thị chữ bản quyền, bên phải hiển thị LinkedIn, số điện thoại và Email kèm icon.
-
-### Bước 7 — App root + State
-- App component: khai báo lang. Render tuần tự <Header>, <HeroSection>, <SkillsSection>, <ContactFooter>.
-- Render `<Header>` + điều kiện render section theo `activeTab`
-- `ReactDOM.createRoot(document.getElementById('root')).render(<App />)`
-
-### Bước 8 — Responsive cơ bản
-- Header: ẩn NavMenu trên mobile, dùng hamburger nếu cần
-- Hero: chuyển từ `grid-cols-2` sang `grid-cols-1` trên `sm:`
-- Skills: `flex-wrap` đã đủ responsive
-
-### Bước 9 — Kiểm tra & tinh chỉnh
-- Mở `index.html` trực tiếp bằng trình duyệt (double-click)
-- Kiểm tra ảnh `homepage.png` load đúng (relative path)
-- Kiểm tra chuyển tab không reload
-- Kiểm tra chuyển ngôn ngữ VI ↔ EN
-- Kiểm tra trên mobile (DevTools responsive mode)
-
----
-
-## 8. Rủi ro & giải pháp dự phòng
-
-| Rủi ro | Giải pháp |
-|---|---|
-| Babel compile chậm (in-browser) | Chấp nhận — portfolio nhỏ, không ảnh hưởng UX |
-| CDN không khả dụng (offline) | Tải CDN về local nếu cần offline hoàn toàn |
-| `file://` block CORS cho một số CDN | Dùng `crossorigin` attribute; Google Fonts fallback sang system font |
-| Ảnh avatar.png dùng làm avatar, mockup: homepage.png | Thay bằng ảnh chân dung thật khi có sẵn |
-
----
-
-## 9. Xác minh hoàn thành
-
-1. `Double-click index.html` → trang hiển thị đúng layout từ mockup
-2. Click từng tab → nội dung thay đổi, URL không đổi, không reload
-3. Click VI ↔ EN → toàn bộ text chuyển ngôn ngữ
-4. DevTools → Responsive → 375px → layout xếp dọc không vỡ
-5. DevTools → Network → ảnh `homepage.png` load với path tương đối (status 200)
+Kiểm thử: Đảm bảo mở file index.html chạy mượt, chuyển trang scroll lên đầu, đổi ngôn ngữ không lỗi.

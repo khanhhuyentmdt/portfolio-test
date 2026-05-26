@@ -134,6 +134,17 @@ Hãy đóng vai trò là Senior Frontend Developer, triển khai mã nguồn ho�
 
 Vui lòng xuất ra một block code HTML duy nhất chứa toàn bộ mã nguồn để tôi có thể chạy thử trực tiếp qua `file://`.
 ============================================================================
+Chào Claude, tôi đã cập nhật và chuẩn hóa lại file **plan.md** cho dự án Portfolio SPA của mình. Bản kế hoạch này đã thống nhất toàn bộ các thay đổi về UI/UX và kiến trúc (Header inline, Thẻ Dự án ở trang chủ, Lưới kỹ năng 2 cột, Liên hệ nền trắng 3 thẻ rời, Điều hướng Ma trận Next/Prev, nút BackToTop).
+
+Dựa vào file mã nguồn `index.html` mà tôi đính kèm (hoặc bạn đang ghi nhớ) và file `plan.md` mới nhất này:
+Hãy đóng vai trò là Senior Frontend Developer, tái cấu trúc và viết lại mã nguồn hoàn chỉnh cho file `index.html`. 
+
+**Hãy đảm bảo:**
+1. Triển khai đầy đủ logic Routing (`HomeView`, `ProjectDetailView`, `SystemDesignView`, `UiUxDesignView`).
+2. Cập nhật chính xác giao diện của `<HeroSection>`, `<SkillsSection>`, `<ContactFooter>`, `<BottomNav>` và thêm `<BackToTop>` như mô tả trong plan.
+3. Giữ nguyên 100% nội dung chữ (song ngữ VI/EN) và đường dẫn ảnh dự án mà chúng ta đã setup trước đó, không được cắt xén dữ liệu.
+
+Vui lòng trả về toàn bộ mã nguồn trong một block HTML duy nhất.
 ============================================================================
 ============================================================================
 ============================================================================

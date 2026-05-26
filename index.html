@@ -57,9 +57,10 @@
     const HOME_CONTENT = {
       vi: {
         nav: [
-          { label: 'TRANG CHỦ', href: '#home',    section: 'home'    },
-          { label: 'KỸ NĂNG',   href: '#skills',  section: 'skills'  },
-          { label: 'LIÊN HỆ',   href: '#contact', section: 'contact' },
+          { label: 'TRANG CHỦ', href: '#home',     section: 'home'     },
+          { label: 'DỰ ÁN',    href: '#projects',  section: 'projects' },
+          { label: 'KỸ NĂNG',  href: '#skills',    section: 'skills'   },
+          { label: 'LIÊN HỆ',  href: '#contact',   section: 'contact'  },
         ],
         hero: {
           name:          'TRẦN KHÁNH HUYỀN',
@@ -73,6 +74,10 @@
           email:         'tkhuyen1714@gmail.com',
           phone:         '+84915 085 900',
           linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
+        },
+        projects: {
+          heading: 'DỰ ÁN',
+          viewMore: 'XEM THÊM',
         },
         skills: {
           heading: 'KỸ NĂNG',
@@ -131,9 +136,10 @@
 
       en: {
         nav: [
-          { label: 'HOME',    href: '#home',    section: 'home'    },
-          { label: 'SKILLS',  href: '#skills',  section: 'skills'  },
-          { label: 'CONTACT', href: '#contact', section: 'contact' },
+          { label: 'HOME',    href: '#home',     section: 'home'     },
+          { label: 'PROJECTS',href: '#projects',  section: 'projects' },
+          { label: 'SKILLS',  href: '#skills',    section: 'skills'   },
+          { label: 'CONTACT', href: '#contact',   section: 'contact'  },
         ],
         hero: {
           name:          'TRAN KHANH HUYEN',
@@ -147,6 +153,10 @@
           email:         'tkhuyen1714@gmail.com',
           phone:         '+84915 085 900',
           linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
+        },
+        projects: {
+          heading: 'PROJECTS',
+          viewMore: 'VIEW MORE',
         },
         skills: {
           heading: 'SKILLS',
@@ -216,6 +226,8 @@
         backHome:        'Trở về Trang chủ',
         nextUiux:        'Xem tiếp: Thiết kế UI/UX',
         nextSystem:      'Xem tiếp: Thiết kế Hệ thống',
+        systemDesignBanner: 'THIẾT KẾ HỆ THỐNG',
+        uiuxDesignBanner:   'THIẾT KẾ UI/UX',
         copyright:       '2026 | Tran Khanh Huyen | Business Analyst',
         footerLinkedIn:  { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
         footerPhone:     { value: '+84915 085 900',   href: 'tel:+84915085900' },
@@ -229,6 +241,8 @@
         backHome:        'Back to Home',
         nextUiux:        'Next: UI/UX Design',
         nextSystem:      'Next: System Design',
+        systemDesignBanner: 'SYSTEM DESIGN',
+        uiuxDesignBanner:   'UI/UX DESIGN',
         copyright:       '2026 | Tran Khanh Huyen | Business Analyst',
         footerLinkedIn:  { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
         footerPhone:     { value: '+84915 085 900',   href: 'tel:+84915085900' },
@@ -1047,6 +1061,59 @@
     };
 
     /* ════════════════════════════════════════════════════════════
+       4b. UNIFIED PROJECTS LIST (for homepage + project detail)
+       Merges system + uiux data by project ID, adding a
+       homepage-level description (cardDesc) from SYSTEM_PROJECTS.
+    ════════════════════════════════════════════════════════════ */
+    const PROJECTS = {
+      vi: [
+        {
+          id: 'p1',
+          title: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          cardDesc: 'Xây dựng một hệ thống ERP được thiết kế riêng cho đặc thù ngành F&B chuỗi, giúp số hóa toàn bộ luồng vận hành từ sản xuất, kho bãi, bán hàng, nhân sự đến tài chính - thay thế các quy trình thủ công đang phụ thuộc vào Excel, Zalo và ghi chép tay.',
+        },
+        {
+          id: 'p2',
+          title: 'HỆ THỐNG ERP YẾN SÀO NAM AN - CÔNG TY TNHH NAM VIỆT PHƯƠNG',
+          cardDesc: 'Xây dựng hệ thống ERP được thiết kế giúp số hóa toàn bộ luồng vận hành từ thu hoạch, sơ chế, tinh chế, kho bãi đến bán hàng và tài chính — thay thế các quy trình thủ công đang phụ thuộc vào Sapo, Excel và chứng từ giấy rời rạc.',
+        },
+        {
+          id: 'p3',
+          title: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
+          cardDesc: 'Xây dựng hệ thống ERP được thiết kế riêng giúp số hóa toàn bộ luồng vận hành từ nhập nguyên vật liệu, sản xuất, kiểm soát chất lượng, kho bãi đến bán hàng B2B, nhằm thay thế các quy trình thủ công đang phụ thuộc vào Excel và Google Sheet.',
+        },
+        {
+          id: 'p4',
+          title: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG – THE SHEA',
+          cardDesc: 'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
+        },
+      ],
+      en: [
+        {
+          id: 'p1',
+          title: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
+          cardDesc: 'Building a custom ERP system designed specifically for the F&B chain industry, digitizing the entire operational workflow from production, warehousing, sales, HR to finance — replacing manual processes dependent on Excel, Zalo and handwritten notes.',
+        },
+        {
+          id: 'p2',
+          title: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          cardDesc: "Building an ERP system to digitize the entire operational workflow from harvesting, processing, refining, warehousing to sales and finance — replacing manual processes dependent on Sapo, Excel and scattered paper documents.",
+        },
+        {
+          id: 'p3',
+          title: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
+          cardDesc: 'Building a custom ERP system to digitize the entire operational workflow from raw material import, production, quality control, warehousing to B2B sales — replacing manual processes dependent on Excel and Google Sheet.',
+        },
+        {
+          id: 'p4',
+          title: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
+          cardDesc: 'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
+        },
+      ],
+    };
+
+
+    /* ════════════════════════════════════════════════════════════
        5.  ICONS (inline SVG — deduplicated)
     ════════════════════════════════════════════════════════════ */
     const IconLinkedIn = ({ className = 'w-4 h-4' }) => (
@@ -1256,6 +1323,67 @@
       );
     }
 
+    /* ── ProjectDetailBottomNav (matrix navigation: prev/next project) ── */
+    function ProjectDetailBottomNav({ navigate, lang, selectedProject, setSelectedProject, setCurrentPage }) {
+      const s = SHARED_DICT[lang];
+      const projects = PROJECTS[lang];
+      const currentIndex = projects.findIndex(p => p.id === selectedProject);
+      const isFirst = currentIndex <= 0;
+      const isLast  = currentIndex >= projects.length - 1;
+
+      const goToPrev = () => {
+        if (isFirst) {
+          navigate('home', 'projects');
+        } else {
+          setSelectedProject(projects[currentIndex - 1].id);
+          setCurrentPage('project_detail');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      };
+
+      const goToNext = () => {
+        if (isLast) {
+          navigate('home', 'projects');
+        } else {
+          setSelectedProject(projects[currentIndex + 1].id);
+          setCurrentPage('project_detail');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      };
+
+      const prevLabel = isFirst
+        ? s.backHome
+        : (lang === 'vi' ? projects[currentIndex - 1].title : projects[currentIndex - 1].title);
+      const nextLabel = isLast
+        ? s.backHome
+        : (lang === 'vi' ? projects[currentIndex + 1].title : projects[currentIndex + 1].title);
+
+      return (
+        <div className="border-t border-gray-200 py-10 px-6">
+          <div className="max-w-6xl mx-auto flex justify-between items-center gap-4 flex-wrap">
+            <button
+              onClick={goToPrev}
+              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity max-w-[45%]"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:-translate-x-0.5">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              <span className="truncate">{isFirst ? s.backHome : (lang === 'vi' ? 'Dự án trước' : 'Previous')}</span>
+            </button>
+            <button
+              onClick={goToNext}
+              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity max-w-[45%]"
+            >
+              <span className="truncate">{isLast ? s.backHome : (lang === 'vi' ? 'Dự án tiếp theo' : 'Next project')}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     /* ── CopyrightFooter (subpages) ── */
     function CopyrightFooter({ lang }) {
       const c = SHARED_DICT[lang];
@@ -1386,12 +1514,9 @@
           <div className="relative z-10 max-w-6xl mx-auto w-full px-6 py-16 md:py-24">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 items-center">
 
-              {/* Avatar — 1/3 width */}
+              {/* Avatar — 1/3 width, no background color, only rounded + shadow */}
               <div className="flex justify-center md:col-span-1">
-                <div
-                  className="w-56 h-64 md:w-full md:h-80 rounded-2xl overflow-hidden shadow-2xl"
-                  style={{ background: '#c9c4e0' }}
-                >
+                <div className="w-56 h-64 md:w-full md:h-80 rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src="./avatar.jpg"
                     alt="Trần Khánh Huyền"
@@ -1466,21 +1591,80 @@
       );
     }
 
-    /* ── SkillsSection ── */
+    /* ── ProjectsSection (NEW — homepage DỰ ÁN) ── */
+    function ProjectsSection({ lang, setSelectedProject, setCurrentPage }) {
+      const p = HOME_CONTENT[lang].projects;
+      const projects = PROJECTS[lang];
+
+      const handleViewMore = (projectId) => {
+        setSelectedProject(projectId);
+        setCurrentPage('project_detail');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      return (
+        <section id="projects" className="bg-white py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-6">
+
+            {/* Section heading with line — matching screenshot1 */}
+            <div className="flex items-center gap-5 mb-10">
+              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
+                {p.heading}
+              </h2>
+              <div className="flex-1 h-px bg-gray-300" />
+            </div>
+
+            {/* Project cards — vertical full-width layout */}
+            <div className="flex flex-col gap-6">
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="border border-gray-200 rounded-xl p-6 md:p-8 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200"
+                >
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div className="flex-1">
+                      <h3 className="font-heading font-extrabold text-base md:text-lg text-navy uppercase leading-relaxed tracking-normal mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="font-body text-base text-gray-500 leading-relaxed">
+                        {project.cardDesc}
+                      </p>
+                    </div>
+                    <div className="flex justify-end md:items-end md:self-end flex-shrink-0 md:ml-6">
+                      <button
+                        onClick={() => handleViewMore(project.id)}
+                        className="pill font-heading bg-navy text-white text-[11px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all whitespace-nowrap"
+                      >
+                        {p.viewMore}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    /* ── SkillsSection (UPDATED — Grid 2 cols) ── */
     function SkillsSection({ lang, navigate }) {
       const s = HOME_CONTENT[lang].skills;
       return (
         <section id="skills" className="bg-gray-50 py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-6">
 
-            <div className="mb-10">
-              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight">
+            {/* Section heading with line — matching screenshot2 */}
+            <div className="flex items-center gap-5 mb-10">
+              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
                 {s.heading}
               </h2>
-              <div className="mt-3 h-1 w-12 rounded-full bg-lavender" />
+              <div className="flex-1 h-px bg-gray-300" />
             </div>
 
-            <div className="flex flex-col gap-5">
+            {/* Grid 2 columns layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {s.cards.map((card) => (
                 <div key={card.id} className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm">
                   <div className="flex items-start justify-between gap-4 mb-4">
@@ -1525,14 +1709,14 @@
       const c = HOME_CONTENT[lang].contact;
       return (
         <footer id="contact">
-          <div className="bg-gray-50 py-20 md:py-28 px-6">
-            <div className="max-w-6xl mx-auto">
+          <div className="bg-white py-20 md:py-28">
+            <div className="max-w-6xl mx-auto px-6">
 
-              <div className="mb-10">
-                <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight">
+              <div className="flex items-center gap-5 mb-10">
+                <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
                   {c.heading}
                 </h2>
-                <div className="mt-3 h-1 w-12 rounded-full bg-lavender" />
+                <div className="flex-1 h-px bg-gray-300" />
               </div>
 
               {/* 3 cards */}
@@ -1604,11 +1788,12 @@
       );
     }
 
-    /* ── HomeView ── */
-    function HomeView({ lang, navigate }) {
+    /* ── HomeView (UPDATED — includes ProjectsSection) ── */
+    function HomeView({ lang, navigate, setSelectedProject, setCurrentPage }) {
       return (
         <>
           <HeroSection   lang={lang} />
+          <ProjectsSection lang={lang} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />
           <SkillsSection lang={lang} navigate={navigate} />
           <ContactFooter lang={lang} />
         </>
@@ -1898,6 +2083,102 @@
     }
 
 
+    /* ════════════════════════════════════════════════════════════
+       9b. PROJECT DETAIL VIEW (NEW)
+    ════════════════════════════════════════════════════════════ */
+    function ProjectDetailView({ lang, navigate, selectedProject, setSelectedProject, setCurrentPage }) {
+      const shared = SHARED_DICT[lang];
+
+      /* Find matching project data from SYSTEM_PROJECTS and UIUX_PROJECTS */
+      const systemProject = SYSTEM_PROJECTS[lang].find(p => p.id === selectedProject);
+      const uiuxProject   = UIUX_PROJECTS[lang].find(p => p.id === selectedProject);
+
+      /* Use system project for title (fallback to uiux) */
+      const projectTitle = systemProject
+        ? systemProject.fullTitle
+        : (uiuxProject ? uiuxProject.fullTitle : '');
+
+      /* Extract overview section from system project */
+      const overviewSection = systemProject
+        ? systemProject.sections.find(s => s.type === 'overview')
+        : null;
+
+      /* Non-overview system sections (diagrams) */
+      const systemDiagramSections = systemProject
+        ? systemProject.sections.filter(s => s.type !== 'overview')
+        : [];
+
+      /* UIUX sections */
+      const uiuxSections = uiuxProject ? uiuxProject.sections : [];
+
+      return (
+        <>
+          {/* PageHero — project title with lines on both sides */}
+          <div className="bg-white py-12 px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center gap-5">
+                <div className="flex-1 h-px bg-gray-300" />
+                <h1 className="font-heading font-black text-navy text-lg md:text-2xl tracking-normal text-center leading-snug">
+                  {projectTitle}
+                </h1>
+                <div className="flex-1 h-px bg-gray-300" />
+              </div>
+            </div>
+          </div>
+
+          {/* Overview: intro + scope as 2-column grid */}
+          {overviewSection && (
+            <div className="bg-white px-6 pb-10">
+              <div className="max-w-6xl mx-auto">
+                <OverviewBlock data={overviewSection} />
+              </div>
+            </div>
+          )}
+
+          {/* THIẾT KẾ HỆ THỐNG banner + system sections */}
+          {systemDiagramSections.length > 0 && (
+            <>
+              <div className="bg-navy text-white py-4 text-center">
+                <h2 className="font-heading font-bold text-xl tracking-normal">
+                  {shared.systemDesignBanner}
+                </h2>
+              </div>
+              <div className="bg-white px-6">
+                <div className="max-w-6xl mx-auto divide-y divide-gray-100">
+                  {systemDiagramSections.map((section, i) => (
+                    <SystemSectionBlock key={i} data={section} />
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* THIẾT KẾ UI/UX banner + uiux sections */}
+          {uiuxSections.length > 0 && (
+            <>
+              <div className="bg-navy text-white py-4 text-center">
+                <h2 className="font-heading font-bold text-xl tracking-normal">
+                  {shared.uiuxDesignBanner}
+                </h2>
+              </div>
+              <div className="bg-white px-6">
+                <div className="max-w-6xl mx-auto divide-y divide-gray-100">
+                  {uiuxSections.map((section, i) => (
+                    <UiUxSectionBlock key={i} data={section} lang={lang} />
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Bottom navigation */}
+          <ProjectDetailBottomNav navigate={navigate} lang={lang} selectedProject={selectedProject} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />
+          <CopyrightFooter lang={lang} />
+        </>
+      );
+    }
+
+
     /* ── BackToTop ── */
     function BackToTop() {
       const [visible, setVisible] = useState(false);
@@ -1926,10 +2207,11 @@
        10. APP ROOT
     ════════════════════════════════════════════════════════════ */
     function App() {
-      const [lang, setLang]                   = useState('vi');
-      const [currentPage, setCurrentPage]     = useState('home');
-      const [activeSection, setActiveSection] = useState('home');
-      const [scrollTarget, setScrollTarget]   = useState(null);
+      const [lang, setLang]                       = useState('vi');
+      const [currentPage, setCurrentPage]         = useState('home');
+      const [activeSection, setActiveSection]      = useState('home');
+      const [scrollTarget, setScrollTarget]        = useState(null);
+      const [selectedProject, setSelectedProject]  = useState(null);
 
       /* navigate helper — always scrolls to top, optionally to a section after render */
       const navigate = (page, section = null) => {
@@ -1952,7 +2234,7 @@
       /* active nav section tracker (home page only) */
       useEffect(() => {
         if (currentPage !== 'home') return;
-        const SECTIONS = ['home', 'skills', 'contact'];
+        const SECTIONS = ['home', 'projects', 'skills', 'contact'];
         const handleScroll = () => {
           if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
             setActiveSection('contact');
@@ -1981,9 +2263,10 @@
             activeSection={activeSection}
           />
           <main>
-            {currentPage === 'home'   && <HomeView         lang={lang} navigate={navigate} />}
-            {currentPage === 'system' && <SystemDesignView lang={lang} navigate={navigate} />}
-            {currentPage === 'uiux'   && <UiUxDesignView   lang={lang} navigate={navigate} />}
+            {currentPage === 'home'           && <HomeView         lang={lang} navigate={navigate} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
+            {currentPage === 'system'         && <SystemDesignView lang={lang} navigate={navigate} />}
+            {currentPage === 'uiux'           && <UiUxDesignView   lang={lang} navigate={navigate} />}
+            {currentPage === 'project_detail' && <ProjectDetailView lang={lang} navigate={navigate} selectedProject={selectedProject} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
           </main>
           <BackToTop />
         </div>
@@ -1992,5 +2275,6 @@
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
+
 </body>
 </html>
