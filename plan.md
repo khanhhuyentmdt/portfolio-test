@@ -33,6 +33,11 @@ Do là SPA, giao diện sẽ được quyết định bởi state `currentPage` 
  │    └── ... (Các component tương tự, có <BottomNav> để chuyển qua lại giữa các kỹ năng)
  │
  └── <BackToTop>             — Nút cuộn lên đầu trang (Fixed góc dưới phải)
+ ├── <CvView> (Khi currentPage === 'cv')
+ │    ├── <PageHero>         — Tiêu đề "HỒ SƠ NĂNG LỰC" / "CURRICULUM VITAE"
+ │    ├── <PdfViewer>        — Thẻ iframe nhúng file PDF (hiển thị theo ngôn ngữ)
+ │    ├── <DownloadButton>   — Nút tải CV trực tiếp về máy
+ │    └── <BottomNav>        — Nút trở về Trang chủ
 2. Giải pháp quản lý State, Routing và Scroll
 Dùng React.useState để điều hướng mà không cần reload trang:
 
@@ -40,6 +45,7 @@ JavaScript
 const [lang, setLang] = React.useState('vi');
 const [currentPage, setCurrentPage] = React.useState('home'); // 'home' | 'system' | 'uiux' | 'project_detail'
 const [selectedProject, setSelectedProject] = React.useState(null); // Lưu id dự án đang xem
+const [currentPage, setCurrentPage] = React.useState('home'); // 'home' | 'system' | 'uiux' | 'project_detail' | 'cv'
 Logic Điều hướng Ma trận (BottomNav)
 Sử dụng currentIndex của dự án trong mảng PROJECTS:
 
@@ -105,6 +111,11 @@ Nút bấm & Điều hướng
 BottomNav: Nút dạng Pill (rounded-full), nền Navy chữ trắng. Chữ viết in hoa chữ cái đầu (Title Case). Dùng icon Chevron mảnh (<, >).
 
 BackToTop: Nút tròn nhỏ góc dưới phải (fixed bottom-8 right-8 z-50). Chỉ hiện khi scrollY > 400. Nền navy, icon Chevron Up trắng.
+
+### CV View
+- Nhúng file PDF bằng thẻ `<iframe src="./assets/cv_vi.pdf" width="100%" height="800px" />` (đổi src theo state `lang`).
+- Nút "DOWNLOAD CV" ở Trang chủ sẽ gọi `setCurrentPage('cv')` thay vì tải trực tiếp.
+- Bên trong CvView có một nút "Tải xuống bản PDF" để phòng trường hợp trình duyệt không hỗ trợ xem trực tiếp.
 
 6. Khung HTML cơ bản
 HTML

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiết Kế UI/UX — Trần Khánh Huyền</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:     '#000046',
+            lavender: '#c9c4e0',
+            'lav-bg': '#f0eef8',
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'ui-sans-serif', 'sans-serif'],
+            body:    ['Nunito Sans', 'ui-sans-serif', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Nunito Sans', sans-serif; }
+    section[id] { scroll-margin-top: 80px; }
+    .pill:active { transform: scale(0.97); }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    /* ══════════════════════════════════════════════
+       SHARED CONTENT (nav + contact + ui labels)
+    ══════════════════════════════════════════════ */
+    const SHARED = {
+      vi: {
+        nav: [
+          { label: 'TRANG CHỦ', href: './index.html#home'    },
+          { label: 'KỸ NĂNG',   href: './index.html#skills'  },
+          { label: 'LIÊN HỆ',   href: './index.html#contact' },
+        ],
+        pageTitle:      'THIẾT KẾ UI/UX',
+        viewMore:       'XEM THÊM',
+        prototype:      'PROTOTYPE',
+        copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
+        footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+        footerPhone:    { value: '+84915 085 900',   href: 'tel:+84915085900' },
+        footerEmail:    { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+      },
+      en: {
+        nav: [
+          { label: 'HOME',    href: './index.html#home'    },
+          { label: 'SKILLS',  href: './index.html#skills'  },
+          { label: 'CONTACT', href: './index.html#contact' },
+        ],
+        pageTitle:      'UI/UX DESIGN',
+        viewMore:       'VIEW MORE',
+        prototype:      'PROTOTYPE',
+        copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
+        footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+        footerPhone:    { value: '+84915 085 900',   href: 'tel:+84915085900' },
+        footerEmail:    { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+      },
+    };
+
+    /* ══════════════════════════════════════════════
+       PROJECTS DATA  { vi: [...], en: [...] }
+    ══════════════════════════════════════════════ */
+    const PROJECTS = {
+
+      /* ─────────────────── TIẾNG VIỆT ─────────────────── */
+      vi: [
+
+        /* ── Dự án 01 ── Singapore Yummy ─────────────── */
+        {
+          id:         'p1',
+          shortTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          fullTitle:  'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          cardDesc:   'Thiết kế UX/UI cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy, bao gồm prototype tương tác Figma và bộ màn hình giao diện hoàn chỉnh.',
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/yummy0.jpg',
+              bannerAlt:     'UX Design — Singapore Yummy',
+              prototypeHref: 'https://www.figma.com/proto/NRuushQ45tYzRi72LHbkEo/Yummy?node-id=1412-72506&p=f&t=61rOmjiGgHpBDyLm-0&scaling=min-zoom&content-scaling=fixed&page-id=718%3A50376&starting-point-node-id=1412%3A72506&show-proto-sidebar=1',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'desktop',
+              images: [
+                { src: './assets/yummy1.png', alt: 'UI Screen 1' },
+                { src: './assets/yummy2.png', alt: 'UI Screen 2' },
+                { src: './assets/yummy3.png', alt: 'UI Screen 3' },
+                { src: './assets/yummy4.png', alt: 'UI Screen 4' },
+                { src: './assets/yummy5.png', alt: 'UI Screen 5' },
+                { src: './assets/yummy6.png', alt: 'UI Screen 6' },
+                { src: './assets/yummy7.png', alt: 'UI Screen 7' },
+              ],
+            },
+          ],
+        },
+
+        /* ── Dự án 02 ── Yến Sào Nam An ─────────────── */
+        {
+          id:         'p2',
+          shortTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
+          fullTitle:  'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
+          cardDesc:   'Thiết kế UX/UI cho module Tài chính của hệ thống ERP Nam An, bao gồm prototype tương tác Figma và bộ màn hình giao diện desktop.',
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/naman0.jpg',
+              bannerAlt:     'UX Design — Yến Sào Nam An',
+              prototypeHref: 'https://www.figma.com/proto/fIiO0gr1url64n6KwFo9SZ?node-id=0-1&t=zxQZ34xTOIVy5WPa-6',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'desktop',
+              images: [
+                { src: './assets/naman1.png', alt: 'UI Screen 1' },
+                { src: './assets/naman2.png', alt: 'UI Screen 2' },
+                { src: './assets/naman3.png', alt: 'UI Screen 3' },
+                { src: './assets/naman4.png', alt: 'UI Screen 4' },
+                { src: './assets/naman5.png', alt: 'UI Screen 5' },
+                { src: './assets/naman6.png', alt: 'UI Screen 6' },
+              ],
+            },
+          ],
+        },
+
+        /* ── Dự án 03 ── Wonder Wood ──────────────────── */
+        {
+          id:         'p3',
+          shortTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
+          fullTitle:  'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
+          cardDesc:   'Thiết kế UX/UI cho module Bán hàng B2B của hệ thống ERP Wonder Wood, với prototype Figma và bộ màn hình giao diện desktop đầy đủ.',
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/ww0.jpg',
+              bannerAlt:     'UX Design — Wonder Wood',
+              prototypeHref: 'https://www.figma.com/proto/2HehjZbfGb7sVbxCL5WLJI?node-id=2710-55767&t=zxQZ34xTOIVy5WPa-6',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'desktop',
+              images: [
+                { src: './assets/ww1.png', alt: 'UI Screen 1' },
+                { src: './assets/ww2.png', alt: 'UI Screen 2' },
+                { src: './assets/ww3.png', alt: 'UI Screen 3' },
+                { src: './assets/ww4.png', alt: 'UI Screen 4' },
+                { src: './assets/ww5.png', alt: 'UI Screen 5' },
+                { src: './assets/ww6.png', alt: 'UI Screen 6' },
+                { src: './assets/ww7.png', alt: 'UI Screen 7' },
+                { src: './assets/ww8.png', alt: 'UI Screen 8' },
+              ],
+            },
+          ],
+        },
+
+        /* ── Dự án 04 ── The SHEA ───────────────────── */
+        {
+          id:         'p4',
+          shortTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
+          fullTitle:  'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
+          cardDesc:   'Thiết kế UX/UI cho hệ thống quản lý vị trí sản phẩm The SHEA trên nền tảng Mobile, với bộ màn hình portrait hoàn chỉnh.',
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/theshea0.jpg',
+              bannerAlt:     'UX Design — The SHEA',
+              prototypeHref: 'https://www.figma.com/proto/8J0etnuarMbnytQxAjK553?node-id=4-0&t=zxQZ34xTOIVy5WPa-6',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'mobile',
+              images: [
+                { src: './assets/theshea1.png',  alt: 'Mobile Screen 1' },
+                { src: './assets/theshea2.png',  alt: 'Mobile Screen 2' },
+                { src: './assets/theshea3.png',  alt: 'Mobile Screen 3' },
+                { src: './assets/theshea4.png',  alt: 'Mobile Screen 4' },
+                { src: './assets/theshea5.png',  alt: 'Mobile Screen 5' },
+              ],
+            },
+          ],
+        },
+
+      ],
+
+      /* ─────────────────── ENGLISH ─────────────────── */
+      en: [
+
+        /* ── Project 01 ── Singapore Yummy ──────────── */
+        {
+          id:         'p1',
+          shortTitle: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
+          fullTitle:  'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
+          cardDesc:   'UI/UX design for the ERP Production & HR module of Singapore Yummy Tofu Brand, featuring an interactive Figma prototype and a complete set of interface screens.',
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/yummy0.jpg',
+              bannerAlt:     'UX Design — Singapore Yummy',
+              prototypeHref: 'https://www.figma.com/proto/NRuushQ45tYzRi72LHbkEo/Yummy?node-id=1412-72506&p=f&t=61rOmjiGgHpBDyLm-0&scaling=min-zoom&content-scaling=fixed&page-id=718%3A50376&starting-point-node-id=1412%3A72506&show-proto-sidebar=1',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'desktop',
+              images: [
+                { src: './assets/yummy1.png', alt: 'UI Screen 1' },
+                { src: './assets/yummy2.png', alt: 'UI Screen 2' },
+                { src: './assets/yummy3.png', alt: 'UI Screen 3' },
+                { src: './assets/yummy4.png', alt: 'UI Screen 4' },
+              ],
+            },
+          ],
+        },
+
+        /* ── Project 02 ── Nam An Bird's Nest ───────── */
+        {
+          id:         'p2',
+          shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          cardDesc:   "UI/UX design for the Finance module of Nam An Bird's Nest ERP system, including an interactive Figma prototype and a full set of desktop interface screens.",
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/naman0.jpg',
+              bannerAlt:     "UX Design — Nam An Bird's Nest",
+              prototypeHref: '#',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'desktop',
+              images: [
+                { src: './assets/naman1.png', alt: 'UI Screen 1' },
+                { src: './assets/naman2.png', alt: 'UI Screen 2' },
+                { src: './assets/naman3.png', alt: 'UI Screen 3' },
+                { src: './assets/naman4.png', alt: 'UI Screen 4' },
+              ],
+            },
+          ],
+        },
+
+        /* ── Project 03 ── Wonder Wood ───────────────── */
+        {
+          id:         'p3',
+          shortTitle: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
+          fullTitle:  'ERP SYSTEM FOR WONDER WOOD CO., LTD',
+          cardDesc:   'UI/UX design for the B2B Sales module of Wonder Wood ERP system, with a Figma prototype and a complete set of desktop interface screens.',
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/ww0.jpg',
+              bannerAlt:     'UX Design — Wonder Wood',
+              prototypeHref: '#',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'desktop',
+              images: [
+                { src: './assets/ww1.png', alt: 'UI Screen 1' },
+                { src: './assets/ww2.png', alt: 'UI Screen 2' },
+                { src: './assets/ww3.png', alt: 'UI Screen 3' },
+                { src: './assets/ww4.png', alt: 'UI Screen 4' },
+              ],
+            },
+          ],
+        },
+
+        /* ── Project 04 ── The SHEA ─────────────────── */
+        {
+          id:         'p4',
+          shortTitle: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
+          fullTitle:  'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
+          cardDesc:   "UI/UX design for The SHEA's product position management system on mobile platform, featuring a complete set of portrait mobile screen mockups.",
+          sections: [
+            {
+              type:          'ux',
+              heading:       'UX DESIGN',
+              bannerSrc:     './assets/theshea0.jpg',
+              bannerAlt:     'UX Design — The SHEA',
+              prototypeHref: '#',
+            },
+            {
+              type:      'ui',
+              heading:   'UI DESIGN',
+              uiLayout:  'mobile',
+              images: [
+                { src: './assets/theshea1.png',  alt: 'Mobile Screen 1' },
+                { src: './assets/theshea2.png',  alt: 'Mobile Screen 2' },
+                { src: './assets/theshea3.png',  alt: 'Mobile Screen 3' },
+                { src: './assets/theshea4.png',  alt: 'Mobile Screen 4' },
+                { src: './assets/theshea5.png',  alt: 'Mobile Screen 5' },
+                { src: './assets/theshea6.png',  alt: 'Mobile Screen 6' },
+                { src: './assets/theshea7.png',  alt: 'Mobile Screen 7' },
+                { src: './assets/theshea8.png',  alt: 'Mobile Screen 8' },
+              ],
+            },
+          ],
+        },
+
+      ],
+    };
+
+    /* ══════════════════════════════════════════════
+       ICONS (inline SVG)
+    ══════════════════════════════════════════════ */
+    const IconLinkedIn = ({ className = 'w-4 h-4' }) => (
+      <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    );
+
+    const IconMail = ({ className = 'w-4 h-4' }) => (
+      <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    );
+
+    const IconPhone = ({ className = 'w-4 h-4' }) => (
+      <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+    );
+
+    const IconMenu = () => (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    );
+
+    const IconClose = () => (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    );
+
+    const IconImagePlaceholder = () => (
+      <svg className="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M9 9.75h.008v.008H9V9.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3 7.5A2.25 2.25 0 015.25 5.25h13.5A2.25 2.25 0 0121 7.5v9A2.25 2.25 0 0118.75 18.75H5.25A2.25 2.25 0 013 16.5V7.5z" />
+      </svg>
+    );
+
+    const IconArrowUpRight = ({ className = 'w-3.5 h-3.5' }) => (
+      <svg className={className} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+      </svg>
+    );
+
+
+    /* ══════════════════════════════════════════════
+       LANG TOGGLE
+    ══════════════════════════════════════════════ */
+    function LangToggle({ lang, setLang }) {
+      return (
+        <div className="flex items-center border border-navy/25 rounded-full p-0.5 gap-0.5">
+          {['vi', 'en'].map((l) => (
+            <button
+              key={l}
+              onClick={() => setLang(l)}
+              className={[
+                'pill font-heading px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase transition-all',
+                lang === l ? 'bg-navy text-white shadow-sm' : 'text-navy/40 hover:text-navy',
+              ].join(' ')}
+              aria-pressed={lang === l}
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════════ */
+    function Header({ lang, setLang }) {
+      const c = SHARED[lang];
+      const [open, setOpen] = useState(false);
+
+      return (
+        <header className="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+
+            <a href="./index.html" className="flex-shrink-0 min-w-0">
+              <div className="font-heading font-black text-sm md:text-base tracking-widest truncate text-navy">
+                TRẦN KHÁNH HUYỀN
+              </div>
+              <div className="font-body text-gray-400 text-[10px] font-semibold tracking-[0.25em] mt-0.5">
+                BUSINESS ANALYST
+              </div>
+            </a>
+
+            <nav className="hidden md:flex items-center gap-7 flex-shrink-0">
+              {c.nav.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="font-heading text-xs font-semibold tracking-widest uppercase pb-0.5 border-b-2 border-transparent text-gray-400 hover:text-navy hover:border-navy/30 transition-all duration-200"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <LangToggle lang={lang} setLang={setLang} />
+            </nav>
+
+            <div className="flex md:hidden items-center gap-3 flex-shrink-0">
+              <LangToggle lang={lang} setLang={setLang} />
+              <button onClick={() => setOpen(!open)} className="text-navy p-1" aria-label="Menu">
+                {open ? <IconClose /> : <IconMenu />}
+              </button>
+            </div>
+          </div>
+
+          {open && (
+            <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-1">
+              {c.nav.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="font-heading text-left text-sm font-semibold tracking-wider py-2.5 border-b border-gray-100 last:border-0 text-gray-400 hover:text-navy transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </header>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       PAGE HERO — tiêu đề căn giữa với 2 đường kẻ
+    ══════════════════════════════════════════════ */
+    function PageHero({ lang }) {
+      return (
+        <div className="bg-white py-12 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-5">
+              <div className="flex-1 h-px bg-gray-200" />
+              <h1 className="font-heading font-black text-navy text-xl md:text-2xl tracking-normal whitespace-nowrap">
+                {SHARED[lang].pageTitle}
+              </h1>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       PROJECT NAV MENU — lưới 2×2
+    ══════════════════════════════════════════════ */
+    function ProjectNavCard({ project, lang }) {
+      const hasData = project.sections.length > 0;
+      const c = SHARED[lang];
+
+      return (
+        <div className="border border-gray-200 rounded-xl p-6 bg-white flex flex-col shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200">
+          <h3 className="font-heading font-extrabold text-base text-navy uppercase leading-relaxed tracking-normal mb-3">
+            {project.shortTitle}
+          </h3>
+          <p className="font-body text-base text-gray-500 leading-relaxed flex-grow">
+            {project.cardDesc}
+          </p>
+          <div className="flex justify-end mt-5">
+            {hasData ? (
+              <a
+                href={`#${project.id}`}
+                className="pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-4 py-1.5 hover:opacity-90 transition-all"
+              >
+                {c.viewMore}
+              </a>
+            ) : (
+              <span className="font-heading bg-gray-200 text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-4 py-1.5 cursor-not-allowed select-none">
+                {c.viewMore}
+              </span>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function ProjectNavMenu({ projects, lang }) {
+      return (
+        <div className="bg-gray-50 border-b border-gray-200 py-10 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {projects.map((project) => (
+                <ProjectNavCard key={project.id} project={project} lang={lang} />
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       MOCKUP IMAGE — fallback, không bo góc, không caption
+    ══════════════════════════════════════════════ */
+    function MockupImage({ src, alt }) {
+      const [missing, setMissing] = useState(false);
+      return (
+        <div className="flex flex-col">
+          {missing ? (
+            <div className="w-full aspect-[4/3] border-2 border-dashed border-gray-200 bg-gray-50 flex flex-col items-center justify-center gap-3 p-4">
+              <IconImagePlaceholder />
+              <p className="font-body text-sm text-gray-400 text-center break-all">{src}</p>
+            </div>
+          ) : (
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-auto object-contain border border-gray-200 bg-white"
+              onError={() => setMissing(true)}
+            />
+          )}
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       UX BLOCK — banner + PROTOTYPE button
+    ══════════════════════════════════════════════ */
+    function UXBlock({ data, lang }) {
+      const { heading, bannerSrc, bannerAlt, prototypeHref } = data;
+      const c = SHARED[lang];
+
+      return (
+        <div className="py-8">
+          <p className="font-heading text-base font-extrabold tracking-normal text-navy uppercase mb-5">
+            {heading}
+          </p>
+          <MockupImage src={bannerSrc} alt={bannerAlt} />
+          <div className="flex justify-center mt-6">
+            <a
+              href={prototypeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pill font-heading font-bold tracking-widest uppercase bg-navy text-white rounded-full px-8 py-2.5 inline-flex items-center gap-2 text-sm hover:opacity-90 transition-all"
+            >
+              {c.prototype}
+              <IconArrowUpRight />
+            </a>
+          </div>
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       UI BLOCK — lưới ảnh màn hình
+    ══════════════════════════════════════════════ */
+    function UIBlock({ data }) {
+      const { heading, uiLayout, images } = data;
+
+      return (
+        <div className="py-8">
+          <p className="font-heading text-base font-extrabold tracking-normal text-navy uppercase mb-5">
+            {heading}
+          </p>
+
+          {uiLayout === 'desktop' && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {images.map((img, i) => (
+                <MockupImage key={i} src={img.src} alt={img.alt} />
+              ))}
+            </div>
+          )}
+
+          {uiLayout === 'mobile' && (
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+              {images.map((img, i) => (
+                <MockupImage key={i} src={img.src} alt={img.alt} />
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       SECTION BLOCK DISPATCHER
+    ══════════════════════════════════════════════ */
+    function SectionBlock({ data, lang }) {
+      if (data.type === 'ux') return <UXBlock data={data} lang={lang} />;
+      if (data.type === 'ui') return <UIBlock data={data} />;
+      return null;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       PROJECT HEADER — thanh navy căn giữa
+    ══════════════════════════════════════════════ */
+    function ProjectHeader({ project }) {
+      return (
+        <div className="bg-navy text-white px-6 py-6 text-center">
+          <h2 className="font-heading font-black text-lg md:text-xl tracking-normal leading-snug">
+            {project.fullTitle}
+          </h2>
+        </div>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       PROJECT SECTION
+    ══════════════════════════════════════════════ */
+    function ProjectSection({ project, lang }) {
+      if (project.sections.length === 0) return null;
+      return (
+        <section id={project.id} className="py-14 px-6 border-b border-gray-100">
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <ProjectHeader project={project} />
+              <div className="bg-white px-6 md:px-10 divide-y divide-gray-100">
+                {project.sections.map((section, i) => (
+                  <SectionBlock key={i} data={section} lang={lang} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       COPYRIGHT FOOTER — thanh trắng đơn giản
+    ══════════════════════════════════════════════ */
+    function CopyrightFooter({ lang }) {
+      const c = SHARED[lang];
+      return (
+        <footer className="bg-white border-t border-gray-200 py-4 px-6">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+            <p className="font-body text-sm text-gray-500 font-medium tracking-wider whitespace-nowrap">
+              {c.copyright}
+            </p>
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2">
+              <a
+                href={c.footerLinkedIn.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-navy transition-colors"
+              >
+                <IconLinkedIn className="w-4 h-4 flex-shrink-0" />
+                {c.footerLinkedIn.name}
+              </a>
+              <a
+                href={c.footerPhone.href}
+                className="font-body inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-navy transition-colors"
+              >
+                <IconPhone className="w-4 h-4 flex-shrink-0" />
+                {c.footerPhone.value}
+              </a>
+              <a
+                href={c.footerEmail.href}
+                className="font-body inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-navy transition-colors"
+              >
+                <IconMail className="w-4 h-4 flex-shrink-0" />
+                {c.footerEmail.value}
+              </a>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+
+    /* ══════════════════════════════════════════════
+       APP ROOT
+    ══════════════════════════════════════════════ */
+    function App() {
+      const [lang, setLang] = useState('vi');
+      const projects = PROJECTS[lang];
+
+      return (
+        <div>
+          <Header lang={lang} setLang={setLang} />
+          <main>
+            <PageHero lang={lang} />
+            <ProjectNavMenu projects={projects} lang={lang} />
+            {projects.map((project) => (
+              <ProjectSection key={project.id} project={project} lang={lang} />
+            ))}
+          </main>
+          <CopyrightFooter lang={lang} />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

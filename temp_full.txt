@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trần Khánh Huyền — Business Analyst Portfolio</title>
+  <title>Tráº§n KhÃ¡nh Huyá»n â€” Business Analyst Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -51,23 +51,22 @@
   <script type="text/babel">
     const { useState, useEffect } = React;
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        1.  HOME CONTENT
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     const HOME_CONTENT = {
       vi: {
         nav: [
-          { label: 'TRANG CHỦ', href: '#home',     section: 'home'     },
-          { label: 'DỰ ÁN',    href: '#projects',  section: 'projects' },
-          { label: 'KỸ NĂNG',  href: '#skills',    section: 'skills'   },
-          { label: 'LIÊN HỆ',  href: '#contact',   section: 'contact'  },
+          { label: 'TRANG CHá»¦', href: '#home',    section: 'home'    },
+          { label: 'Ká»¸ NÄ‚NG',   href: '#skills',  section: 'skills'  },
+          { label: 'LIÃŠN Há»†',   href: '#contact', section: 'contact' },
         ],
         hero: {
-          name:          'TRẦN KHÁNH HUYỀN',
+          name:          'TRáº¦N KHÃNH HUYá»€N',
           title:         'IT BUSINESS ANALYST',
           intro: [
-            'Là một IT Business Analyst với kinh nghiệm thực tế trong các dự án phần mềm doanh nghiệp. Với tinh thần chủ động và ham học hỏi, tôi luôn tìm cách hiểu sâu bài toán nghiệp vụ, phân tích yêu cầu và xây dựng tài liệu đặc tả rõ ràng, nhằm hỗ trợ phát triển các hệ thống hướng người dùng và có khả năng mở rộng.',
-            'Về định hướng, tôi tập trung phát triển năng lực BA thông qua các dự án thực tế, và trong 3–5 năm tới hướng đến vị trí Senior Business Analyst — có khả năng kết nối nghiệp vụ với công nghệ, dẫn dắt quá trình khám phá sản phẩm và đóng góp vào việc xây dựng các sản phẩm số bền vững.',
+            'LÃ  má»™t IT Business Analyst vá»›i kinh nghiá»‡m thá»±c táº¿ trong cÃ¡c dá»± Ã¡n pháº§n má»m doanh nghiá»‡p. Vá»›i tinh tháº§n chá»§ Ä‘á»™ng vÃ  ham há»c há»i, tÃ´i luÃ´n tÃ¬m cÃ¡ch hiá»ƒu sÃ¢u bÃ i toÃ¡n nghiá»‡p vá»¥, phÃ¢n tÃ­ch yÃªu cáº§u vÃ  xÃ¢y dá»±ng tÃ i liá»‡u Ä‘áº·c táº£ rÃµ rÃ ng, nháº±m há»— trá»£ phÃ¡t triá»ƒn cÃ¡c há»‡ thá»‘ng hÆ°á»›ng ngÆ°á»i dÃ¹ng vÃ  cÃ³ kháº£ nÄƒng má»Ÿ rá»™ng.',
+            'Vá» Ä‘á»‹nh hÆ°á»›ng, tÃ´i táº­p trung phÃ¡t triá»ƒn nÄƒng lá»±c BA thÃ´ng qua cÃ¡c dá»± Ã¡n thá»±c táº¿, vÃ  trong 3â€“5 nÄƒm tá»›i hÆ°á»›ng Ä‘áº¿n vá»‹ trÃ­ Senior Business Analyst â€” cÃ³ kháº£ nÄƒng káº¿t ná»‘i nghiá»‡p vá»¥ vá»›i cÃ´ng nghá»‡, dáº«n dáº¯t quÃ¡ trÃ¬nh khÃ¡m phÃ¡ sáº£n pháº©m vÃ  Ä‘Ã³ng gÃ³p vÃ o viá»‡c xÃ¢y dá»±ng cÃ¡c sáº£n pháº©m sá»‘ bá»n vá»¯ng.',
           ],
           downloadCV:    'DOWNLOAD CV',
           linkedinLabel: 'LINKEDIN',
@@ -75,57 +74,53 @@
           phone:         '+84915 085 900',
           linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
         },
-        projects: {
-          heading: 'DỰ ÁN',
-          viewMore: 'XEM THÊM',
-        },
         skills: {
-          heading: 'KỸ NĂNG',
+          heading: 'Ká»¸ NÄ‚NG',
           cards: [
             {
               id:        'system',
-              title:     'THIẾT KẾ HỆ THỐNG',
+              title:     'THIáº¾T Káº¾ Há»† THá»NG',
               tags:      ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
-              desc:      'Tiếp cận thiết kế hệ thống theo hướng có cấu trúc và bám sát nghiệp vụ thực tế. Từ việc thu thập yêu cầu qua User Story, mô hình hóa quy trình bằng BPMN, đến xây dựng Use Case Diagram, viết Use Case Specification và thiết kế Activity Diagram. Tất cả đều hướng đến mục tiêu tạo ra tài liệu rõ ràng, dễ hiểu cho cả đội ngũ kỹ thuật lẫn khách hàng.',
+              desc:      'Tiáº¿p cáº­n thiáº¿t káº¿ há»‡ thá»‘ng theo hÆ°á»›ng cÃ³ cáº¥u trÃºc vÃ  bÃ¡m sÃ¡t nghiá»‡p vá»¥ thá»±c táº¿. Tá»« viá»‡c thu tháº­p yÃªu cáº§u qua User Story, mÃ´ hÃ¬nh hÃ³a quy trÃ¬nh báº±ng BPMN, Ä‘áº¿n xÃ¢y dá»±ng Use Case Diagram, viáº¿t Use Case Specification vÃ  thiáº¿t káº¿ Activity Diagram. Táº¥t cáº£ Ä‘á»u hÆ°á»›ng Ä‘áº¿n má»¥c tiÃªu táº¡o ra tÃ i liá»‡u rÃµ rÃ ng, dá»… hiá»ƒu cho cáº£ Ä‘á»™i ngÅ© ká»¹ thuáº­t láº«n khÃ¡ch hÃ ng.',
               hasButton: true,
             },
             {
               id:        'uiux',
-              title:     'THIẾT KẾ UI/UX',
+              title:     'THIáº¾T Káº¾ UI/UX',
               tags:      ['Figma'],
-              desc:      'Thiết kế prototype UI/UX trên Figma giúp mô phỏng thao tác thực tế của người dùng để hỗ trợ đội ngũ phát triển hiểu đúng yêu cầu và giảm thiểu sai lệch trong quá trình triển khai.',
+              desc:      'Thiáº¿t káº¿ prototype UI/UX trÃªn Figma giÃºp mÃ´ phá»ng thao tÃ¡c thá»±c táº¿ cá»§a ngÆ°á»i dÃ¹ng Ä‘á»ƒ há»— trá»£ Ä‘á»™i ngÅ© phÃ¡t triá»ƒn hiá»ƒu Ä‘Ãºng yÃªu cáº§u vÃ  giáº£m thiá»ƒu sai lá»‡ch trong quÃ¡ trÃ¬nh triá»ƒn khai.',
               hasButton: true,
             },
             {
               id:        'vibe',
               title:     'VIBE CODING',
               tags:      [],
-              desc:      'Với nền tảng tài liệu phân tích đã được xây dựng từ User Story, Use Case đến thiết kế UI/UX, tôi đã từng trải nghiệm ứng dụng Vibe Coding để nhanh chóng hiện thực hóa ý tưởng thành bản demo trực quan giúp khách hàng dễ dàng hình dung sản phẩm thực tế, đồng thời rút ngắn vòng lặp phản hồi và điều chỉnh yêu cầu ngay trong quá trình phát triển.',
+              desc:      'Vá»›i ná»n táº£ng tÃ i liá»‡u phÃ¢n tÃ­ch Ä‘Ã£ Ä‘Æ°á»£c xÃ¢y dá»±ng tá»« User Story, Use Case Ä‘áº¿n thiáº¿t káº¿ UI/UX, tÃ´i Ä‘Ã£ tá»«ng tráº£i nghiá»‡m á»©ng dá»¥ng Vibe Coding Ä‘á»ƒ nhanh chÃ³ng hiá»‡n thá»±c hÃ³a Ã½ tÆ°á»Ÿng thÃ nh báº£n demo trá»±c quan giÃºp khÃ¡ch hÃ ng dá»… dÃ ng hÃ¬nh dung sáº£n pháº©m thá»±c táº¿, Ä‘á»“ng thá»i rÃºt ngáº¯n vÃ²ng láº·p pháº£n há»“i vÃ  Ä‘iá»u chá»‰nh yÃªu cáº§u ngay trong quÃ¡ trÃ¬nh phÃ¡t triá»ƒn.',
               hasButton: false,
             },
             {
               id:        'elicitation',
-              title:     'KHƠI GỢI & THU THẬP YÊU CẦU NGƯỜI DÙNG',
+              title:     'KHÆ I Gá»¢I & THU THáº¬P YÃŠU Cáº¦U NGÆ¯á»œI DÃ™NG',
               tags:      [],
-              desc:      'Từng có cơ hội phỏng vấn trực tiếp với khách hàng và các bên liên quan để hiểu đúng bài toán nghiệp vụ. Từ đó, yêu cầu được chuyển hóa thành User Story có cấu trúc làm nền tảng cho toàn bộ quá trình phân tích và thiết kế hệ thống phía sau.',
+              desc:      'Tá»«ng cÃ³ cÆ¡ há»™i phá»ng váº¥n trá»±c tiáº¿p vá»›i khÃ¡ch hÃ ng vÃ  cÃ¡c bÃªn liÃªn quan Ä‘á»ƒ hiá»ƒu Ä‘Ãºng bÃ i toÃ¡n nghiá»‡p vá»¥. Tá»« Ä‘Ã³, yÃªu cáº§u Ä‘Æ°á»£c chuyá»ƒn hÃ³a thÃ nh User Story cÃ³ cáº¥u trÃºc lÃ m ná»n táº£ng cho toÃ n bá»™ quÃ¡ trÃ¬nh phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ há»‡ thá»‘ng phÃ­a sau.',
               hasButton: false,
             },
             {
               id:        'agile',
               title:     'AGILE/SCRUM',
               tags:      [],
-              desc:      'Tôi hiểu rõ phương pháp Agile/Scrum, tôi tự tin có thể hòa nhập nhanh và đóng góp hiệu quả vào các dự án áp dụng Agile, đặc biệt trong việc phối hợp với đội ngũ phát triển để đảm bảo yêu cầu được hiểu đúng và triển khai đúng hướng.',
+              desc:      'TÃ´i hiá»ƒu rÃµ phÆ°Æ¡ng phÃ¡p Agile/Scrum, tÃ´i tá»± tin cÃ³ thá»ƒ hÃ²a nháº­p nhanh vÃ  Ä‘Ã³ng gÃ³p hiá»‡u quáº£ vÃ o cÃ¡c dá»± Ã¡n Ã¡p dá»¥ng Agile, Ä‘áº·c biá»‡t trong viá»‡c phá»‘i há»£p vá»›i Ä‘á»™i ngÅ© phÃ¡t triá»ƒn Ä‘á»ƒ Ä‘áº£m báº£o yÃªu cáº§u Ä‘Æ°á»£c hiá»ƒu Ä‘Ãºng vÃ  triá»ƒn khai Ä‘Ãºng hÆ°á»›ng.',
               hasButton: false,
             },
           ],
-          viewMore: 'XEM THÊM',
+          viewMore: 'XEM THÃŠM',
         },
         contact: {
-          heading: 'LIÊN HỆ',
+          heading: 'LIÃŠN Há»†',
           columns: [
             { type: 'email',    label: 'EMAIL',       value: 'tkhuyen1714@gmail.com',            href: 'mailto:tkhuyen1714@gmail.com'                           },
             { type: 'linkedin', label: 'LINKEDIN',    value: 'linkedin.com/in/khanh-huyen-tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-            { type: 'phone',    label: 'ĐIỆN THOẠI',  value: '+84 915 085 900',                  href: 'tel:+84915085900'                                       },
+            { type: 'phone',    label: 'ÄIá»†N THOáº I',  value: '+84 915 085 900',                  href: 'tel:+84915085900'                                       },
           ],
           copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
           footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
@@ -136,27 +131,22 @@
 
       en: {
         nav: [
-          { label: 'HOME',    href: '#home',     section: 'home'     },
-          { label: 'PROJECTS',href: '#projects',  section: 'projects' },
-          { label: 'SKILLS',  href: '#skills',    section: 'skills'   },
-          { label: 'CONTACT', href: '#contact',   section: 'contact'  },
+          { label: 'HOME',    href: '#home',    section: 'home'    },
+          { label: 'SKILLS',  href: '#skills',  section: 'skills'  },
+          { label: 'CONTACT', href: '#contact', section: 'contact' },
         ],
         hero: {
           name:          'TRAN KHANH HUYEN',
           title:         'IT BUSINESS ANALYST',
           intro: [
             'An IT Business Analyst with hands-on experience in enterprise software projects. With a proactive mindset and passion for continuous learning, I focus on deeply understanding business problems, analyzing requirements, and building clear specifications to support the development of user-centric, scalable systems.',
-            'In terms of career direction, I am dedicated to growing my BA capabilities through real-world projects, with a 3–5 year goal of reaching Senior Business Analyst — someone who bridges business and technology, leads product discovery, and contributes to building sustainable digital products.',
+            'In terms of career direction, I am dedicated to growing my BA capabilities through real-world projects, with a 3â€“5 year goal of reaching Senior Business Analyst â€” someone who bridges business and technology, leads product discovery, and contributes to building sustainable digital products.',
           ],
           downloadCV:    'DOWNLOAD CV',
           linkedinLabel: 'LINKEDIN',
           email:         'tkhuyen1714@gmail.com',
           phone:         '+84915 085 900',
           linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
-        },
-        projects: {
-          heading: 'PROJECTS',
-          viewMore: 'VIEW MORE',
         },
         skills: {
           heading: 'SKILLS',
@@ -165,7 +155,7 @@
               id:        'system',
               title:     'SYSTEM DESIGN',
               tags:      ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
-              desc:      'Approaching system design in a structured manner that stays close to real business processes — from capturing requirements via User Stories, modeling workflows with BPMN, to building Use Case Diagrams, writing Use Case Specifications, and designing Activity Diagrams. The goal is always to produce clear, understandable documentation for both the technical team and the client.',
+              desc:      'Approaching system design in a structured manner that stays close to real business processes â€” from capturing requirements via User Stories, modeling workflows with BPMN, to building Use Case Diagrams, writing Use Case Specifications, and designing Activity Diagrams. The goal is always to produce clear, understandable documentation for both the technical team and the client.',
               hasButton: true,
             },
             {
@@ -179,7 +169,7 @@
               id:        'vibe',
               title:     'VIBE CODING',
               tags:      [],
-              desc:      'Building on a solid foundation of analytical documents — from User Stories and Use Cases to UI/UX designs — I have experienced applying Vibe Coding to quickly turn ideas into visual demos, helping clients easily envision the final product while shortening the feedback loop during development.',
+              desc:      'Building on a solid foundation of analytical documents â€” from User Stories and Use Cases to UI/UX designs â€” I have experienced applying Vibe Coding to quickly turn ideas into visual demos, helping clients easily envision the final product while shortening the feedback loop during development.',
               hasButton: false,
             },
             {
@@ -193,7 +183,7 @@
               id:        'agile',
               title:     'AGILE/SCRUM',
               tags:      [],
-              desc:      'I have a solid understanding of Agile/Scrum methodology and am confident in quickly integrating and contributing effectively to Agile projects — especially in collaborating with the development team to ensure requirements are correctly understood and implemented.',
+              desc:      'I have a solid understanding of Agile/Scrum methodology and am confident in quickly integrating and contributing effectively to Agile projects â€” especially in collaborating with the development team to ensure requirements are correctly understood and implemented.',
               hasButton: false,
             },
           ],
@@ -214,22 +204,18 @@
       },
     };
 
-    /* ════════════════════════════════════════════════════════════
-       2.  SHARED DICT — subpage labels + footer
-    ════════════════════════════════════════════════════════════ */
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       2.  SHARED DICT â€” subpage labels + footer
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     const SHARED_DICT = {
       vi: {
-        systemPageTitle: 'THIẾT KẾ HỆ THỐNG',
-        uiuxPageTitle:   'THIẾT KẾ UI/UX',
-        viewMore:        'XEM THÊM',
+        systemPageTitle: 'THIáº¾T Káº¾ Há»† THá»NG',
+        uiuxPageTitle:   'THIáº¾T Káº¾ UI/UX',
+        viewMore:        'XEM THÃŠM',
         prototype:       'PROTOTYPE',
-        backHome:        'Trở về Trang chủ',
-        nextUiux:        'Xem tiếp: Thiết kế UI/UX',
-        nextSystem:      'Xem tiếp: Thiết kế Hệ thống',
-        systemDesignBanner: 'THIẾT KẾ HỆ THỐNG',
-        uiuxDesignBanner:   'THIẾT KẾ UI/UX',
-        cvTitle:         'HỒ SƠ NĂNG LỰC',
-        downloadPdf:     'Tải xuống bản PDF',
+        backHome:        'Trá»Ÿ vá» Trang chá»§',
+        nextUiux:        'Xem tiáº¿p: Thiáº¿t káº¿ UI/UX',
+        nextSystem:      'Xem tiáº¿p: Thiáº¿t káº¿ Há»‡ thá»‘ng',
         copyright:       '2026 | Tran Khanh Huyen | Business Analyst',
         footerLinkedIn:  { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
         footerPhone:     { value: '+84915 085 900',   href: 'tel:+84915085900' },
@@ -243,10 +229,6 @@
         backHome:        'Back to Home',
         nextUiux:        'Next: UI/UX Design',
         nextSystem:      'Next: System Design',
-        systemDesignBanner: 'SYSTEM DESIGN',
-        uiuxDesignBanner:   'UI/UX DESIGN',
-        cvTitle:         'CURRICULUM VITAE',
-        downloadPdf:     'Download PDF',
         copyright:       '2026 | Tran Khanh Huyen | Business Analyst',
         footerLinkedIn:  { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
         footerPhone:     { value: '+84915 085 900',   href: 'tel:+84915085900' },
@@ -254,39 +236,39 @@
       },
     };
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        3.  SYSTEM DESIGN PROJECTS
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     const SYSTEM_PROJECTS = {
       vi: [
         {
           id:         'p1',
-          shortTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          fullTitle:  'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          cardDesc:   'Tập trung vào việc phân tích và thiết kế module Sản xuất & Nhân sự trong hệ thống ERP cho Thương hiệu Tàu Hũ Singapore Yummy, đảm bảo nghiệp vụ sản xuất và nhân sự được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
+          shortTitle: 'Há»† THá»NG ERP CHO THÆ¯Æ NG HIá»†U TÃ€U HÅ¨ SINGAPORE YUMMY',
+          fullTitle:  'Há»† THá»NG ERP CHO THÆ¯Æ NG HIá»†U TÃ€U HÅ¨ SINGAPORE YUMMY',
+          cardDesc:   'Táº­p trung vÃ o viá»‡c phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ module Sáº£n xuáº¥t & NhÃ¢n sá»± trong há»‡ thá»‘ng ERP cho ThÆ°Æ¡ng hiá»‡u TÃ u HÅ© Singapore Yummy, Ä‘áº£m báº£o nghiá»‡p vá»¥ sáº£n xuáº¥t vÃ  nhÃ¢n sá»± Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, logic vÃ  sÃ¡t vá»›i thá»±c táº¿ hoáº¡t Ä‘á»™ng cá»§a doanh nghiá»‡p.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading:    'GIá»šI THIá»†U',
                 paragraphs: [
-                  'Thương hiệu tàu hũ Singapore Yummy đang vận hành chuỗi cửa hàng trực thuộc. Doanh nghiệp hiện sử dụng iPOS cho nghiệp vụ bán hàng, tuy nhiên doanh nghiệp thiếu sự liên kết giữa các bộ phận. Dự án ERP được triển khai nhằm số hóa quy trình vận hành từ sản xuất đến nhân sự, giúp doanh nghiệp kiểm soát chặt chẽ hơn và sẵn sàng mở rộng chuỗi trong tương lai.',
+                  'ThÆ°Æ¡ng hiá»‡u tÃ u hÅ© Singapore Yummy Ä‘ang váº­n hÃ nh chuá»—i cá»­a hÃ ng trá»±c thuá»™c. Doanh nghiá»‡p hiá»‡n sá»­ dá»¥ng iPOS cho nghiá»‡p vá»¥ bÃ¡n hÃ ng, tuy nhiÃªn doanh nghiá»‡p thiáº¿u sá»± liÃªn káº¿t giá»¯a cÃ¡c bá»™ pháº­n. Dá»± Ã¡n ERP Ä‘Æ°á»£c triá»ƒn khai nháº±m sá»‘ hÃ³a quy trÃ¬nh váº­n hÃ nh tá»« sáº£n xuáº¥t Ä‘áº¿n nhÃ¢n sá»±, giÃºp doanh nghiá»‡p kiá»ƒm soÃ¡t cháº·t cháº½ hÆ¡n vÃ  sáºµn sÃ ng má»Ÿ rá»™ng chuá»—i trong tÆ°Æ¡ng lai.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading:    'PHáº M VI',
                 paragraphs: [
-                  'Phụ trách phân tích và thiết kế module Sản xuất & Nhân sự trong hệ thống ERP, bao gồm các nghiệp vụ quản lý quy trình sản xuất tàu hũ, theo dõi nguyên vật liệu, quản lý ca làm việc, chấm công và tính lương nhân viên, đảm bảo nghiệp vụ sản xuất và nhân sự được đặc tả rõ ràng, sát thực tế và sẵn sàng cho giai đoạn phát triển hệ thống.',
+                  'Phá»¥ trÃ¡ch phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ module Sáº£n xuáº¥t & NhÃ¢n sá»± trong há»‡ thá»‘ng ERP, bao gá»“m cÃ¡c nghiá»‡p vá»¥ quáº£n lÃ½ quy trÃ¬nh sáº£n xuáº¥t tÃ u hÅ©, theo dÃµi nguyÃªn váº­t liá»‡u, quáº£n lÃ½ ca lÃ m viá»‡c, cháº¥m cÃ´ng vÃ  tÃ­nh lÆ°Æ¡ng nhÃ¢n viÃªn, Ä‘áº£m báº£o nghiá»‡p vá»¥ sáº£n xuáº¥t vÃ  nhÃ¢n sá»± Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, sÃ¡t thá»±c táº¿ vÃ  sáºµn sÃ ng cho giai Ä‘oáº¡n phÃ¡t triá»ƒn há»‡ thá»‘ng.',
                 ],
               },
             },
             {
               type:    'swimlane',
-              heading: 'QUY TRÌNH KINH DOANH ĐƯỢC MÔ HÌNH HÓA BẰNG BPMN',
+              heading: 'QUY TRÃŒNH KINH DOANH ÄÆ¯á»¢C MÃ” HÃŒNH HÃ“A Báº°NG BPMN',
               layout:  'full',
               images: [
-                { src: './assets/yummy-bpmn1.png', alt: 'BPMN Quy trình quản lý sản xuất', caption: 'BPMN Quy Trình Quản Lý Sản Xuất' },
-                { src: './assets/yummy-bpmn2.png', alt: 'BPMN Quy trình quản lý nhân sự',  caption: 'BPMN Quy Trình Quản Lý Nhân Sự'  },
+                { src: './assets/yummy-bpmn1.png', alt: 'BPMN Quy trÃ¬nh quáº£n lÃ½ sáº£n xuáº¥t', caption: 'BPMN Quy TrÃ¬nh Quáº£n LÃ½ Sáº£n Xuáº¥t' },
+                { src: './assets/yummy-bpmn2.png', alt: 'BPMN Quy trÃ¬nh quáº£n lÃ½ nhÃ¢n sá»±',  caption: 'BPMN Quy TrÃ¬nh Quáº£n LÃ½ NhÃ¢n Sá»±'  },
               ],
             },
             {
@@ -300,7 +282,7 @@
             },
             {
               type:    'use-case-diagram',
-              heading: 'SƠ ĐỒ USE CASE',
+              heading: 'SÆ  Äá»’ USE CASE',
               layout:  'full',
               images: [
                 { src: './assets/yummy-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1' },
@@ -313,8 +295,8 @@
               heading: 'USE CASE SPECIFICATION',
               layout:  'pair',
               images: [
-                { src: './assets/yummy-ucs1.png', alt: 'Use Case Specification 1', caption: 'Đặc tả UC3.2.5.1. Thêm kế hoạch sản xuất' },
-                { src: './assets/yummy-ucs2.png', alt: 'Use Case Specification 2', caption: 'Đặc tả UC5.2.3.1b. Xem chi tiết chấm công' },
+                { src: './assets/yummy-ucs1.png', alt: 'Use Case Specification 1', caption: 'Äáº·c táº£ UC3.2.5.1. ThÃªm káº¿ hoáº¡ch sáº£n xuáº¥t' },
+                { src: './assets/yummy-ucs2.png', alt: 'Use Case Specification 2', caption: 'Äáº·c táº£ UC5.2.3.1b. Xem chi tiáº¿t cháº¥m cÃ´ng' },
               ],
             },
             {
@@ -323,48 +305,48 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/yummy-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC3.2.5.1. Thêm kế hoạch sản xuất' },
-                { src: './assets/yummy-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC5.2.3.1b. Xem chi tiết chấm công' },
+                { src: './assets/yummy-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram â€” UC3.2.5.1. ThÃªm káº¿ hoáº¡ch sáº£n xuáº¥t' },
+                { src: './assets/yummy-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram â€” UC5.2.3.1b. Xem chi tiáº¿t cháº¥m cÃ´ng' },
               ],
             },
             {
               type:    'erd',
-              heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
+              heading: 'SÆ  Äá»’ THá»°C THá»‚ Má»I QUAN Há»† (ERD)',
               layout:  'multi',
               images: [
-                { src: './assets/yummy-erd1.png', alt: 'ERD Module Sản Xuất', caption: 'ERD Sản Xuất - Tàu Hũ Singapore Yummy' },
-                { src: './assets/yummy-erd2.png', alt: 'ERD Module Nhân Sự',  caption: 'ERD Nhân Sự - Tàu Hũ Singapore Yummy'  },
+                { src: './assets/yummy-erd1.png', alt: 'ERD Module Sáº£n Xuáº¥t', caption: 'ERD Sáº£n Xuáº¥t - TÃ u HÅ© Singapore Yummy' },
+                { src: './assets/yummy-erd2.png', alt: 'ERD Module NhÃ¢n Sá»±',  caption: 'ERD NhÃ¢n Sá»± - TÃ u HÅ© Singapore Yummy'  },
               ],
             },
           ],
         },
         {
           id:         'p2',
-          shortTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          fullTitle:  'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          cardDesc:   'Tập trung vào việc phân tích và thiết kế module Tài chính trong hệ thống ERP cho Công ty TNHH Nam Việt Phương để đảm bảo toàn bộ nghiệp vụ tài chính được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
+          shortTitle: 'Há»† THá»NG ERP Yáº¾N SÃ€O NAM AN â€” CÃ”NG TY TNHH NAM VIá»†T PHÆ¯Æ NG',
+          fullTitle:  'Há»† THá»NG ERP Yáº¾N SÃ€O NAM AN â€” CÃ”NG TY TNHH NAM VIá»†T PHÆ¯Æ NG',
+          cardDesc:   'Táº­p trung vÃ o viá»‡c phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ module TÃ i chÃ­nh trong há»‡ thá»‘ng ERP cho CÃ´ng ty TNHH Nam Viá»‡t PhÆ°Æ¡ng Ä‘á»ƒ Ä‘áº£m báº£o toÃ n bá»™ nghiá»‡p vá»¥ tÃ i chÃ­nh Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, logic vÃ  sÃ¡t vá»›i thá»±c táº¿ hoáº¡t Ä‘á»™ng cá»§a doanh nghiá»‡p.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading:    'GIá»šI THIá»†U',
                 paragraphs: [
-                  'Yến Sào Nam An hoạt động trong lĩnh vực sản xuất và kinh doanh yến sào từ thu hoạch, sơ chế, tinh chế đến bán lẻ và bán sỉ. Doanh nghiệp đang vận hành trên nhiều nền tảng (Sapo, Excel, chứng từ giấy), dẫn đến dữ liệu phân tán, khó tổng hợp và thiếu khả năng phân tích phục vụ ra quyết định. Dự án ERP được triển khai nhằm tập trung hóa dữ liệu, chuẩn hóa quy trình vận hành và hỗ trợ doanh nghiệp chuyển dữ liệu thành thông tin và khuyến nghị kinh doanh thực tiễn.',
+                  'Yáº¿n SÃ o Nam An hoáº¡t Ä‘á»™ng trong lÄ©nh vá»±c sáº£n xuáº¥t vÃ  kinh doanh yáº¿n sÃ o tá»« thu hoáº¡ch, sÆ¡ cháº¿, tinh cháº¿ Ä‘áº¿n bÃ¡n láº» vÃ  bÃ¡n sá»‰. Doanh nghiá»‡p Ä‘ang váº­n hÃ nh trÃªn nhiá»u ná»n táº£ng (Sapo, Excel, chá»©ng tá»« giáº¥y), dáº«n Ä‘áº¿n dá»¯ liá»‡u phÃ¢n tÃ¡n, khÃ³ tá»•ng há»£p vÃ  thiáº¿u kháº£ nÄƒng phÃ¢n tÃ­ch phá»¥c vá»¥ ra quyáº¿t Ä‘á»‹nh. Dá»± Ã¡n ERP Ä‘Æ°á»£c triá»ƒn khai nháº±m táº­p trung hÃ³a dá»¯ liá»‡u, chuáº©n hÃ³a quy trÃ¬nh váº­n hÃ nh vÃ  há»— trá»£ doanh nghiá»‡p chuyá»ƒn dá»¯ liá»‡u thÃ nh thÃ´ng tin vÃ  khuyáº¿n nghá»‹ kinh doanh thá»±c tiá»…n.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading:    'PHáº M VI',
                 paragraphs: [
-                  'Phụ trách phân tích và thiết kế module Tài chính trong hệ thống ERP, bao gồm các nghiệp vụ theo dõi thu chi, quản lý công nợ bán sỉ/bán lẻ và báo cáo tài chính nội bộ đảm bảo nghiệp vụ tài chính được đặc tả rõ ràng, sát thực tế và sẵn sàng cho giai đoạn phát triển hệ thống.',
+                  'Phá»¥ trÃ¡ch phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ module TÃ i chÃ­nh trong há»‡ thá»‘ng ERP, bao gá»“m cÃ¡c nghiá»‡p vá»¥ theo dÃµi thu chi, quáº£n lÃ½ cÃ´ng ná»£ bÃ¡n sá»‰/bÃ¡n láº» vÃ  bÃ¡o cÃ¡o tÃ i chÃ­nh ná»™i bá»™ Ä‘áº£m báº£o nghiá»‡p vá»¥ tÃ i chÃ­nh Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, sÃ¡t thá»±c táº¿ vÃ  sáºµn sÃ ng cho giai Ä‘oáº¡n phÃ¡t triá»ƒn há»‡ thá»‘ng.',
                 ],
               },
             },
             {
               type:    'swimlane',
-              heading: 'QUY TRÌNH QUẢN LÝ TÀI CHÍNH ĐƯỢC MÔ HÌNH HÓA BẰNG BPMN',
+              heading: 'QUY TRÃŒNH QUáº¢N LÃ TÃ€I CHÃNH ÄÆ¯á»¢C MÃ” HÃŒNH HÃ“A Báº°NG BPMN',
               layout:  'full',
               images: [
-                { src: './assets/naman-bpmn.png', alt: 'Swim Lane — Quy trình quản lý tài chính', caption: 'BPMN Quy Trình Quản Lý Tài Chính' },
+                { src: './assets/naman-bpmn.png', alt: 'Swim Lane â€” Quy trÃ¬nh quáº£n lÃ½ tÃ i chÃ­nh', caption: 'BPMN Quy TrÃ¬nh Quáº£n LÃ½ TÃ i ChÃ­nh' },
               ],
             },
             {
@@ -378,7 +360,7 @@
             },
             {
               type:    'use-case-diagram',
-              heading: 'SƠ ĐỒ USE CASE',
+              heading: 'SÆ  Äá»’ USE CASE',
               layout:  'full',
               images: [
                 { src: './assets/naman-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
@@ -390,8 +372,8 @@
               heading: 'USE CASE SPECIFICATION',
               layout:  'pair',
               images: [
-                { src: './assets/naman-ucs1.png', alt: 'UCS UC-6.2.1. Thêm nguồn quỹ',                   caption: 'Đặc tả UC-6.2.1. Thêm nguồn quỹ'                       },
-                { src: './assets/naman-ucs2.png', alt: 'UCS UC-6.4.1b. Xem chi tiết công nợ',             caption: 'Đặc tả UC-6.4.1b. Xem chi tiết công nợ nhà cung cấp' },
+                { src: './assets/naman-ucs1.png', alt: 'UCS UC-6.2.1. ThÃªm nguá»“n quá»¹',                   caption: 'Äáº·c táº£ UC-6.2.1. ThÃªm nguá»“n quá»¹'                       },
+                { src: './assets/naman-ucs2.png', alt: 'UCS UC-6.4.1b. Xem chi tiáº¿t cÃ´ng ná»£',             caption: 'Äáº·c táº£ UC-6.4.1b. Xem chi tiáº¿t cÃ´ng ná»£ nhÃ  cung cáº¥p' },
               ],
             },
             {
@@ -400,47 +382,47 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Thêm nguồn quỹ'                             },
-                { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC-6.4.1b. Xem chi tiết công nợ nhà cung cấp' },
+                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram â€” UC6.2.1. ThÃªm nguá»“n quá»¹'                             },
+                { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram â€” UC-6.4.1b. Xem chi tiáº¿t cÃ´ng ná»£ nhÃ  cung cáº¥p' },
               ],
             },
             {
               type:    'erd',
-              heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
+              heading: 'SÆ  Äá»’ THá»°C THá»‚ Má»I QUAN Há»† (ERD)',
               layout:  'full',
               images: [
-                { src: './assets/naman-erd.png', alt: 'ERD — Yến Sào Nam An', caption: 'ERD Tài Chính — Yến Sào Nam An' },
+                { src: './assets/naman-erd.png', alt: 'ERD â€” Yáº¿n SÃ o Nam An', caption: 'ERD TÃ i ChÃ­nh â€” Yáº¿n SÃ o Nam An' },
               ],
             },
           ],
         },
         {
           id:         'p3',
-          shortTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          fullTitle:  'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          cardDesc:   'Tập trung vào việc phân tích và thiết kế module Bán hàng B2B trong hệ thống ERP cho Công ty TNHH Wonder Wood, đảm bảo nghiệp vụ bán hàng được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
+          shortTitle: 'Há»† THá»NG ERP CHO CÃ”NG TY TNHH WONDER WOOD',
+          fullTitle:  'Há»† THá»NG ERP CHO CÃ”NG TY TNHH WONDER WOOD',
+          cardDesc:   'Táº­p trung vÃ o viá»‡c phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ module BÃ¡n hÃ ng B2B trong há»‡ thá»‘ng ERP cho CÃ´ng ty TNHH Wonder Wood, Ä‘áº£m báº£o nghiá»‡p vá»¥ bÃ¡n hÃ ng Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, logic vÃ  sÃ¡t vá»›i thá»±c táº¿ hoáº¡t Ä‘á»™ng cá»§a doanh nghiá»‡p.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading:    'GIá»šI THIá»†U',
                 paragraphs: [
-                  'Wonder Wood hoạt động trong lĩnh vực sản xuất và gia công ván gỗ công nghiệp, phục vụ khách hàng B2B. Doanh nghiệp đang vận hành chủ yếu bằng Excel và Google Sheet, khó kiểm soát quy trình sản xuất, tồn kho và theo dõi đơn hàng. Dự án ERP được triển khai nhằm số hóa toàn bộ hoạt động vận hành từ sản xuất, kho bãi đến bán hàng giúp doanh nghiệp quản lý hiệu quả hơn và hướng đến mô hình vận hành hiện đại, không phụ thuộc vào giấy tờ thủ công.',
+                  'Wonder Wood hoáº¡t Ä‘á»™ng trong lÄ©nh vá»±c sáº£n xuáº¥t vÃ  gia cÃ´ng vÃ¡n gá»— cÃ´ng nghiá»‡p, phá»¥c vá»¥ khÃ¡ch hÃ ng B2B. Doanh nghiá»‡p Ä‘ang váº­n hÃ nh chá»§ yáº¿u báº±ng Excel vÃ  Google Sheet, khÃ³ kiá»ƒm soÃ¡t quy trÃ¬nh sáº£n xuáº¥t, tá»“n kho vÃ  theo dÃµi Ä‘Æ¡n hÃ ng. Dá»± Ã¡n ERP Ä‘Æ°á»£c triá»ƒn khai nháº±m sá»‘ hÃ³a toÃ n bá»™ hoáº¡t Ä‘á»™ng váº­n hÃ nh tá»« sáº£n xuáº¥t, kho bÃ£i Ä‘áº¿n bÃ¡n hÃ ng giÃºp doanh nghiá»‡p quáº£n lÃ½ hiá»‡u quáº£ hÆ¡n vÃ  hÆ°á»›ng Ä‘áº¿n mÃ´ hÃ¬nh váº­n hÃ nh hiá»‡n Ä‘áº¡i, khÃ´ng phá»¥ thuá»™c vÃ o giáº¥y tá» thá»§ cÃ´ng.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading:    'PHáº M VI',
                 paragraphs: [
-                  'Phụ trách phân tích và thiết kế module Bán hàng B2B trong hệ thống ERP, bao gồm các nghiệp vụ tiếp nhận đơn hàng, quản lý thông tin khách hàng và theo dõi tiến độ giao hàng, nhằm đảm bảo nghiệp vụ bán hàng được đặc tả rõ ràng, sát thực tế và sẵn sàng cho giai đoạn phát triển hệ thống.',
+                  'Phá»¥ trÃ¡ch phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ module BÃ¡n hÃ ng B2B trong há»‡ thá»‘ng ERP, bao gá»“m cÃ¡c nghiá»‡p vá»¥ tiáº¿p nháº­n Ä‘Æ¡n hÃ ng, quáº£n lÃ½ thÃ´ng tin khÃ¡ch hÃ ng vÃ  theo dÃµi tiáº¿n Ä‘á»™ giao hÃ ng, nháº±m Ä‘áº£m báº£o nghiá»‡p vá»¥ bÃ¡n hÃ ng Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, sÃ¡t thá»±c táº¿ vÃ  sáºµn sÃ ng cho giai Ä‘oáº¡n phÃ¡t triá»ƒn há»‡ thá»‘ng.',
                 ],
               },
             },
             {
               type:    'swimlane',
-              heading: 'QUY TRÌNH QUẢN LÝ BÁN HÀNG ĐƯỢC MÔ HÌNH HÓA BẰNG BPMN',
+              heading: 'QUY TRÃŒNH QUáº¢N LÃ BÃN HÃ€NG ÄÆ¯á»¢C MÃ” HÃŒNH HÃ“A Báº°NG BPMN',
               layout:  'full',
               images: [
-                { src: './assets/wonderwood-bpmn.png', alt: 'Swim Lane — Wonder Wood', caption: 'BPMN Quy Trình Quản Lý Bán Hàng' },
+                { src: './assets/wonderwood-bpmn.png', alt: 'Swim Lane â€” Wonder Wood', caption: 'BPMN Quy TrÃ¬nh Quáº£n LÃ½ BÃ¡n HÃ ng' },
               ],
             },
             {
@@ -454,7 +436,7 @@
             },
             {
               type:    'use-case-diagram',
-              heading: 'SƠ ĐỒ USE CASE',
+              heading: 'SÆ  Äá»’ USE CASE',
               layout:  'full',
               images: [
                 { src: './assets/wonderwood-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
@@ -466,8 +448,8 @@
               heading: 'USE CASE SPECIFICATION',
               layout:  'pair',
               images: [
-                { src: './assets/wonderwood-ucs1.png', alt: 'Use Case Specification 1', caption: 'Đặc tả UC4.2a. Thêm hồ sơ khách hàng' },
-                { src: './assets/wonderwood-ucs2.png', alt: 'Use Case Specification 2', caption: 'Đặc tả UC4.4.5. Hủy từng đơn hàng' },
+                { src: './assets/wonderwood-ucs1.png', alt: 'Use Case Specification 1', caption: 'Äáº·c táº£ UC4.2a. ThÃªm há»“ sÆ¡ khÃ¡ch hÃ ng' },
+                { src: './assets/wonderwood-ucs2.png', alt: 'Use Case Specification 2', caption: 'Äáº·c táº£ UC4.4.5. Há»§y tá»«ng Ä‘Æ¡n hÃ ng' },
               ],
             },
             {
@@ -476,44 +458,44 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram - UC4.2a. Thêm hồ sơ khách hàng' },
-                { src: './assets/wonderwood-ad1.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram - UC4.4.5. Hủy từng đơn hàng' },
+                { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram - UC4.2a. ThÃªm há»“ sÆ¡ khÃ¡ch hÃ ng' },
+                { src: './assets/wonderwood-ad1.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram - UC4.4.5. Há»§y tá»«ng Ä‘Æ¡n hÃ ng' },
               ],
             },
             {
               type:    'erd',
-              heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
+              heading: 'SÆ  Äá»’ THá»°C THá»‚ Má»I QUAN Há»† (ERD)',
               layout:  'full',
               images: [
-                { src: './assets/wonderwood-erd.png', alt: 'ERD — Wonder Wood', caption: 'ERD Bán Hàng - Wonder Wood' },
+                { src: './assets/wonderwood-erd.png', alt: 'ERD â€” Wonder Wood', caption: 'ERD BÃ¡n HÃ ng - Wonder Wood' },
               ],
             },
           ],
         },
         {
           id:         'p4',
-          shortTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          fullTitle:  'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          cardDesc:   'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
+          shortTitle: 'Há»† THá»NG QUáº¢N LÃ Vá»Š TRÃ Sáº¢N PHáº¨M TRÃŠN Ká»† KHO VÃ€ Cá»¬A HÃ€NG THE SHEA',
+          fullTitle:  'Há»† THá»NG QUáº¢N LÃ Vá»Š TRÃ Sáº¢N PHáº¨M TRÃŠN Ká»† KHO VÃ€ Cá»¬A HÃ€NG THE SHEA',
+          cardDesc:   'Dá»± Ã¡n táº­p trung vÃ o viá»‡c phÃ¢n tÃ­ch vÃ  thiáº¿t káº¿ há»‡ thá»‘ng quáº£n lÃ½ vá»‹ trÃ­ hÃ ng hÃ³a trÃªn ká»‡ kho vÃ  cá»­a hÃ ng cho The SHEA Ä‘áº£m báº£o há»‡ thá»‘ng Ä‘Æ°á»£c Ä‘áº·c táº£ rÃµ rÃ ng, logic vÃ  sÃ¡t vá»›i thá»±c táº¿ váº­n hÃ nh cá»§a doanh nghiá»‡p.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading:    'GIá»šI THIá»†U',
                 paragraphs: [
-                  'The SHEA đang quản lý vị trí sản phẩm trên kệ kho và cửa hàng theo cách thủ công, dựa vào kinh nghiệm cá nhân nhân viên, dẫn đến tình trạng tìm hàng chậm, sắp xếp sai vị trí, hàng tồn không luân chuyển đúng quy tắc và quản lý thiếu dữ liệu để giám sát, kiểm soát kịp thời.',
+                  'The SHEA Ä‘ang quáº£n lÃ½ vá»‹ trÃ­ sáº£n pháº©m trÃªn ká»‡ kho vÃ  cá»­a hÃ ng theo cÃ¡ch thá»§ cÃ´ng, dá»±a vÃ o kinh nghiá»‡m cÃ¡ nhÃ¢n nhÃ¢n viÃªn, dáº«n Ä‘áº¿n tÃ¬nh tráº¡ng tÃ¬m hÃ ng cháº­m, sáº¯p xáº¿p sai vá»‹ trÃ­, hÃ ng tá»“n khÃ´ng luÃ¢n chuyá»ƒn Ä‘Ãºng quy táº¯c vÃ  quáº£n lÃ½ thiáº¿u dá»¯ liá»‡u Ä‘á»ƒ giÃ¡m sÃ¡t, kiá»ƒm soÃ¡t ká»‹p thá»i.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading:    'PHáº M VI',
                 paragraphs: [
-                  'Hệ thống tập trung vào việc quản lý vị trí sản phẩm trên kệ tại kho và cửa hàng của the SHEA, bao gồm phân bổ và cập nhật vị trí sản phẩm, tra cứu hàng hóa, kiểm soát luân chuyển hàng hóa.',
+                  'Há»‡ thá»‘ng táº­p trung vÃ o viá»‡c quáº£n lÃ½ vá»‹ trÃ­ sáº£n pháº©m trÃªn ká»‡ táº¡i kho vÃ  cá»­a hÃ ng cá»§a the SHEA, bao gá»“m phÃ¢n bá»• vÃ  cáº­p nháº­t vá»‹ trÃ­ sáº£n pháº©m, tra cá»©u hÃ ng hÃ³a, kiá»ƒm soÃ¡t luÃ¢n chuyá»ƒn hÃ ng hÃ³a.',
                 ],
               },
             },
             {
               type:    'use-case-diagram',
-              heading: 'SƠ ĐỒ USE CASE',
+              heading: 'SÆ  Äá»’ USE CASE',
               layout:  'full',
               images: [
                 { src: './assets/theshea-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
@@ -535,8 +517,8 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/theshea-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC1.1. Thêm mới giá kệ' },
-                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC1.4. Xóa giá kệ'      },
+                { src: './assets/theshea-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram â€” UC1.1. ThÃªm má»›i giÃ¡ ká»‡' },
+                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram â€” UC1.4. XÃ³a giÃ¡ ká»‡'      },
               ],
             },
           ],
@@ -570,8 +552,8 @@
               heading: 'BUSINESS PROCESSES MODELLED WITH BPMN',
               layout:  'full',
               images: [
-                { src: './assets/yummy-bpmn1.png', alt: 'BPMN — Production Management Process', caption: 'BPMN — Production Management Process' },
-                { src: './assets/yummy-bpmn2.png', alt: 'BPMN — HR Management Process',          caption: 'BPMN — HR Management Process'          },
+                { src: './assets/yummy-bpmn1.png', alt: 'BPMN â€” Production Management Process', caption: 'BPMN â€” Production Management Process' },
+                { src: './assets/yummy-bpmn2.png', alt: 'BPMN â€” HR Management Process',          caption: 'BPMN â€” HR Management Process'          },
               ],
             },
             {
@@ -608,8 +590,8 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/yummy-ad1.png', alt: 'Activity Diagram — UC3.2.5.1. Add Production Plan',        caption: 'Activity Diagram — UC3.2.5.1. Add Production Plan'        },
-                { src: './assets/yummy-ad2.png', alt: 'Activity Diagram — UC5.2.3.1b. View Attendance Details', caption: 'Activity Diagram — UC5.2.3.1b. View Attendance Details' },
+                { src: './assets/yummy-ad1.png', alt: 'Activity Diagram â€” UC3.2.5.1. Add Production Plan',        caption: 'Activity Diagram â€” UC3.2.5.1. Add Production Plan'        },
+                { src: './assets/yummy-ad2.png', alt: 'Activity Diagram â€” UC5.2.3.1b. View Attendance Details', caption: 'Activity Diagram â€” UC5.2.3.1b. View Attendance Details' },
               ],
             },
             {
@@ -617,16 +599,16 @@
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
               layout:  'multi',
               images: [
-                { src: './assets/yummy-erd1.png', alt: 'ERD — Production Module — Singapore Yummy', caption: 'ERD — Production Module — Singapore Yummy' },
-                { src: './assets/yummy-erd2.png', alt: 'ERD — HR Module — Singapore Yummy',         caption: 'ERD — HR Module — Singapore Yummy'         },
+                { src: './assets/yummy-erd1.png', alt: 'ERD â€” Production Module â€” Singapore Yummy', caption: 'ERD â€” Production Module â€” Singapore Yummy' },
+                { src: './assets/yummy-erd2.png', alt: 'ERD â€” HR Module â€” Singapore Yummy',         caption: 'ERD â€” HR Module â€” Singapore Yummy'         },
               ],
             },
           ],
         },
         {
           id:         'p2',
-          shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM â€” NAM VIET PHUONG CO., LTD",
+          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM â€” NAM VIET PHUONG CO., LTD",
           cardDesc:   "Focused on analyzing and designing the Finance module within the ERP system for Nam Viet Phuong Co., Ltd., ensuring all financial operations are clearly specified, logically structured, and aligned with the company's actual business practices.",
           sections: [
             {
@@ -649,7 +631,7 @@
               heading: 'FINANCIAL MANAGEMENT PROCESS MODELLED WITH BPMN',
               layout:  'full',
               images: [
-                { src: './assets/naman-bpmn.png', alt: 'Swim Lane — Financial Management Process', caption: 'Financial Management Process' },
+                { src: './assets/naman-bpmn.png', alt: 'Swim Lane â€” Financial Management Process', caption: 'Financial Management Process' },
               ],
             },
             {
@@ -685,8 +667,8 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Add Fund Source'              },
-                { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC-6.4.1b. View Supplier Debt Details' },
+                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram â€” UC6.2.1. Add Fund Source'              },
+                { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram â€” UC-6.4.1b. View Supplier Debt Details' },
               ],
             },
             {
@@ -694,7 +676,7 @@
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
               layout:  'full',
               images: [
-                { src: './assets/naman-erd.png', alt: "ERD — Finance Module — Nam An Bird's Nest", caption: "ERD — Finance Module — Nam An Bird's Nest" },
+                { src: './assets/naman-erd.png', alt: "ERD â€” Finance Module â€” Nam An Bird's Nest", caption: "ERD â€” Finance Module â€” Nam An Bird's Nest" },
               ],
             },
           ],
@@ -725,7 +707,7 @@
               heading: 'SALES MANAGEMENT PROCESS MODELLED WITH BPMN',
               layout:  'full',
               images: [
-                { src: './assets/wonderwood-bpmn.png', alt: 'Swim Lane — Wonder Wood', caption: 'Sales Management Process' },
+                { src: './assets/wonderwood-bpmn.png', alt: 'Swim Lane â€” Wonder Wood', caption: 'Sales Management Process' },
               ],
             },
             {
@@ -761,8 +743,8 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram — UC4.2a. Add Customer Profile',       caption: 'Activity Diagram — UC4.2a. Add Customer Profile'       },
-                { src: './assets/wonderwood-ad1.png', alt: 'Activity Diagram — UC4.4.5. Cancel Individual Order', caption: 'Activity Diagram — UC4.4.5. Cancel Individual Order' },
+                { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram â€” UC4.2a. Add Customer Profile',       caption: 'Activity Diagram â€” UC4.2a. Add Customer Profile'       },
+                { src: './assets/wonderwood-ad1.png', alt: 'Activity Diagram â€” UC4.4.5. Cancel Individual Order', caption: 'Activity Diagram â€” UC4.4.5. Cancel Individual Order' },
               ],
             },
             {
@@ -770,7 +752,7 @@
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
               layout:  'full',
               images: [
-                { src: './assets/wonderwood-erd.png', alt: 'ERD — B2B Sales Module — Wonder Wood', caption: 'ERD — B2B Sales Module — Wonder Wood' },
+                { src: './assets/wonderwood-erd.png', alt: 'ERD â€” B2B Sales Module â€” Wonder Wood', caption: 'ERD â€” B2B Sales Module â€” Wonder Wood' },
               ],
             },
           ],
@@ -820,8 +802,8 @@
               layout:  'pair',
               size:    'md',
               images: [
-                { src: './assets/theshea-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC1.1. Add New Shelf Row' },
-                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC1.4. Delete Shelf Row'  },
+                { src: './assets/theshea-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram â€” UC1.1. Add New Shelf Row' },
+                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram â€” UC1.4. Delete Shelf Row'  },
               ],
             },
           ],
@@ -829,22 +811,22 @@
       ],
     };
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        4.  UI/UX DESIGN PROJECTS
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     const UIUX_PROJECTS = {
       vi: [
         {
           id:         'p1',
-          shortTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          fullTitle:  'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          cardDesc:   'Thiết kế UX/UI cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy, bao gồm prototype tương tác Figma và bộ màn hình giao diện hoàn chỉnh.',
+          shortTitle: 'Há»† THá»NG ERP CHO THÆ¯Æ NG HIá»†U TÃ€U HÅ¨ SINGAPORE YUMMY',
+          fullTitle:  'Há»† THá»NG ERP CHO THÆ¯Æ NG HIá»†U TÃ€U HÅ¨ SINGAPORE YUMMY',
+          cardDesc:   'Thiáº¿t káº¿ UX/UI cho há»‡ thá»‘ng ERP module Sáº£n xuáº¥t & NhÃ¢n sá»± cá»§a Singapore Yummy, bao gá»“m prototype tÆ°Æ¡ng tÃ¡c Figma vÃ  bá»™ mÃ n hÃ¬nh giao diá»‡n hoÃ n chá»‰nh.',
           sections: [
             {
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/yummy0.jpg',
-              bannerAlt:     'UX Design — Singapore Yummy',
+              bannerAlt:     'UX Design â€” Singapore Yummy',
               prototypeHref: 'https://www.figma.com/proto/NRuushQ45tYzRi72LHbkEo/Yummy?node-id=1412-72506&p=f&t=61rOmjiGgHpBDyLm-0&scaling=min-zoom&content-scaling=fixed&page-id=718%3A50376&starting-point-node-id=1412%3A72506&show-proto-sidebar=1',
             },
             {
@@ -865,15 +847,15 @@
         },
         {
           id:         'p2',
-          shortTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          fullTitle:  'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          cardDesc:   'Thiết kế UX/UI cho module Tài chính của hệ thống ERP Nam An, bao gồm prototype tương tác Figma và bộ màn hình giao diện desktop.',
+          shortTitle: 'Há»† THá»NG ERP Yáº¾N SÃ€O NAM AN â€” CÃ”NG TY TNHH NAM VIá»†T PHÆ¯Æ NG',
+          fullTitle:  'Há»† THá»NG ERP Yáº¾N SÃ€O NAM AN â€” CÃ”NG TY TNHH NAM VIá»†T PHÆ¯Æ NG',
+          cardDesc:   'Thiáº¿t káº¿ UX/UI cho module TÃ i chÃ­nh cá»§a há»‡ thá»‘ng ERP Nam An, bao gá»“m prototype tÆ°Æ¡ng tÃ¡c Figma vÃ  bá»™ mÃ n hÃ¬nh giao diá»‡n desktop.',
           sections: [
             {
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/naman0.jpg',
-              bannerAlt:     'UX Design — Yến Sào Nam An',
+              bannerAlt:     'UX Design â€” Yáº¿n SÃ o Nam An',
               bannerSize:    'sm',
               prototypeHref: 'https://www.figma.com/proto/fIiO0gr1url64n6KwFo9SZ?node-id=0-1&t=zxQZ34xTOIVy5WPa-6',
             },
@@ -894,15 +876,15 @@
         },
         {
           id:         'p3',
-          shortTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          fullTitle:  'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          cardDesc:   'Thiết kế UX/UI cho module Bán hàng B2B của hệ thống ERP Wonder Wood, với prototype Figma và bộ màn hình giao diện desktop đầy đủ.',
+          shortTitle: 'Há»† THá»NG ERP CHO CÃ”NG TY TNHH WONDER WOOD',
+          fullTitle:  'Há»† THá»NG ERP CHO CÃ”NG TY TNHH WONDER WOOD',
+          cardDesc:   'Thiáº¿t káº¿ UX/UI cho module BÃ¡n hÃ ng B2B cá»§a há»‡ thá»‘ng ERP Wonder Wood, vá»›i prototype Figma vÃ  bá»™ mÃ n hÃ¬nh giao diá»‡n desktop Ä‘áº§y Ä‘á»§.',
           sections: [
             {
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/ww0.jpg',
-              bannerAlt:     'UX Design — Wonder Wood',
+              bannerAlt:     'UX Design â€” Wonder Wood',
               prototypeHref: 'https://www.figma.com/proto/2HehjZbfGb7sVbxCL5WLJI?node-id=2710-55767&t=zxQZ34xTOIVy5WPa-6',
             },
             {
@@ -924,15 +906,15 @@
         },
         {
           id:         'p4',
-          shortTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          fullTitle:  'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          cardDesc:   'Thiết kế UX/UI cho hệ thống quản lý vị trí sản phẩm The SHEA trên nền tảng Mobile, với bộ màn hình portrait hoàn chỉnh.',
+          shortTitle: 'Há»† THá»NG QUáº¢N LÃ Vá»Š TRÃ Sáº¢N PHáº¨M TRÃŠN Ká»† KHO VÃ€ Cá»¬A HÃ€NG THE SHEA',
+          fullTitle:  'Há»† THá»NG QUáº¢N LÃ Vá»Š TRÃ Sáº¢N PHáº¨M TRÃŠN Ká»† KHO VÃ€ Cá»¬A HÃ€NG THE SHEA',
+          cardDesc:   'Thiáº¿t káº¿ UX/UI cho há»‡ thá»‘ng quáº£n lÃ½ vá»‹ trÃ­ sáº£n pháº©m The SHEA trÃªn ná»n táº£ng Mobile, vá»›i bá»™ mÃ n hÃ¬nh portrait hoÃ n chá»‰nh.',
           sections: [
             {
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/theshea0.jpg',
-              bannerAlt:     'UX Design — The SHEA',
+              bannerAlt:     'UX Design â€” The SHEA',
               prototypeHref: 'https://www.figma.com/proto/8J0etnuarMbnytQxAjK553?node-id=4-0&t=zxQZ34xTOIVy5WPa-6',
             },
             {
@@ -962,7 +944,7 @@
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/yummy0.jpg',
-              bannerAlt:     'UX Design — Singapore Yummy',
+              bannerAlt:     'UX Design â€” Singapore Yummy',
               prototypeHref: 'https://www.figma.com/proto/NRuushQ45tYzRi72LHbkEo/Yummy?node-id=1412-72506&p=f&t=61rOmjiGgHpBDyLm-0&scaling=min-zoom&content-scaling=fixed&page-id=718%3A50376&starting-point-node-id=1412%3A72506&show-proto-sidebar=1',
             },
             {
@@ -980,15 +962,15 @@
         },
         {
           id:         'p2',
-          shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM â€” NAM VIET PHUONG CO., LTD",
+          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM â€” NAM VIET PHUONG CO., LTD",
           cardDesc:   "UI/UX design for the Finance module of Nam An Bird's Nest ERP system, including an interactive Figma prototype and a full set of desktop interface screens.",
           sections: [
             {
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/naman0.jpg',
-              bannerAlt:     "UX Design — Nam An Bird's Nest",
+              bannerAlt:     "UX Design â€” Nam An Bird's Nest",
               bannerSize:    'sm',
               prototypeHref: '#',
             },
@@ -1015,7 +997,7 @@
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/ww0.jpg',
-              bannerAlt:     'UX Design — Wonder Wood',
+              bannerAlt:     'UX Design â€” Wonder Wood',
               prototypeHref: '#',
             },
             {
@@ -1041,7 +1023,7 @@
               type:          'ux',
               heading:       'UX DESIGN',
               bannerSrc:     './assets/theshea0.jpg',
-              bannerAlt:     'UX Design — The SHEA',
+              bannerAlt:     'UX Design â€” The SHEA',
               prototypeHref: '#',
             },
             {
@@ -1064,62 +1046,9 @@
       ],
     };
 
-    /* ════════════════════════════════════════════════════════════
-       4b. UNIFIED PROJECTS LIST (for homepage + project detail)
-       Merges system + uiux data by project ID, adding a
-       homepage-level description (cardDesc) from SYSTEM_PROJECTS.
-    ════════════════════════════════════════════════════════════ */
-    const PROJECTS = {
-      vi: [
-        {
-          id: 'p1',
-          title: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          cardDesc: 'Xây dựng một hệ thống ERP được thiết kế riêng cho đặc thù ngành F&B chuỗi, giúp số hóa toàn bộ luồng vận hành từ sản xuất, kho bãi, bán hàng, nhân sự đến tài chính - thay thế các quy trình thủ công đang phụ thuộc vào Excel, Zalo và ghi chép tay.',
-        },
-        {
-          id: 'p2',
-          title: 'HỆ THỐNG ERP YẾN SÀO NAM AN - CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          cardDesc: 'Xây dựng hệ thống ERP được thiết kế giúp số hóa toàn bộ luồng vận hành từ thu hoạch, sơ chế, tinh chế, kho bãi đến bán hàng và tài chính — thay thế các quy trình thủ công đang phụ thuộc vào Sapo, Excel và chứng từ giấy rời rạc.',
-        },
-        {
-          id: 'p3',
-          title: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          cardDesc: 'Xây dựng hệ thống ERP được thiết kế riêng giúp số hóa toàn bộ luồng vận hành từ nhập nguyên vật liệu, sản xuất, kiểm soát chất lượng, kho bãi đến bán hàng B2B, nhằm thay thế các quy trình thủ công đang phụ thuộc vào Excel và Google Sheet.',
-        },
-        {
-          id: 'p4',
-          title: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG – THE SHEA',
-          cardDesc: 'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
-        },
-      ],
-      en: [
-        {
-          id: 'p1',
-          title: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
-          cardDesc: 'Building a custom ERP system designed specifically for the F&B chain industry, digitizing the entire operational workflow from production, warehousing, sales, HR to finance — replacing manual processes dependent on Excel, Zalo and handwritten notes.',
-        },
-        {
-          id: 'p2',
-          title: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          cardDesc: "Building an ERP system to digitize the entire operational workflow from harvesting, processing, refining, warehousing to sales and finance — replacing manual processes dependent on Sapo, Excel and scattered paper documents.",
-        },
-        {
-          id: 'p3',
-          title: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
-          cardDesc: 'Building a custom ERP system to digitize the entire operational workflow from raw material import, production, quality control, warehousing to B2B sales — replacing manual processes dependent on Excel and Google Sheet.',
-        },
-        {
-          id: 'p4',
-          title: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
-          cardDesc: 'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
-        },
-      ],
-    };
-
-
-    /* ════════════════════════════════════════════════════════════
-       5.  ICONS (inline SVG — deduplicated)
-    ════════════════════════════════════════════════════════════ */
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       5.  ICONS (inline SVG â€” deduplicated)
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     const IconLinkedIn = ({ className = 'w-4 h-4' }) => (
       <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -1138,14 +1067,14 @@
       </svg>
     );
 
-    /* External-link icon (↗ with box) — used in ContactFooter */
+    /* External-link icon (â†— with box) â€” used in ContactFooter */
     const IconArrowUpRight = ({ className = 'w-4 h-4' }) => (
       <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
       </svg>
     );
 
-    /* Simple diagonal arrow — used in UXBlock PROTOTYPE button */
+    /* Simple diagonal arrow â€” used in UXBlock PROTOTYPE button */
     const IconArrowDiag = ({ className = 'w-3.5 h-3.5' }) => (
       <svg className={className} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -1178,11 +1107,11 @@
     }
 
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        6.  SHARED COMPONENTS
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-    /* ── LangToggle ── */
+    /* â”€â”€ LangToggle â”€â”€ */
     function LangToggle({ lang, setLang }) {
       return (
         <div className="flex items-center gap-1.5">
@@ -1205,7 +1134,7 @@
       );
     }
 
-    /* ── Header (SPA-aware) ── */
+    /* â”€â”€ Header (SPA-aware) â”€â”€ */
     function Header({ lang, setLang, currentPage, navigate, activeSection }) {
       const c = HOME_CONTENT[lang];
       const [open, setOpen] = useState(false);
@@ -1232,7 +1161,7 @@
 
             <a href="#home" onClick={handleLogoClick} className="flex-shrink-0 min-w-0 cursor-pointer">
               <div className="font-heading text-sm md:text-base tracking-widest text-navy flex items-baseline gap-1.5 whitespace-nowrap">
-                <span className="font-black">TRẦN KHÁNH HUYỀN</span>
+                <span className="font-black">TRáº¦N KHÃNH HUYá»€N</span>
                 <span className="text-gray-300 font-normal">/</span>
                 <span className="font-normal underline underline-offset-2 decoration-navy/50">BUSINESS ANALYST</span>
               </div>
@@ -1265,7 +1194,7 @@
               <button
                 onClick={() => setOpen(!open)}
                 className="text-navy p-1"
-                aria-label={open ? 'Đóng menu' : 'Mở menu'}
+                aria-label={open ? 'ÄÃ³ng menu' : 'Má»Ÿ menu'}
               >
                 {open ? <IconClose /> : <IconMenu />}
               </button>
@@ -1296,7 +1225,7 @@
       );
     }
 
-    /* ── BottomNav ── */
+    /* â”€â”€ BottomNav â”€â”€ */
     function BottomNav({ page, navigate, lang }) {
       const s         = SHARED_DICT[lang];
       const nextPage  = page === 'system' ? 'uiux'     : 'system';
@@ -1327,68 +1256,7 @@
       );
     }
 
-    /* ── ProjectDetailBottomNav (matrix navigation: prev/next project) ── */
-    function ProjectDetailBottomNav({ navigate, lang, selectedProject, setSelectedProject, setCurrentPage }) {
-      const s = SHARED_DICT[lang];
-      const projects = PROJECTS[lang];
-      const currentIndex = projects.findIndex(p => p.id === selectedProject);
-      const isFirst = currentIndex <= 0;
-      const isLast  = currentIndex >= projects.length - 1;
-
-      const goToPrev = () => {
-        if (isFirst) {
-          navigate('home', 'projects');
-        } else {
-          setSelectedProject(projects[currentIndex - 1].id);
-          setCurrentPage('project_detail');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      };
-
-      const goToNext = () => {
-        if (isLast) {
-          navigate('home', 'projects');
-        } else {
-          setSelectedProject(projects[currentIndex + 1].id);
-          setCurrentPage('project_detail');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      };
-
-      const prevLabel = isFirst
-        ? s.backHome
-        : (lang === 'vi' ? projects[currentIndex - 1].title : projects[currentIndex - 1].title);
-      const nextLabel = isLast
-        ? s.backHome
-        : (lang === 'vi' ? projects[currentIndex + 1].title : projects[currentIndex + 1].title);
-
-      return (
-        <div className="border-t border-gray-200 py-10 px-6">
-          <div className="max-w-6xl mx-auto flex justify-between items-center gap-4 flex-wrap">
-            <button
-              onClick={goToPrev}
-              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity max-w-[45%]"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:-translate-x-0.5">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              <span className="truncate">{isFirst ? s.backHome : (lang === 'vi' ? 'Dự án trước' : 'Previous')}</span>
-            </button>
-            <button
-              onClick={goToNext}
-              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity max-w-[45%]"
-            >
-              <span className="truncate">{isLast ? s.backHome : (lang === 'vi' ? 'Dự án tiếp theo' : 'Next project')}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      );
-    }
-
-    /* ── CopyrightFooter (subpages) ── */
+    /* â”€â”€ CopyrightFooter (subpages) â”€â”€ */
     function CopyrightFooter({ lang }) {
       const c = SHARED_DICT[lang];
       return (
@@ -1427,7 +1295,7 @@
       );
     }
 
-    /* ── PageHero (subpages) ── */
+    /* â”€â”€ PageHero (subpages) â”€â”€ */
     function PageHero({ pageTitle }) {
       return (
         <div className="bg-white py-12 px-[10px]">
@@ -1444,7 +1312,7 @@
       );
     }
 
-    /* ── ProjectHeader (shared subpage component) ── */
+    /* â”€â”€ ProjectHeader (shared subpage component) â”€â”€ */
     function ProjectHeader({ project }) {
       return (
         <div className="bg-navy text-white px-[10px] py-6 text-center">
@@ -1455,7 +1323,7 @@
       );
     }
 
-    /* ── ProjectNavCard + ProjectNavMenu (shared) ── */
+    /* â”€â”€ ProjectNavCard + ProjectNavMenu (shared) â”€â”€ */
     function ProjectNavCard({ project, viewMore }) {
       const hasData = project.sections.length > 0;
       return (
@@ -1499,12 +1367,12 @@
     }
 
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        7.  HOME VIEW COMPONENTS
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-    /* ── HeroSection ── */
-    function HeroSection({ lang, setCurrentPage }) {
+    /* â”€â”€ HeroSection â”€â”€ */
+    function HeroSection({ lang }) {
       const h = HOME_CONTENT[lang].hero;
       return (
         <section id="home" className="relative min-h-[calc(100vh-72px)] flex items-center bg-white overflow-hidden">
@@ -1518,12 +1386,15 @@
           <div className="relative z-10 max-w-6xl mx-auto w-full px-6 py-16 md:py-24">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 items-center">
 
-              {/* Avatar — 1/3 width, no background color, only rounded + shadow */}
+              {/* Avatar â€” 1/3 width */}
               <div className="flex justify-center md:col-span-1">
-                <div className="w-56 h-64 md:w-full md:h-80 rounded-2xl overflow-hidden shadow-xl">
+                <div
+                  className="w-56 h-64 md:w-full md:h-80 rounded-2xl overflow-hidden shadow-2xl"
+                  style={{ background: '#c9c4e0' }}
+                >
                   <img
                     src="./avatar.jpg"
-                    alt="Trần Khánh Huyền"
+                    alt="Tráº§n KhÃ¡nh Huyá»n"
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       e.target.src = './avatar.png';
@@ -1537,7 +1408,7 @@
                 </div>
               </div>
 
-              {/* Info — 2/3 width */}
+              {/* Info â€” 2/3 width */}
               <div className="md:col-span-2 flex flex-col gap-6 text-center md:text-left">
 
                 {/* Name + title */}
@@ -1550,7 +1421,7 @@
                   </p>
                 </div>
 
-                {/* Contact pills — no icons, subtle gray border */}
+                {/* Contact pills â€” no icons, subtle gray border */}
                 <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   <a
                     href={h.linkedinUrl}
@@ -1581,12 +1452,9 @@
                   ))}
                 </div>
 
-                {/* View CV — navigates to cv page */}
+                {/* Download CV */}
                 <div className="flex justify-center md:justify-start">
-                  <button
-                    onClick={() => { setCurrentPage('cv'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                    className="pill font-heading bg-navy text-white font-bold text-xs tracking-[0.2em] uppercase rounded-full px-8 py-3 shadow-lg hover:shadow-xl hover:opacity-90 transition-all"
-                  >
+                  <button className="pill font-heading bg-navy text-white font-bold text-xs tracking-[0.2em] uppercase rounded-full px-8 py-3 shadow-lg hover:shadow-xl hover:opacity-90 transition-all">
                     {h.downloadCV}
                   </button>
                 </div>
@@ -1598,80 +1466,21 @@
       );
     }
 
-    /* ── ProjectsSection (NEW — homepage DỰ ÁN) ── */
-    function ProjectsSection({ lang, setSelectedProject, setCurrentPage }) {
-      const p = HOME_CONTENT[lang].projects;
-      const projects = PROJECTS[lang];
-
-      const handleViewMore = (projectId) => {
-        setSelectedProject(projectId);
-        setCurrentPage('project_detail');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
-
-      return (
-        <section id="projects" className="bg-white py-20 md:py-28">
-          <div className="max-w-6xl mx-auto px-6">
-
-            {/* Section heading with line — matching screenshot1 */}
-            <div className="flex items-center gap-5 mb-10">
-              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
-                {p.heading}
-              </h2>
-              <div className="flex-1 h-px bg-gray-300" />
-            </div>
-
-            {/* Project cards — vertical full-width layout */}
-            <div className="flex flex-col gap-6">
-              {projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="border border-gray-200 rounded-xl p-6 md:p-8 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200"
-                >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="font-heading font-extrabold text-base md:text-lg text-navy uppercase leading-relaxed tracking-normal mb-3">
-                        {project.title}
-                      </h3>
-                      <p className="font-body text-base text-gray-500 leading-relaxed">
-                        {project.cardDesc}
-                      </p>
-                    </div>
-                    <div className="flex justify-end md:items-end md:self-end flex-shrink-0 md:ml-6">
-                      <button
-                        onClick={() => handleViewMore(project.id)}
-                        className="pill font-heading bg-navy text-white text-[11px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all whitespace-nowrap"
-                      >
-                        {p.viewMore}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
-      );
-    }
-
-    /* ── SkillsSection (UPDATED — Grid 2 cols) ── */
+    /* â”€â”€ SkillsSection â”€â”€ */
     function SkillsSection({ lang, navigate }) {
       const s = HOME_CONTENT[lang].skills;
       return (
         <section id="skills" className="bg-gray-50 py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-6">
 
-            {/* Section heading with line — matching screenshot2 */}
-            <div className="flex items-center gap-5 mb-10">
-              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
+            <div className="mb-10">
+              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight">
                 {s.heading}
               </h2>
-              <div className="flex-1 h-px bg-gray-300" />
+              <div className="mt-3 h-1 w-12 rounded-full bg-lavender" />
             </div>
 
-            {/* Grid 2 columns layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-5">
               {s.cards.map((card) => (
                 <div key={card.id} className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm">
                   <div className="flex items-start justify-between gap-4 mb-4">
@@ -1711,19 +1520,19 @@
       );
     }
 
-    /* ── ContactFooter (home page) ── */
+    /* â”€â”€ ContactFooter (home page) â”€â”€ */
     function ContactFooter({ lang }) {
       const c = HOME_CONTENT[lang].contact;
       return (
         <footer id="contact">
-          <div className="bg-white py-20 md:py-28">
-            <div className="max-w-6xl mx-auto px-6">
+          <div className="bg-gray-50 py-20 md:py-28 px-6">
+            <div className="max-w-6xl mx-auto">
 
-              <div className="flex items-center gap-5 mb-10">
-                <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
+              <div className="mb-10">
+                <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight">
                   {c.heading}
                 </h2>
-                <div className="flex-1 h-px bg-gray-300" />
+                <div className="mt-3 h-1 w-12 rounded-full bg-lavender" />
               </div>
 
               {/* 3 cards */}
@@ -1795,12 +1604,11 @@
       );
     }
 
-    /* ── HomeView (UPDATED — includes ProjectsSection) ── */
-    function HomeView({ lang, navigate, setSelectedProject, setCurrentPage }) {
+    /* â”€â”€ HomeView â”€â”€ */
+    function HomeView({ lang, navigate }) {
       return (
         <>
-          <HeroSection   lang={lang} setCurrentPage={setCurrentPage} />
-          <ProjectsSection lang={lang} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />
+          <HeroSection   lang={lang} />
           <SkillsSection lang={lang} navigate={navigate} />
           <ContactFooter lang={lang} />
         </>
@@ -1808,74 +1616,11 @@
     }
 
 
-    /* ════════════════════════════════════════════════════════════
-       9c. CV VIEW
-    ════════════════════════════════════════════════════════════ */
-    function CvView({ lang, navigate }) {
-      const s      = SHARED_DICT[lang];
-      const cvPath = lang === 'vi' ? './assets/cv_vi.pdf' : './assets/cv_en.pdf';
-
-      return (
-        <>
-          <PageHero pageTitle={s.cvTitle} />
-
-          {/* Download button + iframe wrapper */}
-          <div className="bg-white pb-12 px-6">
-            <div className="max-w-6xl mx-auto">
-
-              {/* Top-right download button */}
-              <div className="flex justify-end mb-4">
-                <a
-                  href={cvPath}
-                  download
-                  className="pill font-heading inline-flex items-center gap-2 bg-navy text-white text-xs font-bold tracking-[0.2em] uppercase rounded-full px-6 py-2.5 hover:opacity-90 transition-all shadow-md"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                  {s.downloadPdf}
-                </a>
-              </div>
-
-              {/* PDF iframe */}
-              <iframe
-                src={cvPath}
-                title={s.cvTitle}
-                className="w-full rounded-xl border border-gray-200 shadow-sm"
-                style={{ height: '80vh', minHeight: '600px' }}
-              />
-
-            </div>
-          </div>
-
-          {/* Bottom nav — only back home */}
-          <div className="border-t border-gray-200 py-10 px-6">
-            <div className="max-w-6xl mx-auto flex justify-center">
-              <button
-                onClick={() => navigate('home')}
-                className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:-translate-x-0.5">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-                {s.backHome}
-              </button>
-            </div>
-          </div>
-
-          <CopyrightFooter lang={lang} />
-        </>
-      );
-    }
-
-
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        8.  SYSTEM DESIGN VIEW COMPONENTS
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-    /* ── OverviewBlock ── */
+    /* â”€â”€ OverviewBlock â”€â”€ */
     function OverviewBlock({ data }) {
       const { intro, scope } = data;
 
@@ -1912,7 +1657,7 @@
       );
     }
 
-    /* ── DiagramImage ── */
+    /* â”€â”€ DiagramImage â”€â”€ */
     function DiagramImage({ src, alt, caption }) {
       const [missing, setMissing] = useState(false);
       return (
@@ -1937,7 +1682,7 @@
       );
     }
 
-    /* ── ImageBlock ── */
+    /* â”€â”€ ImageBlock â”€â”€ */
     function ImageBlock({ data }) {
       const { layout, images, heading, size } = data;
       const isMd = size === 'md';
@@ -1991,13 +1736,13 @@
       );
     }
 
-    /* ── SystemSectionBlock ── */
+    /* â”€â”€ SystemSectionBlock â”€â”€ */
     function SystemSectionBlock({ data }) {
       if (data.type === 'overview') return <OverviewBlock data={data} />;
       return <ImageBlock data={data} />;
     }
 
-    /* ── SystemProjectSection ── */
+    /* â”€â”€ SystemProjectSection â”€â”€ */
     function SystemProjectSection({ project }) {
       if (project.sections.length === 0) return null;
       return (
@@ -2016,7 +1761,7 @@
       );
     }
 
-    /* ── SystemDesignView ── */
+    /* â”€â”€ SystemDesignView â”€â”€ */
     function SystemDesignView({ lang, navigate }) {
       const projects = SYSTEM_PROJECTS[lang];
       const shared   = SHARED_DICT[lang];
@@ -2034,11 +1779,11 @@
     }
 
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        9.  UI/UX VIEW COMPONENTS
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-    /* ── MockupImage ── */
+    /* â”€â”€ MockupImage â”€â”€ */
     function MockupImage({ src, alt }) {
       const [missing, setMissing] = useState(false);
       return (
@@ -2060,7 +1805,7 @@
       );
     }
 
-    /* ── UXBlock ── */
+    /* â”€â”€ UXBlock â”€â”€ */
     function UXBlock({ data, lang }) {
       const { heading, bannerSrc, bannerAlt, bannerSize, prototypeHref } = data;
       const prototype = SHARED_DICT[lang].prototype;
@@ -2087,7 +1832,7 @@
       );
     }
 
-    /* ── UIBlock ── */
+    /* â”€â”€ UIBlock â”€â”€ */
     function UIBlock({ data }) {
       const { heading, uiLayout, images } = data;
       return (
@@ -2109,14 +1854,14 @@
       );
     }
 
-    /* ── UiUxSectionBlock ── */
+    /* â”€â”€ UiUxSectionBlock â”€â”€ */
     function UiUxSectionBlock({ data, lang }) {
       if (data.type === 'ux') return <UXBlock data={data} lang={lang} />;
       if (data.type === 'ui') return <UIBlock data={data} />;
       return null;
     }
 
-    /* ── UiUxProjectSection ── */
+    /* â”€â”€ UiUxProjectSection â”€â”€ */
     function UiUxProjectSection({ project, lang }) {
       if (project.sections.length === 0) return null;
       return (
@@ -2135,7 +1880,7 @@
       );
     }
 
-    /* ── UiUxDesignView ── */
+    /* â”€â”€ UiUxDesignView â”€â”€ */
     function UiUxDesignView({ lang, navigate }) {
       const projects = UIUX_PROJECTS[lang];
       const shared   = SHARED_DICT[lang];
@@ -2153,103 +1898,7 @@
     }
 
 
-    /* ════════════════════════════════════════════════════════════
-       9b. PROJECT DETAIL VIEW (NEW)
-    ════════════════════════════════════════════════════════════ */
-    function ProjectDetailView({ lang, navigate, selectedProject, setSelectedProject, setCurrentPage }) {
-      const shared = SHARED_DICT[lang];
-
-      /* Find matching project data from SYSTEM_PROJECTS and UIUX_PROJECTS */
-      const systemProject = SYSTEM_PROJECTS[lang].find(p => p.id === selectedProject);
-      const uiuxProject   = UIUX_PROJECTS[lang].find(p => p.id === selectedProject);
-
-      /* Use system project for title (fallback to uiux) */
-      const projectTitle = systemProject
-        ? systemProject.fullTitle
-        : (uiuxProject ? uiuxProject.fullTitle : '');
-
-      /* Extract overview section from system project */
-      const overviewSection = systemProject
-        ? systemProject.sections.find(s => s.type === 'overview')
-        : null;
-
-      /* Non-overview system sections (diagrams) */
-      const systemDiagramSections = systemProject
-        ? systemProject.sections.filter(s => s.type !== 'overview')
-        : [];
-
-      /* UIUX sections */
-      const uiuxSections = uiuxProject ? uiuxProject.sections : [];
-
-      return (
-        <>
-          {/* PageHero — project title with lines on both sides */}
-          <div className="bg-white py-12 px-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-5">
-                <div className="flex-1 h-px bg-gray-300" />
-                <h1 className="font-heading font-black text-navy text-lg md:text-2xl tracking-normal text-center leading-snug">
-                  {projectTitle}
-                </h1>
-                <div className="flex-1 h-px bg-gray-300" />
-              </div>
-            </div>
-          </div>
-
-          {/* Overview: intro + scope as 2-column grid */}
-          {overviewSection && (
-            <div className="bg-white px-6 pb-10">
-              <div className="max-w-6xl mx-auto">
-                <OverviewBlock data={overviewSection} />
-              </div>
-            </div>
-          )}
-
-          {/* THIẾT KẾ HỆ THỐNG banner + system sections */}
-          {systemDiagramSections.length > 0 && (
-            <>
-              <div className="bg-navy text-white py-4 text-center">
-                <h2 className="font-heading font-bold text-xl tracking-normal">
-                  {shared.systemDesignBanner}
-                </h2>
-              </div>
-              <div className="bg-white px-6">
-                <div className="max-w-6xl mx-auto divide-y divide-gray-100">
-                  {systemDiagramSections.map((section, i) => (
-                    <SystemSectionBlock key={i} data={section} />
-                  ))}
-                </div>
-              </div>
-            </>
-          )}
-
-          {/* THIẾT KẾ UI/UX banner + uiux sections */}
-          {uiuxSections.length > 0 && (
-            <>
-              <div className="bg-navy text-white py-4 text-center">
-                <h2 className="font-heading font-bold text-xl tracking-normal">
-                  {shared.uiuxDesignBanner}
-                </h2>
-              </div>
-              <div className="bg-white px-6">
-                <div className="max-w-6xl mx-auto divide-y divide-gray-100">
-                  {uiuxSections.map((section, i) => (
-                    <UiUxSectionBlock key={i} data={section} lang={lang} />
-                  ))}
-                </div>
-              </div>
-            </>
-          )}
-
-          {/* Bottom navigation */}
-          <ProjectDetailBottomNav navigate={navigate} lang={lang} selectedProject={selectedProject} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />
-          <CopyrightFooter lang={lang} />
-        </>
-      );
-    }
-
-
-    /* ── BackToTop ── */
+    /* â”€â”€ BackToTop â”€â”€ */
     function BackToTop() {
       const [visible, setVisible] = useState(false);
       useEffect(() => {
@@ -2273,17 +1922,16 @@
       );
     }
 
-    /* ════════════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        10. APP ROOT
-    ════════════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     function App() {
-      const [lang, setLang]                       = useState('vi');
-      const [currentPage, setCurrentPage]         = useState('home');
-      const [activeSection, setActiveSection]      = useState('home');
-      const [scrollTarget, setScrollTarget]        = useState(null);
-      const [selectedProject, setSelectedProject]  = useState(null);
+      const [lang, setLang]                   = useState('vi');
+      const [currentPage, setCurrentPage]     = useState('home');
+      const [activeSection, setActiveSection] = useState('home');
+      const [scrollTarget, setScrollTarget]   = useState(null);
 
-      /* navigate helper — always scrolls to top, optionally to a section after render */
+      /* navigate helper â€” always scrolls to top, optionally to a section after render */
       const navigate = (page, section = null) => {
         setCurrentPage(page);
         window.scrollTo(0, 0);
@@ -2304,7 +1952,7 @@
       /* active nav section tracker (home page only) */
       useEffect(() => {
         if (currentPage !== 'home') return;
-        const SECTIONS = ['home', 'projects', 'skills', 'contact'];
+        const SECTIONS = ['home', 'skills', 'contact'];
         const handleScroll = () => {
           if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
             setActiveSection('contact');
@@ -2333,11 +1981,9 @@
             activeSection={activeSection}
           />
           <main>
-            {currentPage === 'home'           && <HomeView         lang={lang} navigate={navigate} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
-            {currentPage === 'system'         && <SystemDesignView lang={lang} navigate={navigate} />}
-            {currentPage === 'uiux'           && <UiUxDesignView   lang={lang} navigate={navigate} />}
-            {currentPage === 'project_detail' && <ProjectDetailView lang={lang} navigate={navigate} selectedProject={selectedProject} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
-            {currentPage === 'cv'             && <CvView           lang={lang} navigate={navigate} />}
+            {currentPage === 'home'   && <HomeView         lang={lang} navigate={navigate} />}
+            {currentPage === 'system' && <SystemDesignView lang={lang} navigate={navigate} />}
+            {currentPage === 'uiux'   && <UiUxDesignView   lang={lang} navigate={navigate} />}
           </main>
           <BackToTop />
         </div>
@@ -2346,6 +1992,7 @@
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
-
 </body>
 </html>
+
+

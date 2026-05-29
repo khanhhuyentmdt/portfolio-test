@@ -146,6 +146,37 @@ Hãy đóng vai trò là Senior Frontend Developer, tái cấu trúc và viết 
 
 Vui lòng trả về toàn bộ mã nguồn trong một block HTML duy nhất.
 ============================================================================
+Chào Claude, ứng dụng SPA của chúng ta đang hoạt động cực kỳ mượt mà. Bây giờ, tôi muốn nâng cấp nút 'DOWNLOAD CV' ở <HeroSection> (Trang chủ) thành tính năng xem CV trực tiếp ngay trong ứng dụng.
+
+Yêu cầu triển khai chi tiết tính năng Xem CV:
+
+1. Cập nhật State & Nút bấm:
+
+Bổ sung 'cv' vào danh sách các trang hợp lệ của state currentPage.
+
+Tại component <HeroSection>, sửa sự kiện onClick của nút 'DOWNLOAD CV' thành gọi setCurrentPage('cv') và cuộn lên đầu trang.
+
+2. Tạo Component <CvView> mới:
+
+View này được render khi currentPage === 'cv'.
+
+Tiêu đề: Sử dụng <PageHero> với tiêu đề là "HỒ SƠ NĂNG LỰC" (VI) hoặc "CURRICULUM VITAE" (EN).
+
+Hiển thị PDF: Khung hiển thị PDF dùng thẻ <iframe> (hoặc <object>) chiếm toàn bộ chiều rộng (w-full), chiều cao khoảng h-[80vh], bo góc rounded-xl và có viền border-gray-200.
+
+Nếu lang === 'vi', đường dẫn iframe là ./assets/cv_vi.pdf.
+
+Nếu lang === 'en', đường dẫn iframe là ./assets/cv_en.pdf.
+
+Nút tải xuống dự phòng: Đặt một nút "Tải xuống bản PDF" (VI) / "Download PDF" (EN) ở phía trên góc phải (hoặc ngay dưới iframe) với thuộc tính <a href="..." download> để người dùng có thể tải file về máy.
+
+Điều hướng: Đặt <BottomNav> ở cuối trang với 1 nút duy nhất là "Trở về Trang chủ" (căn giữa hoặc theo logic hiện tại) để gọi setCurrentPage('home').
+
+3. Bổ sung Song ngữ:
+
+Bổ sung vào object SHARED các từ khóa liên quan như cvTitle ('HỒ SƠ NĂNG LỰC' / 'CURRICULUM VITAE'), downloadPdf ('Tải xuống bản PDF' / 'Download PDF').
+
+Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được cập nhật tính năng xem CV này. Giữ nguyên 100% các tính năng, data, UI/UX (như BottomNav ma trận, Contact nền trắng) mà chúng ta đã làm trước đó.
 ============================================================================
 ============================================================================
 ============================================================================
