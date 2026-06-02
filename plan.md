@@ -34,8 +34,8 @@ Do là SPA, giao diện sẽ được quyết định bởi state `currentPage` 
  │
  ├── <VibeCodingView> (Khi currentPage === 'vibecoding')
  │    ├── <PageHero>         — Tiêu đề "VIBE CODING"
- │    ├── <ProjectNavMenu>   — Lưới dự án (Chỉ render 1 card là Singapore Yummy)
- │    ├── <ProjectSection>   — Render khối Giới thiệu (OverviewBlock) của dự án Yummy áp dụng Vibe Coding
+ │    ├── <ProjectNavMenu>   — Lưới dự án (Render 2 card: Yummy và Agentic AI)
+ │    ├── <ProjectSection>   — Render khối Giới thiệu (OverviewBlock) và Demo của dự án được chọn
  │    └── <BottomNav>        — Điều hướng ma trận
  └── <BackToTop>             — Nút cuộn lên đầu trang (Fixed góc dưới phải)
  ├── <CvView> (Khi currentPage === 'cv')
@@ -73,8 +73,15 @@ CDN: Sử dụng link https:// cho Tailwind, React, ReactDOM, Babel, Google Font
 Tập trung toàn bộ text vào các Object:
 - `CONTENT`: Dữ liệu cho `<HomeView>` (hero, about, list skills, list projects...).
 - `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design `{ vi: [...], en: [...] }`. Bổ sung thêm trường `domain` cho từng dự án (Yummy: F&B, Nam An: Sản xuất B2C, WonderWood: Sản xuất B2B, TheShea: Quản lý kho bãi).
-- `VIBE_PROJECTS`: Object CHỈ chứa 1 dự án (Yummy) dành riêng cho trang Vibe Coding.
+- `VIBE_PROJECTS`: Object chứa dữ liệu dự án cho trang Vibe Coding (Bao gồm Yummy và Agentic AI).
 - `SHARED`: Các nhãn dùng chung (nút bấm, điều hướng, footer, title).
+- `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design { vi: [...], en: [...] }. 
+  Danh sách bao gồm 5 dự án với các nhãn lĩnh vực (domain) tương ứng:
+  1. Dự án Yummy — Lĩnh vực: F&B
+  2. Dự án Nam An — Lĩnh vực: Sản xuất B2C
+  3. Dự án Wonder Wood — Lĩnh vực: Sản xuất B2B (Quy trình gỗ ghép thanh/finger joint)
+  4. Dự án The SHEA — Lĩnh vực: Quản lý kho hàng
+  5. Dự án Agentic AI Đầu Tư Tài Chính — Lĩnh vực: AI Agent (Mới bổ sung)
 
 ## 5. Thiết kế giao diện (UI/UX)
 Màu sắc & Typography

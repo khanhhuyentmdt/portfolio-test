@@ -432,7 +432,72 @@ Sử dụng các class CSS sau cho thẻ Lĩnh vực: <div className="bg-lavende
 
 Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được cập nhật tính năng hiển thị Lĩnh vực này. Tuyệt đối giữ nguyên tỷ lệ kích thước logo, khoảng cách padding của thẻ và toàn bộ logic UI/UX khác.
 ============================================================================
+Tôi muốn bổ sung thêm dự án thứ 5 vào danh mục dự án nổi bật trong Portfolio SPA của mình. Dự án này thuộc lĩnh vực Công nghệ tài chính và Trí tuệ nhân tạo (AI Agent).
+
+Dựa vào file index.html hiện tại, hãy cập nhật dữ liệu mảng PROJECTS và tích hợp vào giao diện theo các yêu cầu sau:
+
+1. Bổ sung Dữ liệu Dự án mới vào mảng PROJECTS:
+Hãy thêm object dữ liệu sau vào mảng dự án của cả 2 ngôn ngữ:
+
+Phiên bản Tiếng Việt (vi):
+{
+  id: 'financial-ai-agent',
+  title: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
+  domain: 'AI Agent',
+  logoSrc: './assets/ai_agent_logo.png',
+  cardDesc: 'Xây dựng hệ thống đầu tư tài chính tự động ứng dụng AI Agent, được thiết kế chuyên biệt cho thị trường chứng khoán. Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch, thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.'
+}
+Phiên bản Tiếng Anh (en):
+>   {
+>     id: 'financial-ai-agent',
+>     title: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
+>     domain: 'AI Agent',
+>     logoSrc: './assets/ai_agent_logo.png',
+>     cardDesc: 'Building an automated financial investment system powered by Agentic AI, specifically tailored for the stock market. The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support, replacing manual investment processes, minimizing errors, and optimizing portfolio efficiency.'
+>   }
+>   ```
+> 
+> **2. Đảm bảo quy chuẩn giao diện hiển thị trên Trang chủ (`<ProjectsSection>`):**
+> - Dự án mới phải được render tự động vào lưới dự án theo đúng cấu trúc hình vuông Thumbnail ở bên trái, khối chữ ở bên phải, căn giữa theo chiều dọc (`items-center`).
+> - Nhãn lĩnh vực hiển thị dạng tag nhỏ màu Lavender (`bg-lavender/40 text-navy font-bold`).
+> - Giữ nguyên thiết kế khoảng cách đệm (`py-6 px-8 md:py-8 md:px-10`) và tỷ lệ logo lớn (`w-32 h-32 md:w-40 md:h-40`).
+> 
+> **3. Thiết lập luồng xem chi tiết dự án (ProjectDetailView):**
+> - Khi người dùng bấm 'XEM THÊM' ở dự án này, hệ thống sẽ chuyển sang `<ProjectDetailView>` hiển thị tên dự án căn giữa, khối Overview (Giới thiệu & Phạm vi) tương ứng. 
+> - Đối với phần nội dung chi tiết phía dưới thanh Navy, do dự án này đang trong giai đoạn phát triển và bảo mật, hãy render một khối thông báo trạng thái hoặc một placeholder hình ảnh trống tinh tế có nhãn 'System Architecture Design & Agent Workflow under optimization'.
+> - Tích hợp dự án này vào luồng điều hướng Ma trận Next/Prev của `<BottomNav>` ở chân trang chi tiết một cách chính xác dựa trên vị trí index mới của nó.
+> 
+> Hãy trả về một block code HTML duy nhất chứa toàn bộ mã nguồn SPA đã cập nhật hoàn chỉnh, giữ vững 100% các tiêu chuẩn về icon SVG nét mảnh 0.8, thanh công cụ liên hệ text thuần, và tính năng xem CV.
 ============================================================================
+Dự án Portfolio SPA của chúng ta đang tiến triển rất tốt. Bây giờ, tôi cần bạn đưa dự án mới là 'Hệ thống Agentic AI đầu tư tài chính tự động' (financial-ai-agent) hiển thị vào bên trong 3 trang chi tiết kỹ năng: <SystemDesignView>, <UiUxDesignView>, và <VibeCodingView>.
+
+Dựa vào file index.html hiện tại, hãy thực hiện các bước viết mã sau:
+
+Bước 1: Tích hợp vào <SystemDesignView> và <UiUxDesignView>
+
+Bổ sung dữ liệu của dự án financial-ai-agent vào danh sách các dự án được render bên trong 2 trang này.
+
+Sử dụng khối overview (Giới thiệu & Phạm vi) tương tự như các dự án khác.
+
+Vì hình ảnh sơ đồ (BPMN, Use Case) và Mockup Figma của dự án này chưa có sẵn, hãy render một khối <div className="w-full h-64 bg-gray-100 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300"> với dòng chữ placeholder màu xám nhạt: 'Tài liệu Thiết kế đang được cập nhật...' (VI) / 'Design documentation is being updated...' (EN).
+
+Bước 2: Nâng cấp <VibeCodingView>
+
+Trước đây trang này chỉ render duy nhất dự án Yummy. Bây giờ, hãy chuyển đổi nó để có thể render danh sách các dự án, bao gồm cả Yummy và financial-ai-agent.
+
+Bổ sung dữ liệu cho financial-ai-agent trong luồng Vibe Coding. Đoạn mô tả (Intro) cho Vibe Coding của dự án này như sau:
+
+Tiếng Việt: 'Ứng dụng Vibe Coding và các công cụ AI tạo sinh để mô phỏng nhanh luồng tương tác và giao tiếp giữa các AI Agent (thu thập dữ liệu, phân tích, ra quyết định). Quá trình này giúp hình dung trực quan cách các Agent hoạt động độc lập và phối hợp trong hệ thống đầu tư tài chính trước khi tiến hành viết mã lõi.'
+
+(Bạn tự dịch sang tiếng Anh cho phần en).
+
+Phần hiển thị Demo cũng sử dụng khối khung placeholder nét đứt (dashed border) tương tự như Bước 1 với dòng chữ: 'Bản Demo Vibe Coding đang được hoàn thiện...' (VI) / 'Vibe Coding Demo is under construction...' (EN).
+
+Bước 3: Điều hướng
+
+Đảm bảo menu điều hướng dự án nội bộ (<ProjectNavMenu> nếu có) trong các trang chi tiết này đều xuất hiện thẻ của dự án AI Agent.
+
+Xin lưu ý: Trả về một khối mã HTML duy nhất. Tuyệt đối không thay đổi giao diện thẻ, khoảng cách, kích thước logo, và các class CSS định dạng icon SVG (strokeWidth="0.8") mà chúng ta đã thống nhất.
 ============================================================================
 ============================================================================
 ============================================================================
