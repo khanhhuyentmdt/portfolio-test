@@ -1525,18 +1525,14 @@
       const [open, setOpen] = useState(false);
 
       const handleLogoClick = (e) => {
-        if (currentPage !== 'home') {
-          e.preventDefault();
-          navigate('home');
-        }
+        e.preventDefault();
+        navigate('home');
         setOpen(false);
       };
 
       const handleNavClick = (item, e) => {
-        if (currentPage !== 'home') {
-          e.preventDefault();
-          navigate('home', item.section);
-        }
+        e.preventDefault();
+        navigate('home', item.section);
         setOpen(false);
       };
 
@@ -2757,16 +2753,17 @@
     ════════════════════════════════════════════════════════════ */
     function parseHash() {
       const hash = window.location.hash.replace(/^#\/?/, '');
-      if (!hash || hash === 'home') return { page: 'home', project: null };
-      if (hash === 'cv') return { page: 'cv', project: null };
-      if (hash === 'system') return { page: 'system', project: null };
-      if (hash === 'uiux') return { page: 'uiux', project: null };
-      if (hash === 'vibecoding') return { page: 'vibecoding', project: null };
+      if (!hash || hash === 'home') return { page: 'home', project: null, section: null };
+      if (['skills', 'projects', 'contact'].includes(hash)) return { page: 'home', project: null, section: hash };
+      if (hash === 'cv') return { page: 'cv', project: null, section: null };
+      if (hash === 'system') return { page: 'system', project: null, section: null };
+      if (hash === 'uiux') return { page: 'uiux', project: null, section: null };
+      if (hash === 'vibecoding') return { page: 'vibecoding', project: null, section: null };
       if (hash.startsWith('project/')) {
         const projectId = hash.split('/')[1];
-        return { page: 'project_detail', project: projectId };
+        return { page: 'project_detail', project: projectId, section: null };
       }
-      return { page: 'home', project: null };
+      return { page: 'home', project: null, section: null };
     }
 
     function App() {
@@ -2774,7 +2771,7 @@
       const [lang, setLang] = useState('vi');
       const [currentPage, setCurrentPage] = useState(initialRoute.page);
       const [activeSection, setActiveSection] = useState('home');
-      const [scrollTarget, setScrollTarget] = useState(null);
+      const [scrollTarget, setScrollTarget] = useState(initialRoute.section);
       const [selectedProject, setSelectedProject] = useState(initialRoute.project);
 
       useEffect(() => {
@@ -2782,7 +2779,11 @@
           const route = parseHash();
           setCurrentPage(route.page);
           setSelectedProject(route.project);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (route.section) {
+            setScrollTarget(route.section);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
         };
         window.addEventListener('hashchange', onHashChange);
         return () => window.removeEventListener('hashchange', onHashChange);
@@ -2790,8 +2791,12 @@
 
       /* navigate helper — sets hash, optionally sets scroll target */
       const navigate = (page, section = null) => {
-        window.location.hash = page;
-        if (section) setScrollTarget(section);
+        if (section && page === 'home') {
+          window.location.hash = section;
+        } else {
+          window.location.hash = page;
+          if (section) setScrollTarget(section);
+        }
       };
 
       /* scroll to section after navigating home */

@@ -499,6 +499,43 @@ Bước 3: Điều hướng
 
 Xin lưu ý: Trả về một khối mã HTML duy nhất. Tuyệt đối không thay đổi giao diện thẻ, khoảng cách, kích thước logo, và các class CSS định dạng icon SVG (strokeWidth="0.8") mà chúng ta đã thống nhất.
 ============================================================================
+Ứng dụng SPA của chúng ta đang gặp vấn đề về điều hướng khi deploy: người dùng không thể dùng nút Back/Forward của trình duyệt, và khi reload trang sẽ bị mất trạng thái (quay về trang chủ). Không có URL riêng để chia sẻ.
+
+Hãy đóng vai trò là Senior Frontend Developer, nâng cấp hệ thống điều hướng của file index.html sang Hash Routing mà VẪN GIỮ NGUYÊN cấu trúc 1 file HTML, không sử dụng thư viện React Router (vì chúng ta đang dùng CDN).
+
+Yêu cầu triển khai Hash Routing:
+
+1. Quy hoạch cấu trúc Hash URL:
+
+Trang chủ: #home (hoặc rỗng)
+
+Trang CV: #cv
+
+Các trang kỹ năng: #system, #uiux, #vibecoding
+
+Trang chi tiết dự án: #project/[id] (Ví dụ: #project/yummy, #project/financial-ai-agent).
+
+2. Cập nhật State và Logic trong <App/>:
+
+Viết một hàm parseHash() để đọc window.location.hash. Trả về đối tượng chứa currentPage và selectedProject.
+
+Khởi tạo state ban đầu dựa trên hàm parseHash() thay vì mặc định là 'home'.
+
+Bổ sung useEffect lắng nghe sự kiện hashchange. Khi URL thay đổi, cập nhật lại state currentPage và selectedProject, đồng thời gọi window.scrollTo({ top: 0, behavior: 'smooth' }).
+
+3. Thay thế các hành động chuyển trang (onClick):
+
+Thay vì gọi trực tiếp setCurrentPage(...) hay setSelectedProject(...) ở các nút bấm (NavMenu, BottomNav, thẻ Xem thêm...), hãy thay đổi trực tiếp window.location.hash.
+
+Ví dụ: Chuyển sang trang CV thì dùng window.location.hash = 'cv'. Xem dự án thì dùng window.location.hash = 'project/' + projectId.
+
+4. Đảm bảo tính toàn vẹn của mã nguồn:
+
+Bắt buộc giữ nguyên mọi dữ liệu (CONTENT, PROJECTS, VIBE_PROJECTS).
+
+Bắt buộc giữ nguyên toàn bộ thiết kế giao diện (UI/UX), đặc biệt là các icon SVG với strokeWidth="0.8", bố cục Thumbnail của thẻ dự án, và các tag lĩnh vực.
+
+Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được tích hợp Hash Routing hoàn chỉnh.
 ============================================================================
 ============================================================================
 ============================================================================
