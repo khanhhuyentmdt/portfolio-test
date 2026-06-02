@@ -69,15 +69,12 @@ Vì chạy từ file://, mọi đường dẫn tài nguyên phải là đường
 
 CDN: Sử dụng link https:// cho Tailwind, React, ReactDOM, Babel, Google Fonts.
 
-##4. Cấu trúc Dữ liệu (Song ngữ VI / EN)
+## 4. Cấu trúc Dữ liệu (Song ngữ VI / EN)
 Tập trung toàn bộ text vào các Object:
-
-CONTENT: Dữ liệu cho <HomeView> (hero, about, list skills, list projects...).
-
-- `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design { vi: [...], en: [...] }.
+- `CONTENT`: Dữ liệu cho `<HomeView>` (hero, about, list skills, list projects...).
+- `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design `{ vi: [...], en: [...] }`. Bổ sung thêm trường `domain` cho từng dự án (Yummy: F&B, Nam An: Sản xuất B2C, WonderWood: Sản xuất B2B, TheShea: Quản lý kho bãi).
 - `VIBE_PROJECTS`: Object CHỈ chứa 1 dự án (Yummy) dành riêng cho trang Vibe Coding.
-
-SHARED: Các nhãn dùng chung (nút bấm, điều hướng, footer, title).
+- `SHARED`: Các nhãn dùng chung (nút bấm, điều hướng, footer, title).
 
 ## 5. Thiết kế giao diện (UI/UX)
 Màu sắc & Typography
@@ -108,7 +105,7 @@ Nút đổi ngôn ngữ (VI | EN): Dạng text thuần (không nền), ngôn ng�
  + Bố cục tổng thể: Lưới 2 cột (`grid grid-cols-1 lg:grid-cols-2 gap-6`). Mỗi thẻ dự án chiếm 1 ô trong lưới.
   + Bố cục bên trong thẻ (Thumbnail Layout): Sử dụng Flexbox ngang và căn giữa theo chiều dọc. Thiết lập khoảng cách hai bên lớn hơn trên dưới (`py-6 px-8 md:py-8 md:px-10`). Khoảng cách giữa logo và chữ rộng rãi hơn (`gap-8`).
   + Cột trái của thẻ: Chứa Logo thương hiệu của dự án, kích thước lớn để cân bằng với chiều cao nội dung (`w-32 h-32 md:w-40 md:h-40 flex-shrink-0 object-contain drop-shadow-sm`). Không bo tròn cắt xén.
-  + Cột phải của thẻ: Chứa Tiêu đề (màu Navy, in hoa), Mô tả ngắn và Nút "XEM THÊM" nền navy bo tròn. Nút xem thêm được đẩy xuống góc dưới cùng bên phải (`mt-auto self-end`).
+  + Cột phải của thẻ: Chứa Tiêu đề (màu Navy, in hoa), Thẻ Lĩnh vực (Domain tag), Mô tả ngắn và Nút "XEM THÊM" nền navy bo tròn. Nút xem thêm được đẩy xuống góc dưới cùng bên phải (`mt-auto self-end`). Thẻ Lĩnh vực thiết kế dạng tag nhỏ (`bg-lavender/30 text-navy px-3 py-1 rounded-full text-xs font-semibold w-fit mb-3`).
 Contact Section (Footer)
 Container: Nền trắng (bg-white), padding rộng.
 

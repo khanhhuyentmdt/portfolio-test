@@ -301,6 +301,156 @@ intro: [
 ],
 Hãy chỉ cập nhật đúng phần dữ liệu này trong object CONTENT và trả về toàn bộ mã nguồn HTML duy nhất, ĐẢM BẢO giữ nguyên toàn bộ giao diện, tính năng và đặc biệt là độ mảnh nét vẽ strokeWidth="0.8" của các icon SVG mà chúng ta vừa tối ưu.
 ============================================================================
+Chào Claude, giao diện Hero Section trên trang chủ của chúng ta cần được tinh chỉnh lại một chút để hiển thị thêm chuyên môn ngành (Domains) của một Business Analyst.
+
+Dựa vào file index.html hiện tại, hãy thực hiện các cập nhật sau chỉ trong component <HeroSection> và object CONTENT:
+
+1. Cập nhật dữ liệu CONTENT (Thêm phần Lĩnh vực):
+Hãy thêm domainLabel và mảng domains vào dữ liệu hero của cả 2 ngôn ngữ:
+
+Tiếng Việt (CONTENT.vi.hero):
+domainLabel: 'Lĩnh vực:',
+domains: ['Kho Hàng', 'Sản xuất B2B', 'Sản xuất B2C', 'AI Agent', 'F&B'],
+
+Tiếng Anh (CONTENT.en.hero):
+domainLabel: 'Domains:',
+domains: ['Warehousing', 'B2B Manufacturing', 'B2C Manufacturing', 'AI Agent', 'F&B'],
+
+2. Cập nhật Giao diện Component <HeroSection>:
+
+Ngay bên dưới khối chứa các đoạn văn h.intro.map(...) và ngay phía trên nút DOWNLOAD CV, hãy chèn thêm một khối để render các lĩnh vực này.
+
+Tiêu đề Lĩnh vực: Dùng thẻ <p> với class font-heading font-bold text-navy text-[15px] mt-2 mb-3.
+
+Các thẻ (Tags) Lĩnh vực: Render mảng h.domains vào một container flex flex-wrap gap-3 mb-6. Mỗi tag sử dụng class px-4 py-1 border border-gray-400 rounded-full text-xs font-body font-semibold text-gray-700.
+
+Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được cập nhật đoạn giới thiệu và phần Lĩnh vực này. TUYỆT ĐỐI giữ nguyên nét vẽ SVG (strokeWidth="0.8") và toàn bộ logic SPA khác.
+============================================================================
+Chào Claude, tôi cần tinh chỉnh lại giao diện của component <ProjectsSection> trên Trang chủ để sử dụng Bố cục Thumbnail (Ảnh thu nhỏ bên hông) cho các thẻ dự án, bám sát thiết kế mới nhất.
+
+Dựa vào file index.html hiện tại, hãy thực hiện các cập nhật sau:
+
+1. Cập nhật Dữ liệu (PROJECTS):
+Hãy bổ sung thêm trường logoSrc vào mỗi object dự án trong mảng PROJECTS (cho cả vi và en):
+
+Dự án Yummy: logoSrc: './assets/yummy_logo.png'
+
+Dự án Nam An: logoSrc: './assets/naman_logo.png'
+
+Dự án Wonder Wood: logoSrc: './assets/wonderwood_logo.jpg'
+
+Dự án The SHEA: logoSrc: './assets/theshea_logo.jpg'
+
+2. Cập nhật Giao diện thẻ Dự án (<ProjectNavCard> hoặc component render thẻ dự án ở Trang chủ):
+
+Container thẻ: Giữ nguyên lưới 2 cột (grid grid-cols-1 lg:grid-cols-2 gap-6). Cập nhật CSS của thẻ thành Flex ngang: className="border border-gray-200 rounded-xl p-6 bg-white flex flex-col sm:flex-row gap-5 items-start shadow-sm hover:shadow-md hover:border-navy transition-all".
+
+Cột Trái (Logo): Render thẻ <img> sử dụng logoSrc. Class: className="w-20 h-20 sm:w-28 sm:h-28 object-contain flex-shrink-0 bg-white rounded-full drop-shadow-sm".
+
+Cột Phải (Nội dung): Bọc Tiêu đề, Mô tả và Nút bấm trong một thẻ div có class className="flex-1 flex flex-col h-full w-full".
+
+Tiêu đề: Giữ nguyên màu Navy, in hoa, chữ đậm.
+
+Mô tả: Căn lề trái, màu xám.
+
+Nút 'XEM THÊM': Đẩy xuống góc phải dưới cùng bằng class className="mt-auto self-end pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all mt-4
+============================================================================
+Chào Claude, tôi cần tinh chỉnh lại giao diện của component <ProjectsSection> trên Trang chủ. Thiết kế logo bo tròn ở thẻ dự án hiện tại không đúng với ý đồ của tôi.
+
+Dựa vào file index.html hiện tại, hãy thực hiện các cập nhật sau ĐỐI VỚI THẺ DỰ ÁN (Component render thẻ dự án ở trang chủ):
+
+1. Căn giữa theo chiều dọc (Vertical Center):
+
+Đổi class của thẻ container chứa dự án từ items-start thành items-center để logo và khối nội dung văn bản được căn giữa đều nhau theo chiều dọc.
+
+Class mẫu: className="border border-gray-200 rounded-xl p-6 bg-white flex flex-col sm:flex-row gap-5 items-center shadow-sm hover:shadow-md hover:border-navy transition-all"
+
+2. Chỉnh sửa Logo hình vuông (Square Thumbnail):
+
+Gỡ bỏ hoàn toàn class rounded-full (hoặc bất kỳ class bo góc cắt xén nào thành hình tròn) khỏi thẻ <img> chứa logo dự án.
+
+Cập nhật class thẻ <img> thành: className="w-20 h-20 sm:w-28 sm:h-28 object-contain flex-shrink-0 bg-white drop-shadow-sm" để giữ nguyên hình dáng vuông/chữ nhật tự nhiên của logo.
+
+3. Cột Phải (Nội dung):
+
+Bọc Tiêu đề, Mô tả và Nút bấm trong một thẻ div có class className="flex-1 flex flex-col h-full w-full justify-center".
+
+Tiêu đề: Giữ nguyên màu Navy, in hoa, chữ đậm.
+
+Mô tả: Căn lề trái, màu xám.
+
+Nút 'XEM THÊM': Đẩy xuống góc phải dưới cùng bằng class className="mt-6 self-end pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all".
+
+Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được cập nhật thiết kế này. TUYỆT ĐỐI giữ nguyên mọi dữ liệu khác, logic SPA và giao diện của thẻ Kỹ năng.
+============================================================================
+Tôi cần tinh chỉnh lại tỷ lệ kích thước và khoảng cách bên trong các thẻ dự án của component <ProjectsSection> trên Trang chủ để giao diện cân đối hơn.
+
+Dựa vào file index.html hiện tại, hãy cập nhật các class CSS cho thẻ Dự án (Project Card) với các yêu cầu cực kỳ chuẩn xác sau:
+
+1. Tinh chỉnh khoảng cách thẻ (Padding):
+
+Áp dụng nguyên tắc đệm ngang lớn hơn đệm dọc. Thay đổi class của thẻ container chứa dự án thành:
+className="border border-gray-200 rounded-xl py-6 px-8 md:py-8 md:px-10 bg-white flex flex-col sm:flex-row gap-6 md:gap-8 items-center shadow-sm hover:shadow-md hover:border-navy transition-all"
+
+2. Phóng to kích thước Logo:
+
+Logo hiện tại quá nhỏ so với chiều cao của khối chữ. Hãy tăng kích thước thẻ <img> chứa logo dự án lên đáng kể để lấp đầy không gian.
+
+Cập nhật class thẻ <img> thành:
+className="w-32 h-32 md:w-40 md:h-40 object-contain flex-shrink-0 bg-white drop-shadow-sm"
+
+3. Giữ nguyên Cột Phải (Nội dung):
+
+Đảm bảo thẻ div bọc nội dung vẫn giữ class className="flex-1 flex flex-col h-full w-full justify-center".
+
+Các phần Tiêu đề, Mô tả và Nút 'XEM THÊM' (căn góc dưới phải) giữ nguyên cấu trúc cũ.
+
+Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được cập nhật tỷ lệ thẻ dự án này. Tuyệt đối không làm thay đổi các logic cấu trúc, dữ liệu hay UI của các component khác.
+============================================================================
+Tôi cần bổ sung thông tin Lĩnh vực (Domain) vào các thẻ dự án hiển thị ở component <ProjectsSection> trên Trang chủ để giao diện trực quan hơn.
+
+Dựa vào file index.html hiện tại, hãy thực hiện các cập nhật sau:
+
+1. Bổ sung dữ liệu Lĩnh vực vào mảng PROJECTS:
+Thêm trường domain vào từng object dự án tương ứng cho cả 2 ngôn ngữ:
+
+Dự án Yummy: domain: 'F&B' (tiếng Anh: 'F&B')
+
+Dự án Nam An: domain: 'Sản xuất B2C' (tiếng Anh: 'B2C Manufacturing')
+
+Dự án Wonder Wood: domain: 'Sản xuất B2B' (tiếng Anh: 'B2B Manufacturing'). Lưu ý nhỏ: Trong phần mô tả (cardDesc) của Wonder Wood, hãy đảm bảo nhắc đến việc phân tích quy trình cho sản phẩm "gỗ ghép thanh" (finger joint wood) để mô tả sát với đặc thù sản xuất của xưởng B2B này.
+
+Dự án The SHEA: domain: 'Quản lý kho bãi' (tiếng Anh: 'Warehousing Management')
+
+2. Cập nhật giao diện Cột Phải của thẻ Dự án:
+
+Ngay bên dưới Tiêu đề dự án (và phía trên đoạn Mô tả), hãy render trường domain này dưới dạng một nhãn (tag) nhỏ gọn.
+
+Sử dụng các class CSS sau cho thẻ Lĩnh vực: <div className="bg-lavender/40 text-navy px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase w-fit mt-2 mb-3"> {project.domain} </div>.
+
+Đảm bảo khối Cột Phải vẫn giữ cấu trúc flexbox đẩy nút 'XEM THÊM' xuống dưới cùng (mt-auto).
+
+Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được cập nhật tính năng hiển thị Lĩnh vực này. Tuyệt đối giữ nguyên tỷ lệ kích thước logo, khoảng cách padding của thẻ và toàn bộ logic UI/UX khác.
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
 ============================================================================
 ============================================================================
 ============================================================================
