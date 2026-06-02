@@ -94,7 +94,7 @@ Nút đổi ngôn ngữ (VI | EN): Dạng text thuần (không nền), ngôn ng�
 
 ### Hero Section (Trang chủ)
 - Ảnh đại diện không lót nền màu phía sau, chỉ bo góc `rounded-2xl` và đổ bóng `shadow-xl`.
-- Các nút liên hệ (LinkedIn, Mail, Phone): Viền mỏng, chữ mảnh, KHÔNG CÓ ICON bên trong.
+- **Thông tin liên hệ:** Không sử dụng dạng nút (pill) hay viền bo góc. Hiển thị liền mạch trên một dòng ngang, bao gồm Icon + Text (màu xám trung tính), ngăn cách nhau bởi dấu `|` màu xám nhạt. Có hiệu ứng hover chuyển sang màu Navy.
 - **Nội dung giới thiệu:** Gồm 2-3 đoạn văn bản text nhỏ, căn lề trái.
 - **Lĩnh vực (Domains):** Nằm ngay dưới đoạn giới thiệu. Gồm Tiêu đề "Lĩnh vực:" in đậm và một danh sách các thẻ (tags) nằm ngang. Mỗi thẻ bo tròn (`rounded-full`), nền trắng, viền xám mỏng (`border-gray-400`), chữ xám đậm.
 - Nút "DOWNLOAD CV": Nền Navy chữ trắng, nằm dưới cùng khối thông tin.
@@ -104,7 +104,11 @@ Nút đổi ngôn ngữ (VI | EN): Dạng text thuần (không nền), ngôn ng�
   + Phần Trái (Icon container): Bọc icon trong một thẻ div có class `w-16 h-16 md:w-20 md:h-20 flex-shrink-0 flex items-center justify-center p-2 md:p-3 border border-gray-200 rounded-2xl bg-white` (Thêm viền bo góc giống Figma).
   + SVG Component bên trong: Phải giữ nguyên `viewBox`, class `w-full h-full text-navy`. Áp dụng đúng `fill="none"`, `stroke="currentColor"` và ĐẶC BIỆT phải thiết lập thuộc tính `strokeWidth="0.8"` (hoặc `stroke-width="0.8"`) cho toàn bộ thẻ `<svg>` và các `<path>` bên trong để đảm bảo nét vẽ cực kỳ thanh mảnh. Tuyệt đối không dùng `fill-current`.
   + Phần Phải (Nội dung): Chứa Tiêu đề, Tags, Mô tả và Nút xem thêm (`flex-1`). Nút xem thêm nằm ở góc dưới cùng bên phải.
-
+- **Dự án (ProjectsSection):** 
+ + Bố cục tổng thể: Lưới 2 cột (`grid grid-cols-1 lg:grid-cols-2 gap-6`). Mỗi thẻ dự án chiếm 1 ô trong lưới.
+  + Bố cục bên trong thẻ (Thumbnail Layout): Sử dụng Flexbox ngang và căn giữa theo chiều dọc. Thiết lập khoảng cách hai bên lớn hơn trên dưới (`py-6 px-8 md:py-8 md:px-10`). Khoảng cách giữa logo và chữ rộng rãi hơn (`gap-8`).
+  + Cột trái của thẻ: Chứa Logo thương hiệu của dự án, kích thước lớn để cân bằng với chiều cao nội dung (`w-32 h-32 md:w-40 md:h-40 flex-shrink-0 object-contain drop-shadow-sm`). Không bo tròn cắt xén.
+  + Cột phải của thẻ: Chứa Tiêu đề (màu Navy, in hoa), Mô tả ngắn và Nút "XEM THÊM" nền navy bo tròn. Nút xem thêm được đẩy xuống góc dưới cùng bên phải (`mt-auto self-end`).
 Contact Section (Footer)
 Container: Nền trắng (bg-white), padding rộng.
 

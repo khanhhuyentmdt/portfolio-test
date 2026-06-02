@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,21 +15,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            navy:     '#000046',
+            navy: '#000046',
             lavender: '#c9c4e0',
             'lav-bg': '#f0eef8',
           },
           fontFamily: {
             heading: ['Plus Jakarta Sans', 'ui-sans-serif', 'sans-serif'],
-            body:    ['Nunito Sans', 'ui-sans-serif', 'sans-serif'],
+            body: ['Nunito Sans', 'ui-sans-serif', 'sans-serif'],
           },
         },
       },
@@ -36,12 +36,34 @@
   </script>
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body { font-family: 'Nunito Sans', sans-serif; }
-    section[id], footer[id] { scroll-margin-top: 72px; }
-    .tag { transition: background 0.18s, color 0.18s, border-color 0.18s; }
-    .tag:hover { background: #000046; color: #fff; border-color: #000046; }
-    .pill:active { transform: scale(0.97); }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+    }
+
+    section[id],
+    footer[id] {
+      scroll-margin-top: 72px;
+    }
+
+    .tag {
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+
+    .tag:hover {
+      background: #000046;
+      color: #fff;
+      border-color: #000046;
+    }
+
+    .pill:active {
+      transform: scale(0.97);
+    }
   </style>
 </head>
 
@@ -57,25 +79,25 @@
     const HOME_CONTENT = {
       vi: {
         nav: [
-          { label: 'TRANG CHỦ', href: '#home',     section: 'home'     },
-          { label: 'KỸ NĂNG',  href: '#skills',    section: 'skills'   },
-          { label: 'DỰ ÁN',    href: '#projects',  section: 'projects' },
-          { label: 'LIÊN HỆ',  href: '#contact',   section: 'contact'  },
+          { label: 'TRANG CHỦ', href: '#home', section: 'home' },
+          { label: 'KỸ NĂNG', href: '#skills', section: 'skills' },
+          { label: 'DỰ ÁN', href: '#projects', section: 'projects' },
+          { label: 'LIÊN HỆ', href: '#contact', section: 'contact' },
         ],
         hero: {
-          name:          'TRẦN KHÁNH HUYỀN',
-          title:         'IT BUSINESS ANALYST',
+          name: 'TRẦN KHÁNH HUYỀN',
+          title: 'IT BUSINESS ANALYST',
           intro: [
             'Là một người ham học hỏi và có tính chủ động cao, tôi luôn tìm cách hiểu sâu về bài toán nghiệp vụ - từ phân tích yêu cầu đến xây dựng tài liệu đặc tả hỗ trợ phát triển hệ thống hướng người dùng. Tôi linh hoạt giữa làm độc lập và phối hợp nhóm, luôn cởi mở và tôn trọng nhau để đạt kết quả tốt nhất.',
             'Trong 1–2 năm tới, tôi hướng đến vị trí Middle BA, tham gia sâu hơn vào quá trình khám phá sản phẩm và góp phần xây dựng các sản phẩm số bền vững.'
           ],
-          domainLabel:   'Lĩnh vực:',
-          domains:       ['Kho Hàng', 'Sản xuất B2B', 'Sản xuất B2C', 'AI Agent', 'F&B'],
-          downloadCV:    'DOWNLOAD CV',
+          domainLabel: 'Đã có kinh nghiệm ở các lĩnh vực:',
+          domains: ['Kho Hàng', 'Sản xuất B2B', 'Sản xuất B2C', 'AI Agent', 'F&B'],
+          downloadCV: 'DOWNLOAD CV',
           linkedinLabel: 'LINKEDIN',
-          email:         'tkhuyen1714@gmail.com',
-          phone:         '+84915 085 900',
-          linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
+          email: 'tkhuyen1714@gmail.com',
+          phone: '+84915 085 900',
+          linkedinUrl: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
         },
         projects: {
           heading: 'DỰ ÁN',
@@ -85,45 +107,45 @@
           heading: 'KỸ NĂNG',
           cards: [
             {
-              id:        'system',
-              title:     'THIẾT KẾ HỆ THỐNG',
-              tags:      ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
-              desc:      'Tiếp cận thiết kế hệ thống theo hướng có cấu trúc và bám sát nghiệp vụ thực tế. Từ việc thu thập yêu cầu qua User Story, mô hình hóa quy trình bằng BPMN, đến xây dựng Use Case Diagram, viết Use Case Specification và thiết kế Activity Diagram. Tất cả đều hướng đến mục tiêu tạo ra tài liệu rõ ràng, dễ hiểu cho cả đội ngũ kỹ thuật lẫn khách hàng.',
+              id: 'system',
+              title: 'THIẾT KẾ HỆ THỐNG',
+              tags: ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
+              desc: 'Tiếp cận thiết kế hệ thống theo hướng có cấu trúc và bám sát nghiệp vụ thực tế. Từ việc thu thập yêu cầu qua User Story, mô hình hóa quy trình bằng BPMN, đến xây dựng Use Case Diagram, viết Use Case Specification và thiết kế Activity Diagram. Tất cả đều hướng đến mục tiêu tạo ra tài liệu rõ ràng, dễ hiểu cho cả đội ngũ kỹ thuật lẫn khách hàng.',
               hasButton: true,
             },
             {
-              id:        'uiux',
-              title:     'THIẾT KẾ UI/UX',
-              tags:      ['Figma'],
-              desc:      'Thiết kế prototype UI/UX trên Figma giúp mô phỏng thao tác thực tế của người dùng để hỗ trợ đội ngũ phát triển hiểu đúng yêu cầu và giảm thiểu sai lệch trong quá trình triển khai.',
+              id: 'uiux',
+              title: 'THIẾT KẾ UI/UX',
+              tags: ['Figma'],
+              desc: 'Thiết kế prototype UI/UX trên Figma giúp mô phỏng thao tác thực tế của người dùng để hỗ trợ đội ngũ phát triển hiểu đúng yêu cầu và giảm thiểu sai lệch trong quá trình triển khai.',
               hasButton: true,
             },
             {
-              id:        'vibe',
-              title:     'VIBE CODING',
-              tags:      [],
-              desc:      'Với nền tảng tài liệu phân tích đã được xây dựng từ User Story, Use Case đến thiết kế UI/UX, tôi đã từng trải nghiệm ứng dụng Vibe Coding để nhanh chóng hiện thực hóa ý tưởng thành bản demo trực quan giúp khách hàng dễ dàng hình dung sản phẩm thực tế, đồng thời rút ngắn vòng lặp phản hồi và điều chỉnh yêu cầu ngay trong quá trình phát triển.',
+              id: 'vibe',
+              title: 'VIBE CODING',
+              tags: [],
+              desc: 'Với nền tảng tài liệu phân tích đã được xây dựng từ User Story, Use Case đến thiết kế UI/UX, tôi đã từng trải nghiệm ứng dụng Vibe Coding để nhanh chóng hiện thực hóa ý tưởng thành bản demo trực quan giúp khách hàng dễ dàng hình dung sản phẩm thực tế, đồng thời rút ngắn vòng lặp phản hồi và điều chỉnh yêu cầu ngay trong quá trình phát triển.',
               hasButton: true,
             },
             {
-              id:        'elicitation',
-              title:     'KHƠI GỢI & THU THẬP YÊU CẦU NGƯỜI DÙNG',
-              tags:      [],
-              desc:      'Từng có cơ hội phỏng vấn trực tiếp với khách hàng và các bên liên quan để hiểu đúng bài toán nghiệp vụ. Từ đó, yêu cầu được chuyển hóa thành User Story có cấu trúc làm nền tảng cho toàn bộ quá trình phân tích và thiết kế hệ thống phía sau.',
+              id: 'elicitation',
+              title: 'KHƠI GỢI & THU THẬP YÊU CẦU NGƯỜI DÙNG',
+              tags: [],
+              desc: 'Từng có cơ hội phỏng vấn trực tiếp với khách hàng và các bên liên quan để hiểu đúng bài toán nghiệp vụ. Từ đó, yêu cầu được chuyển hóa thành User Story có cấu trúc làm nền tảng cho toàn bộ quá trình phân tích và thiết kế hệ thống phía sau.',
               hasButton: false,
             },
             {
-              id:        'agile',
-              title:     'AGILE/SCRUM',
-              tags:      [],
-              desc:      'Tôi hiểu rõ phương pháp Agile/Scrum, tôi tự tin có thể hòa nhập nhanh và đóng góp hiệu quả vào các dự án áp dụng Agile, đặc biệt trong việc phối hợp với đội ngũ phát triển để đảm bảo yêu cầu được hiểu đúng và triển khai đúng hướng.',
+              id: 'agile',
+              title: 'AGILE/SCRUM',
+              tags: [],
+              desc: 'Tôi hiểu rõ phương pháp Agile/Scrum, tôi tự tin có thể hòa nhập nhanh và đóng góp hiệu quả vào các dự án áp dụng Agile, đặc biệt trong việc phối hợp với đội ngũ phát triển để đảm bảo yêu cầu được hiểu đúng và triển khai đúng hướng.',
               hasButton: false,
             },
             {
-              id:        'testing',
-              title:     'KIỂM THỬ (TESTING)',
-              tags:      [],
-              desc:      'Xây dựng và rà soát các kịch bản kiểm thử bám sát yêu cầu nghiệp vụ. Trực tiếp thực hiện kiểm thử chức năng và hỗ trợ kiểm thử chấp nhận người dùng nhằm xác minh tính logic của hệ thống, phát hiện lỗi sớm và đảm bảo chất lượng giải pháp trước khi bàn giao.',
+              id: 'testing',
+              title: 'KIỂM THỬ (TESTING)',
+              tags: [],
+              desc: 'Xây dựng và rà soát các kịch bản kiểm thử bám sát yêu cầu nghiệp vụ. Trực tiếp thực hiện kiểm thử chức năng và hỗ trợ kiểm thử chấp nhận người dùng nhằm xác minh tính logic của hệ thống, phát hiện lỗi sớm và đảm bảo chất lượng giải pháp trước khi bàn giao.',
               hasButton: false,
             },
           ],
@@ -132,38 +154,38 @@
         contact: {
           heading: 'LIÊN HỆ',
           columns: [
-            { type: 'email',    label: 'EMAIL',       value: 'tkhuyen1714@gmail.com',            href: 'mailto:tkhuyen1714@gmail.com'                           },
-            { type: 'linkedin', label: 'LINKEDIN',    value: 'linkedin.com/in/khanh-huyen-tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-            { type: 'phone',    label: 'ĐIỆN THOẠI',  value: '+84 915 085 900',                  href: 'tel:+84915085900'                                       },
+            { type: 'email', label: 'EMAIL', value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+            { type: 'linkedin', label: 'LINKEDIN', value: 'linkedin.com/in/khanh-huyen-tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+            { type: 'phone', label: 'ĐIỆN THOẠI', value: '+84 915 085 900', href: 'tel:+84915085900' },
           ],
-          copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
+          copyright: '2026 | Tran Khanh Huyen | Business Analyst',
           footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-          footerPhone:    { value: '+84915 085 900',   href: 'tel:+84915085900' },
-          footerEmail:    { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+          footerPhone: { value: '+84915 085 900', href: 'tel:+84915085900' },
+          footerEmail: { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
         },
       },
 
       en: {
         nav: [
-          { label: 'HOME',    href: '#home',     section: 'home'     },
-          { label: 'SKILLS',  href: '#skills',    section: 'skills'   },
-          { label: 'PROJECTS',href: '#projects',  section: 'projects' },
-          { label: 'CONTACT', href: '#contact',   section: 'contact'  },
+          { label: 'HOME', href: '#home', section: 'home' },
+          { label: 'SKILLS', href: '#skills', section: 'skills' },
+          { label: 'PROJECTS', href: '#projects', section: 'projects' },
+          { label: 'CONTACT', href: '#contact', section: 'contact' },
         ],
         hero: {
-          name:          'TRAN KHANH HUYEN',
-          title:         'IT BUSINESS ANALYST',
+          name: 'TRAN KHANH HUYEN',
+          title: 'IT BUSINESS ANALYST',
           intro: [
             'As a highly proactive and eager-to-learn individual, I always seek to deeply understand business problems - from analyzing requirements to building specification documents that support the development of user-centric systems. I am flexible in working both independently and collaboratively, always maintaining an open mind and mutual respect to achieve the best possible results.',
             'In the next 1–2 years, I aim to achieve a Middle BA position, becoming more deeply involved in the product discovery process and contributing to the development of sustainable digital products.'
           ],
-          domainLabel:   'Domains:',
-          domains:       ['Warehousing', 'B2B Manufacturing', 'B2C Manufacturing', 'AI Agent', 'F&B'],
-          downloadCV:    'DOWNLOAD CV',
+          domainLabel: 'Experience in domains:',
+          domains: ['Warehousing', 'B2B Manufacturing', 'B2C Manufacturing', 'AI Agent', 'F&B'],
+          downloadCV: 'DOWNLOAD CV',
           linkedinLabel: 'LINKEDIN',
-          email:         'tkhuyen1714@gmail.com',
-          phone:         '+84915 085 900',
-          linkedinUrl:   'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
+          email: 'tkhuyen1714@gmail.com',
+          phone: '+84915 085 900',
+          linkedinUrl: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/',
         },
         projects: {
           heading: 'PROJECTS',
@@ -173,45 +195,45 @@
           heading: 'SKILLS',
           cards: [
             {
-              id:        'system',
-              title:     'SYSTEM DESIGN',
-              tags:      ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
-              desc:      'Approaching system design in a structured manner that stays close to real business processes — from capturing requirements via User Stories, modeling workflows with BPMN, to building Use Case Diagrams, writing Use Case Specifications, and designing Activity Diagrams. The goal is always to produce clear, understandable documentation for both the technical team and the client.',
+              id: 'system',
+              title: 'SYSTEM DESIGN',
+              tags: ['User Story', 'BPMN', 'Use Case', 'Activity Diagram', 'Use Case Specification'],
+              desc: 'Approaching system design in a structured manner that stays close to real business processes — from capturing requirements via User Stories, modeling workflows with BPMN, to building Use Case Diagrams, writing Use Case Specifications, and designing Activity Diagrams. The goal is always to produce clear, understandable documentation for both the technical team and the client.',
               hasButton: true,
             },
             {
-              id:        'uiux',
-              title:     'UI/UX DESIGN',
-              tags:      ['Figma'],
-              desc:      'Designing UI/UX prototypes in Figma to simulate real user interactions, helping the development team correctly understand requirements and minimize discrepancies during implementation.',
+              id: 'uiux',
+              title: 'UI/UX DESIGN',
+              tags: ['Figma'],
+              desc: 'Designing UI/UX prototypes in Figma to simulate real user interactions, helping the development team correctly understand requirements and minimize discrepancies during implementation.',
               hasButton: true,
             },
             {
-              id:        'vibe',
-              title:     'VIBE CODING',
-              tags:      [],
-              desc:      'Building on a solid foundation of analytical documents — from User Stories and Use Cases to UI/UX designs — I have experienced applying Vibe Coding to quickly turn ideas into visual demos, helping clients easily envision the final product while shortening the feedback loop during development.',
+              id: 'vibe',
+              title: 'VIBE CODING',
+              tags: [],
+              desc: 'Building on a solid foundation of analytical documents — from User Stories and Use Cases to UI/UX designs — I have experienced applying Vibe Coding to quickly turn ideas into visual demos, helping clients easily envision the final product while shortening the feedback loop during development.',
               hasButton: true,
             },
             {
-              id:        'elicitation',
-              title:     'REQUIREMENTS ELICITATION & GATHERING',
-              tags:      [],
-              desc:      'Have had the opportunity to directly interview clients and stakeholders to correctly understand the business problem. Requirements are then translated into structured User Stories that form the foundation for all subsequent analysis and system design.',
+              id: 'elicitation',
+              title: 'REQUIREMENTS ELICITATION & GATHERING',
+              tags: [],
+              desc: 'Have had the opportunity to directly interview clients and stakeholders to correctly understand the business problem. Requirements are then translated into structured User Stories that form the foundation for all subsequent analysis and system design.',
               hasButton: false,
             },
             {
-              id:        'agile',
-              title:     'AGILE/SCRUM',
-              tags:      [],
-              desc:      'I have a solid understanding of Agile/Scrum methodology and am confident in quickly integrating and contributing effectively to Agile projects — especially in collaborating with the development team to ensure requirements are correctly understood and implemented.',
+              id: 'agile',
+              title: 'AGILE/SCRUM',
+              tags: [],
+              desc: 'I have a solid understanding of Agile/Scrum methodology and am confident in quickly integrating and contributing effectively to Agile projects — especially in collaborating with the development team to ensure requirements are correctly understood and implemented.',
               hasButton: false,
             },
             {
-              id:        'testing',
-              title:     'TESTING',
-              tags:      [],
-              desc:      'Developing and reviewing test scenarios aligned with business requirements. Directly performing functional testing and supporting user acceptance testing to verify system logic, detect defects early, and ensure solution quality before delivery.',
+              id: 'testing',
+              title: 'TESTING',
+              tags: [],
+              desc: 'Developing and reviewing test scenarios aligned with business requirements. Directly performing functional testing and supporting user acceptance testing to verify system logic, detect defects early, and ensure solution quality before delivery.',
               hasButton: false,
             },
           ],
@@ -220,14 +242,14 @@
         contact: {
           heading: 'CONTACT',
           columns: [
-            { type: 'email',    label: 'EMAIL',    value: 'tkhuyen1714@gmail.com',            href: 'mailto:tkhuyen1714@gmail.com'                           },
+            { type: 'email', label: 'EMAIL', value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
             { type: 'linkedin', label: 'LINKEDIN', value: 'linkedin.com/in/khanh-huyen-tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-            { type: 'phone',    label: 'PHONE',    value: '+84 915 085 900',                  href: 'tel:+84915085900'                                       },
+            { type: 'phone', label: 'PHONE', value: '+84 915 085 900', href: 'tel:+84915085900' },
           ],
-          copyright:      '2026 | Tran Khanh Huyen | Business Analyst',
+          copyright: '2026 | Tran Khanh Huyen | Business Analyst',
           footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-          footerPhone:    { value: '+84915 085 900',   href: 'tel:+84915085900' },
-          footerEmail:    { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+          footerPhone: { value: '+84915 085 900', href: 'tel:+84915085900' },
+          footerEmail: { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
         },
       },
     };
@@ -238,41 +260,41 @@
     const SHARED_DICT = {
       vi: {
         systemPageTitle: 'THIẾT KẾ HỆ THỐNG',
-        uiuxPageTitle:   'THIẾT KẾ UI/UX',
+        uiuxPageTitle: 'THIẾT KẾ UI/UX',
         vibeCodingPageTitle: 'VIBE CODING',
-        viewMore:        'XEM THÊM',
-        prototype:       'PROTOTYPE',
-        backHome:        'Trở về Trang chủ',
-        nextUiux:        'Xem tiếp: Thiết kế UI/UX',
-        nextSystem:      'Xem tiếp: Thiết kế Hệ thống',
-        nextVibeCoding:  'Xem tiếp: Vibe Coding',
+        viewMore: 'XEM THÊM',
+        prototype: 'PROTOTYPE',
+        backHome: 'Trở về Trang chủ',
+        nextUiux: 'Xem tiếp: Thiết kế UI/UX',
+        nextSystem: 'Xem tiếp: Thiết kế Hệ thống',
+        nextVibeCoding: 'Xem tiếp: Vibe Coding',
         systemDesignBanner: 'THIẾT KẾ HỆ THỐNG',
-        uiuxDesignBanner:   'THIẾT KẾ UI/UX',
-        cvTitle:         'HỒ SƠ NĂNG LỰC',
-        downloadPdf:     'Tải xuống bản PDF',
-        copyright:       '2026 | Tran Khanh Huyen | Business Analyst',
-        footerLinkedIn:  { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-        footerPhone:     { value: '+84915 085 900',   href: 'tel:+84915085900' },
-        footerEmail:     { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+        uiuxDesignBanner: 'THIẾT KẾ UI/UX',
+        cvTitle: 'HỒ SƠ NĂNG LỰC',
+        downloadPdf: 'Tải xuống bản PDF',
+        copyright: '2026 | Tran Khanh Huyen | Business Analyst',
+        footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+        footerPhone: { value: '+84915 085 900', href: 'tel:+84915085900' },
+        footerEmail: { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
       },
       en: {
         systemPageTitle: 'SYSTEM DESIGN',
-        uiuxPageTitle:   'UI/UX DESIGN',
+        uiuxPageTitle: 'UI/UX DESIGN',
         vibeCodingPageTitle: 'VIBE CODING',
-        viewMore:        'VIEW MORE',
-        prototype:       'PROTOTYPE',
-        backHome:        'Back to Home',
-        nextUiux:        'Next: UI/UX Design',
-        nextSystem:      'Next: System Design',
-        nextVibeCoding:  'Next: Vibe Coding',
+        viewMore: 'VIEW MORE',
+        prototype: 'PROTOTYPE',
+        backHome: 'Back to Home',
+        nextUiux: 'Next: UI/UX Design',
+        nextSystem: 'Next: System Design',
+        nextVibeCoding: 'Next: Vibe Coding',
         systemDesignBanner: 'SYSTEM DESIGN',
-        uiuxDesignBanner:   'UI/UX DESIGN',
-        cvTitle:         'CURRICULUM VITAE',
-        downloadPdf:     'Download PDF',
-        copyright:       '2026 | Tran Khanh Huyen | Business Analyst',
-        footerLinkedIn:  { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
-        footerPhone:     { value: '+84915 085 900',   href: 'tel:+84915085900' },
-        footerEmail:     { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
+        uiuxDesignBanner: 'UI/UX DESIGN',
+        cvTitle: 'CURRICULUM VITAE',
+        downloadPdf: 'Download PDF',
+        copyright: '2026 | Tran Khanh Huyen | Business Analyst',
+        footerLinkedIn: { name: 'Khanh Huyen Tran', href: 'https://www.linkedin.com/in/khanh-huyen-tran-16b728317/' },
+        footerPhone: { value: '+84915 085 900', href: 'tel:+84915085900' },
+        footerEmail: { value: 'tkhuyen1714@gmail.com', href: 'mailto:tkhuyen1714@gmail.com' },
       },
     };
 
@@ -282,48 +304,48 @@
     const SYSTEM_PROJECTS = {
       vi: [
         {
-          id:         'p1',
+          id: 'p1',
           shortTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          fullTitle:  'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          cardDesc:   'Tập trung vào việc phân tích và thiết kế module Sản xuất & Nhân sự trong hệ thống ERP cho Thương hiệu Tàu Hũ Singapore Yummy, đảm bảo nghiệp vụ sản xuất và nhân sự được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
+          fullTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          cardDesc: 'Tập trung vào việc phân tích và thiết kế module Sản xuất & Nhân sự trong hệ thống ERP cho Thương hiệu Tàu Hũ Singapore Yummy, đảm bảo nghiệp vụ sản xuất và nhân sự được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading: 'GIỚI THIỆU',
                 paragraphs: [
                   'Thương hiệu tàu hũ Singapore Yummy đang vận hành chuỗi cửa hàng trực thuộc. Doanh nghiệp hiện sử dụng iPOS cho nghiệp vụ bán hàng, tuy nhiên doanh nghiệp thiếu sự liên kết giữa các bộ phận. Dự án ERP được triển khai nhằm số hóa quy trình vận hành từ sản xuất đến nhân sự, giúp doanh nghiệp kiểm soát chặt chẽ hơn và sẵn sàng mở rộng chuỗi trong tương lai.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading: 'PHẠM VI',
                 paragraphs: [
                   'Phụ trách phân tích và thiết kế module Sản xuất & Nhân sự trong hệ thống ERP, bao gồm các nghiệp vụ quản lý quy trình sản xuất tàu hũ, theo dõi nguyên vật liệu, quản lý ca làm việc, chấm công và tính lương nhân viên, đảm bảo nghiệp vụ sản xuất và nhân sự được đặc tả rõ ràng, sát thực tế và sẵn sàng cho giai đoạn phát triển hệ thống.',
                 ],
               },
             },
             {
-              type:    'swimlane',
+              type: 'swimlane',
               heading: 'QUY TRÌNH KINH DOANH ĐƯỢC MÔ HÌNH HÓA BẰNG BPMN',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/yummy-bpmn1.png', alt: 'BPMN Quy trình quản lý sản xuất', caption: 'BPMN Quy Trình Quản Lý Sản Xuất' },
-                { src: './assets/yummy-bpmn2.png', alt: 'BPMN Quy trình quản lý nhân sự',  caption: 'BPMN Quy Trình Quản Lý Nhân Sự'  },
+                { src: './assets/yummy-bpmn2.png', alt: 'BPMN Quy trình quản lý nhân sự', caption: 'BPMN Quy Trình Quản Lý Nhân Sự' },
               ],
             },
             {
-              type:    'user-stories',
+              type: 'user-stories',
               heading: 'USER STORIES',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/yummy-us1.png', alt: 'User Stories - 1', caption: 'User Stories - 1' },
                 { src: './assets/yummy-us2.png', alt: 'User Stories - 2', caption: 'User Stories - 2' },
               ],
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'SƠ ĐỒ USE CASE',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/yummy-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1' },
                 { src: './assets/yummy-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
@@ -331,105 +353,105 @@
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/yummy-ucs1.png', alt: 'Use Case Specification 1', caption: 'Đặc tả UC3.2.5.1. Thêm kế hoạch sản xuất' },
                 { src: './assets/yummy-ucs2.png', alt: 'Use Case Specification 2', caption: 'Đặc tả UC5.2.3.1b. Xem chi tiết chấm công' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
                 { src: './assets/yummy-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC3.2.5.1. Thêm kế hoạch sản xuất' },
                 { src: './assets/yummy-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC5.2.3.1b. Xem chi tiết chấm công' },
               ],
             },
             {
-              type:    'erd',
+              type: 'erd',
               heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
-              layout:  'multi',
+              layout: 'multi',
               images: [
                 { src: './assets/yummy-erd1.png', alt: 'ERD Module Sản Xuất', caption: 'ERD Sản Xuất - Tàu Hũ Singapore Yummy' },
-                { src: './assets/yummy-erd2.png', alt: 'ERD Module Nhân Sự',  caption: 'ERD Nhân Sự - Tàu Hũ Singapore Yummy'  },
+                { src: './assets/yummy-erd2.png', alt: 'ERD Module Nhân Sự', caption: 'ERD Nhân Sự - Tàu Hũ Singapore Yummy' },
               ],
             },
           ],
         },
         {
-          id:         'p2',
+          id: 'p2',
           shortTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          fullTitle:  'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          cardDesc:   'Tập trung vào việc phân tích và thiết kế module Tài chính trong hệ thống ERP cho Công ty TNHH Nam Việt Phương để đảm bảo toàn bộ nghiệp vụ tài chính được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
+          fullTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
+          cardDesc: 'Tập trung vào việc phân tích và thiết kế module Tài chính trong hệ thống ERP cho Công ty TNHH Nam Việt Phương để đảm bảo toàn bộ nghiệp vụ tài chính được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading: 'GIỚI THIỆU',
                 paragraphs: [
                   'Yến Sào Nam An hoạt động trong lĩnh vực sản xuất và kinh doanh yến sào từ thu hoạch, sơ chế, tinh chế đến bán lẻ và bán sỉ. Doanh nghiệp đang vận hành trên nhiều nền tảng (Sapo, Excel, chứng từ giấy), dẫn đến dữ liệu phân tán, khó tổng hợp và thiếu khả năng phân tích phục vụ ra quyết định. Dự án ERP được triển khai nhằm tập trung hóa dữ liệu, chuẩn hóa quy trình vận hành và hỗ trợ doanh nghiệp chuyển dữ liệu thành thông tin và khuyến nghị kinh doanh thực tiễn.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading: 'PHẠM VI',
                 paragraphs: [
                   'Phụ trách phân tích và thiết kế module Tài chính trong hệ thống ERP, bao gồm các nghiệp vụ theo dõi thu chi, quản lý công nợ bán sỉ/bán lẻ và báo cáo tài chính nội bộ đảm bảo nghiệp vụ tài chính được đặc tả rõ ràng, sát thực tế và sẵn sàng cho giai đoạn phát triển hệ thống.',
                 ],
               },
             },
             {
-              type:    'swimlane',
+              type: 'swimlane',
               heading: 'QUY TRÌNH QUẢN LÝ TÀI CHÍNH ĐƯỢC MÔ HÌNH HÓA BẰNG BPMN',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/naman-bpmn.png', alt: 'Swim Lane — Quy trình quản lý tài chính', caption: 'BPMN Quy Trình Quản Lý Tài Chính' },
               ],
             },
             {
-              type:    'user-stories',
+              type: 'user-stories',
               heading: 'USER STORIES',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/naman-us1.png', alt: 'User Stories - 1', caption: 'User Stories - 1' },
                 { src: './assets/naman-us2.png', alt: 'User Stories - 2', caption: 'User Stories - 2' },
               ],
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'SƠ ĐỒ USE CASE',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/naman-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
                 { src: './assets/naman-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'pair',
+              layout: 'pair',
               images: [
-                { src: './assets/naman-ucs1.png', alt: 'UCS UC-6.2.1. Thêm nguồn quỹ',                   caption: 'Đặc tả UC-6.2.1. Thêm nguồn quỹ'                       },
-                { src: './assets/naman-ucs2.png', alt: 'UCS UC-6.4.1b. Xem chi tiết công nợ',             caption: 'Đặc tả UC-6.4.1b. Xem chi tiết công nợ nhà cung cấp' },
+                { src: './assets/naman-ucs1.png', alt: 'UCS UC-6.2.1. Thêm nguồn quỹ', caption: 'Đặc tả UC-6.2.1. Thêm nguồn quỹ' },
+                { src: './assets/naman-ucs2.png', alt: 'UCS UC-6.4.1b. Xem chi tiết công nợ', caption: 'Đặc tả UC-6.4.1b. Xem chi tiết công nợ nhà cung cấp' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
-                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Thêm nguồn quỹ'                             },
+                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Thêm nguồn quỹ' },
                 { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC-6.4.1b. Xem chi tiết công nợ nhà cung cấp' },
               ],
             },
             {
-              type:    'erd',
+              type: 'erd',
               heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/naman-erd.png', alt: 'ERD — Yến Sào Nam An', caption: 'ERD Tài Chính — Yến Sào Nam An' },
               ],
@@ -437,75 +459,75 @@
           ],
         },
         {
-          id:         'p3',
+          id: 'p3',
           shortTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          fullTitle:  'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          cardDesc:   'Tập trung vào việc phân tích và thiết kế module Bán hàng B2B trong hệ thống ERP cho Công ty TNHH Wonder Wood, đảm bảo nghiệp vụ bán hàng được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
+          fullTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
+          cardDesc: 'Tập trung vào việc phân tích và thiết kế module Bán hàng B2B trong hệ thống ERP cho Công ty TNHH Wonder Wood, đảm bảo nghiệp vụ bán hàng được đặc tả rõ ràng, logic và sát với thực tế hoạt động của doanh nghiệp.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading: 'GIỚI THIỆU',
                 paragraphs: [
                   'Wonder Wood hoạt động trong lĩnh vực sản xuất và gia công ván gỗ công nghiệp, phục vụ khách hàng B2B. Doanh nghiệp đang vận hành chủ yếu bằng Excel và Google Sheet, khó kiểm soát quy trình sản xuất, tồn kho và theo dõi đơn hàng. Dự án ERP được triển khai nhằm số hóa toàn bộ hoạt động vận hành từ sản xuất, kho bãi đến bán hàng giúp doanh nghiệp quản lý hiệu quả hơn và hướng đến mô hình vận hành hiện đại, không phụ thuộc vào giấy tờ thủ công.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading: 'PHẠM VI',
                 paragraphs: [
                   'Phụ trách phân tích và thiết kế module Bán hàng B2B trong hệ thống ERP, bao gồm các nghiệp vụ tiếp nhận đơn hàng, quản lý thông tin khách hàng và theo dõi tiến độ giao hàng, nhằm đảm bảo nghiệp vụ bán hàng được đặc tả rõ ràng, sát thực tế và sẵn sàng cho giai đoạn phát triển hệ thống.',
                 ],
               },
             },
             {
-              type:    'swimlane',
+              type: 'swimlane',
               heading: 'QUY TRÌNH QUẢN LÝ BÁN HÀNG ĐƯỢC MÔ HÌNH HÓA BẰNG BPMN',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/wonderwood-bpmn.png', alt: 'Swim Lane — Wonder Wood', caption: 'BPMN Quy Trình Quản Lý Bán Hàng' },
               ],
             },
             {
-              type:    'user-stories',
+              type: 'user-stories',
               heading: 'USER STORIES',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/wonderwood-us1.png', alt: 'User Stories - 1', caption: 'User Stories - 1' },
                 { src: './assets/wonderwood-us2.png', alt: 'User Stories - 2', caption: 'User Stories - 2' },
               ],
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'SƠ ĐỒ USE CASE',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/wonderwood-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
                 { src: './assets/wonderwood-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/wonderwood-ucs1.png', alt: 'Use Case Specification 1', caption: 'Đặc tả UC4.2a. Thêm hồ sơ khách hàng' },
                 { src: './assets/wonderwood-ucs2.png', alt: 'Use Case Specification 2', caption: 'Đặc tả UC4.4.5. Hủy từng đơn hàng' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
                 { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram - UC4.2a. Thêm hồ sơ khách hàng' },
                 { src: './assets/wonderwood-ad1.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram - UC4.4.5. Hủy từng đơn hàng' },
               ],
             },
             {
-              type:    'erd',
+              type: 'erd',
               heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/wonderwood-erd.png', alt: 'ERD — Wonder Wood', caption: 'ERD Bán Hàng - Wonder Wood' },
               ],
@@ -513,30 +535,30 @@
           ],
         },
         {
-          id:         'p4',
+          id: 'p4',
           shortTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          fullTitle:  'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          cardDesc:   'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
+          fullTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
+          cardDesc: 'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'GIỚI THIỆU',
+                heading: 'GIỚI THIỆU',
                 paragraphs: [
                   'The SHEA đang quản lý vị trí sản phẩm trên kệ kho và cửa hàng theo cách thủ công, dựa vào kinh nghiệm cá nhân nhân viên, dẫn đến tình trạng tìm hàng chậm, sắp xếp sai vị trí, hàng tồn không luân chuyển đúng quy tắc và quản lý thiếu dữ liệu để giám sát, kiểm soát kịp thời.',
                 ],
               },
               scope: {
-                heading:    'PHẠM VI',
+                heading: 'PHẠM VI',
                 paragraphs: [
                   'Hệ thống tập trung vào việc quản lý vị trí sản phẩm trên kệ tại kho và cửa hàng của the SHEA, bao gồm phân bổ và cập nhật vị trí sản phẩm, tra cứu hàng hóa, kiểm soát luân chuyển hàng hóa.',
                 ],
               },
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'SƠ ĐỒ USE CASE',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/theshea-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
                 { src: './assets/theshea-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
@@ -544,21 +566,21 @@
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/theshea-ucs.png', alt: 'Use Case Specification', caption: 'Use Case Specification' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
                 { src: './assets/theshea-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC1.1. Thêm mới giá kệ' },
-                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC1.4. Xóa giá kệ'      },
+                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC1.4. Xóa giá kệ' },
               ],
             },
           ],
@@ -567,48 +589,48 @@
 
       en: [
         {
-          id:         'p1',
+          id: 'p1',
           shortTitle: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
-          fullTitle:  'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
-          cardDesc:   "Focused on analyzing and designing the Production & HR module within the ERP system for Singapore Yummy Tofu Brand, ensuring all production and personnel operations are clearly specified, logically structured, and aligned with the company's actual workflows.",
+          fullTitle: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
+          cardDesc: "Focused on analyzing and designing the Production & HR module within the ERP system for Singapore Yummy Tofu Brand, ensuring all production and personnel operations are clearly specified, logically structured, and aligned with the company's actual workflows.",
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'INTRODUCTION',
+                heading: 'INTRODUCTION',
                 paragraphs: [
                   'Singapore Yummy Tofu Brand operates a chain of company-owned stores, currently using iPOS for sales operations. However, the business lacks integration between departments. The ERP project aims to digitize operations from production to HR management, enabling tighter business control and readiness for future chain expansion.',
                 ],
               },
               scope: {
-                heading:    'SCOPE',
+                heading: 'SCOPE',
                 paragraphs: [
                   'Responsible for analyzing and designing the Production & HR module in the ERP system, covering tofu production process management, raw material tracking, shift scheduling, attendance recording, and payroll calculation, ensuring this module is clearly specified, grounded in operational reality, and ready for the system development phase.',
                 ],
               },
             },
             {
-              type:    'swimlane',
+              type: 'swimlane',
               heading: 'BUSINESS PROCESSES MODELLED WITH BPMN',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/yummy-bpmn1.png', alt: 'BPMN — Production Management Process', caption: 'BPMN — Production Management Process' },
-                { src: './assets/yummy-bpmn2.png', alt: 'BPMN — HR Management Process',          caption: 'BPMN — HR Management Process'          },
+                { src: './assets/yummy-bpmn2.png', alt: 'BPMN — HR Management Process', caption: 'BPMN — HR Management Process' },
               ],
             },
             {
-              type:    'user-stories',
+              type: 'user-stories',
               heading: 'USER STORIES',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/yummy-us1.png', alt: 'User Stories - 1', caption: 'User Stories - 1' },
                 { src: './assets/yummy-us2.png', alt: 'User Stories - 2', caption: 'User Stories - 2' },
               ],
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'USE CASE DIAGRAM',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/yummy-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1' },
                 { src: './assets/yummy-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
@@ -616,105 +638,105 @@
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'pair',
+              layout: 'pair',
               images: [
-                { src: './assets/yummy-ucs1.png', alt: 'Spec UC3.2.5.1. Add Production Plan',        caption: 'Spec UC3.2.5.1. Add Production Plan'        },
+                { src: './assets/yummy-ucs1.png', alt: 'Spec UC3.2.5.1. Add Production Plan', caption: 'Spec UC3.2.5.1. Add Production Plan' },
                 { src: './assets/yummy-ucs2.png', alt: 'Spec UC5.2.3.1b. View Attendance Details', caption: 'Spec UC5.2.3.1b. View Attendance Details' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
-                { src: './assets/yummy-ad1.png', alt: 'Activity Diagram — UC3.2.5.1. Add Production Plan',        caption: 'Activity Diagram — UC3.2.5.1. Add Production Plan'        },
+                { src: './assets/yummy-ad1.png', alt: 'Activity Diagram — UC3.2.5.1. Add Production Plan', caption: 'Activity Diagram — UC3.2.5.1. Add Production Plan' },
                 { src: './assets/yummy-ad2.png', alt: 'Activity Diagram — UC5.2.3.1b. View Attendance Details', caption: 'Activity Diagram — UC5.2.3.1b. View Attendance Details' },
               ],
             },
             {
-              type:    'erd',
+              type: 'erd',
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
-              layout:  'multi',
+              layout: 'multi',
               images: [
                 { src: './assets/yummy-erd1.png', alt: 'ERD — Production Module — Singapore Yummy', caption: 'ERD — Production Module — Singapore Yummy' },
-                { src: './assets/yummy-erd2.png', alt: 'ERD — HR Module — Singapore Yummy',         caption: 'ERD — HR Module — Singapore Yummy'         },
+                { src: './assets/yummy-erd2.png', alt: 'ERD — HR Module — Singapore Yummy', caption: 'ERD — HR Module — Singapore Yummy' },
               ],
             },
           ],
         },
         {
-          id:         'p2',
+          id: 'p2',
           shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          cardDesc:   "Focused on analyzing and designing the Finance module within the ERP system for Nam Viet Phuong Co., Ltd., ensuring all financial operations are clearly specified, logically structured, and aligned with the company's actual business practices.",
+          fullTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          cardDesc: "Focused on analyzing and designing the Finance module within the ERP system for Nam Viet Phuong Co., Ltd., ensuring all financial operations are clearly specified, logically structured, and aligned with the company's actual business practices.",
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'INTRODUCTION',
+                heading: 'INTRODUCTION',
                 paragraphs: [
                   "Nam An Bird's Nest operates in the production and distribution of bird's nest products, spanning harvesting, initial processing, refining, retail, and wholesale. The business currently runs across multiple platforms (Sapo, Excel, paper documents), leading to scattered data that is difficult to consolidate and insufficient analytical capability for informed decision-making. The ERP project was implemented to centralize data, standardize operational processes, and help the business transform data into actionable insights and practical business recommendations.",
                 ],
               },
               scope: {
-                heading:    'SCOPE',
+                heading: 'SCOPE',
                 paragraphs: [
                   'Responsible for analyzing and designing the Finance module in the ERP system, covering income and expense tracking, wholesale/retail receivables and payables management, and internal financial reporting, ensuring all financial operations are clearly specified, grounded in operational reality, and ready for the system development phase.',
                 ],
               },
             },
             {
-              type:    'swimlane',
+              type: 'swimlane',
               heading: 'FINANCIAL MANAGEMENT PROCESS MODELLED WITH BPMN',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/naman-bpmn.png', alt: 'Swim Lane — Financial Management Process', caption: 'Financial Management Process' },
               ],
             },
             {
-              type:    'user-stories',
+              type: 'user-stories',
               heading: 'USER STORIES',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/naman-us1.png', alt: 'User Stories - 1', caption: 'User Stories - 1' },
                 { src: './assets/naman-us2.png', alt: 'User Stories - 2', caption: 'User Stories - 2' },
               ],
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'USE CASE DIAGRAM',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/naman-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
                 { src: './assets/naman-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'pair',
+              layout: 'pair',
               images: [
-                { src: './assets/naman-ucs1.png', alt: 'Spec UC-6.2.1. Add Fund Source',             caption: 'Spec UC-6.2.1. Add Fund Source'             },
+                { src: './assets/naman-ucs1.png', alt: 'Spec UC-6.2.1. Add Fund Source', caption: 'Spec UC-6.2.1. Add Fund Source' },
                 { src: './assets/naman-ucs2.png', alt: 'Spec UC-6.4.1b. View Supplier Debt Details', caption: 'Spec UC-6.4.1b. View Supplier Debt Details' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
-                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Add Fund Source'              },
+                { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Add Fund Source' },
                 { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC-6.4.1b. View Supplier Debt Details' },
               ],
             },
             {
-              type:    'erd',
+              type: 'erd',
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/naman-erd.png', alt: "ERD — Finance Module — Nam An Bird's Nest", caption: "ERD — Finance Module — Nam An Bird's Nest" },
               ],
@@ -722,75 +744,75 @@
           ],
         },
         {
-          id:         'p3',
+          id: 'p3',
           shortTitle: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
-          fullTitle:  'ERP SYSTEM FOR WONDER WOOD CO., LTD',
-          cardDesc:   "Focused on analyzing and designing the B2B Sales module within the ERP system for Wonder Wood Co., Ltd., ensuring all sales operations are clearly specified, logically structured, and aligned with the company's operational reality.",
+          fullTitle: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
+          cardDesc: "Focused on analyzing and designing the B2B Sales module within the ERP system for Wonder Wood Co., Ltd., ensuring all sales operations are clearly specified, logically structured, and aligned with the company's operational reality.",
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'INTRODUCTION',
+                heading: 'INTRODUCTION',
                 paragraphs: [
                   'Wonder Wood operates in the industrial wood panel manufacturing and processing sector, serving B2B customers. The company currently relies primarily on Excel and Google Sheets, making it difficult to control production processes, manage inventory, and track orders. The ERP project aims to digitize all operations from production and warehousing to sales, helping the company manage more efficiently and move toward a modern, paperless operating model.',
                 ],
               },
               scope: {
-                heading:    'SCOPE',
+                heading: 'SCOPE',
                 paragraphs: [
                   'Responsible for analyzing and designing the B2B Sales module in the ERP system, covering order intake, customer information management, and delivery progress tracking, ensuring the sales module is clearly specified, grounded in operational reality, and ready for the system development phase.',
                 ],
               },
             },
             {
-              type:    'swimlane',
+              type: 'swimlane',
               heading: 'SALES MANAGEMENT PROCESS MODELLED WITH BPMN',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/wonderwood-bpmn.png', alt: 'Swim Lane — Wonder Wood', caption: 'Sales Management Process' },
               ],
             },
             {
-              type:    'user-stories',
+              type: 'user-stories',
               heading: 'USER STORIES',
-              layout:  'pair',
+              layout: 'pair',
               images: [
                 { src: './assets/wonderwood-us1.png', alt: 'User Stories - 1', caption: 'User Stories - 1' },
                 { src: './assets/wonderwood-us2.png', alt: 'User Stories - 2', caption: 'User Stories - 2' },
               ],
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'USE CASE DIAGRAM',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/wonderwood-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
                 { src: './assets/wonderwood-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'pair',
+              layout: 'pair',
               images: [
-                { src: './assets/wonderwood-ucs1.png', alt: 'Spec UC4.2a. Add Customer Profile',       caption: 'Spec UC4.2a. Add Customer Profile'       },
+                { src: './assets/wonderwood-ucs1.png', alt: 'Spec UC4.2a. Add Customer Profile', caption: 'Spec UC4.2a. Add Customer Profile' },
                 { src: './assets/wonderwood-ucs2.png', alt: 'Spec UC4.4.5. Cancel Individual Order', caption: 'Spec UC4.4.5. Cancel Individual Order' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
-                { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram — UC4.2a. Add Customer Profile',       caption: 'Activity Diagram — UC4.2a. Add Customer Profile'       },
+                { src: './assets/wonderwood-ad2.png', alt: 'Activity Diagram — UC4.2a. Add Customer Profile', caption: 'Activity Diagram — UC4.2a. Add Customer Profile' },
                 { src: './assets/wonderwood-ad1.png', alt: 'Activity Diagram — UC4.4.5. Cancel Individual Order', caption: 'Activity Diagram — UC4.4.5. Cancel Individual Order' },
               ],
             },
             {
-              type:    'erd',
+              type: 'erd',
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/wonderwood-erd.png', alt: 'ERD — B2B Sales Module — Wonder Wood', caption: 'ERD — B2B Sales Module — Wonder Wood' },
               ],
@@ -798,30 +820,30 @@
           ],
         },
         {
-          id:         'p4',
+          id: 'p4',
           shortTitle: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
-          fullTitle:  'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
-          cardDesc:   'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
+          fullTitle: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
+          cardDesc: 'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
           sections: [
             {
               type: 'overview',
               intro: {
-                heading:    'INTRODUCTION',
+                heading: 'INTRODUCTION',
                 paragraphs: [
                   'The SHEA was managing product positions on warehouse and store shelves manually, relying entirely on individual staff experience. This led to slow product retrieval, frequent misplacements, improper stock rotation, and insufficient data visibility for timely monitoring and operational control.',
                 ],
               },
               scope: {
-                heading:    'SCOPE',
+                heading: 'SCOPE',
                 paragraphs: [
                   "The system focuses on managing product positions on shelves across The SHEA's warehouse and retail stores, covering slot assignment and updates, product lookup, and inventory rotation control.",
                 ],
               },
             },
             {
-              type:    'use-case-diagram',
+              type: 'use-case-diagram',
               heading: 'USE CASE DIAGRAM',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/theshea-uc-lv1.png', alt: 'Use Case Level 1', caption: 'Use Case Level 1', size: 'sm' },
                 { src: './assets/theshea-uc-lv2.png', alt: 'Use Case Level 2', caption: 'Use Case Level 2' },
@@ -829,21 +851,21 @@
               ],
             },
             {
-              type:    'use-case-spec',
+              type: 'use-case-spec',
               heading: 'USE CASE SPECIFICATION',
-              layout:  'full',
+              layout: 'full',
               images: [
                 { src: './assets/theshea-ucs.png', alt: 'Use Case Specification', caption: 'Use Case Specification' },
               ],
             },
             {
-              type:    'activity-diagram',
+              type: 'activity-diagram',
               heading: 'ACTIVITY DIAGRAM',
-              layout:  'pair',
-              size:    'md',
+              layout: 'pair',
+              size: 'md',
               images: [
                 { src: './assets/theshea-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC1.1. Add New Shelf Row' },
-                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC1.4. Delete Shelf Row'  },
+                { src: './assets/theshea-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC1.4. Delete Shelf Row' },
               ],
             },
           ],
@@ -857,22 +879,22 @@
     const UIUX_PROJECTS = {
       vi: [
         {
-          id:         'p1',
+          id: 'p1',
           shortTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          fullTitle:  'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          cardDesc:   'Thiết kế UX/UI cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy, bao gồm prototype tương tác Figma và bộ màn hình giao diện hoàn chỉnh.',
+          fullTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          cardDesc: 'Thiết kế UX/UI cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy, bao gồm prototype tương tác Figma và bộ màn hình giao diện hoàn chỉnh.',
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/yummy0.jpg',
-              bannerAlt:     'UX Design — Singapore Yummy',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/yummy0.jpg',
+              bannerAlt: 'UX Design — Singapore Yummy',
               prototypeHref: 'https://www.figma.com/proto/NRuushQ45tYzRi72LHbkEo/Yummy?node-id=1412-72506&p=f&t=61rOmjiGgHpBDyLm-0&scaling=min-zoom&content-scaling=fixed&page-id=718%3A50376&starting-point-node-id=1412%3A72506&show-proto-sidebar=1',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'desktop',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'desktop',
               images: [
                 { src: './assets/yummy1.png', alt: 'UI Screen 1' },
                 { src: './assets/yummy2.png', alt: 'UI Screen 2' },
@@ -886,23 +908,23 @@
           ],
         },
         {
-          id:         'p2',
+          id: 'p2',
           shortTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          fullTitle:  'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
-          cardDesc:   'Thiết kế UX/UI cho module Tài chính của hệ thống ERP Nam An, bao gồm prototype tương tác Figma và bộ màn hình giao diện desktop.',
+          fullTitle: 'HỆ THỐNG ERP YẾN SÀO NAM AN — CÔNG TY TNHH NAM VIỆT PHƯƠNG',
+          cardDesc: 'Thiết kế UX/UI cho module Tài chính của hệ thống ERP Nam An, bao gồm prototype tương tác Figma và bộ màn hình giao diện desktop.',
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/naman0.jpg',
-              bannerAlt:     'UX Design — Yến Sào Nam An',
-              bannerSize:    'sm',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/naman0.jpg',
+              bannerAlt: 'UX Design — Yến Sào Nam An',
+              bannerSize: 'sm',
               prototypeHref: 'https://www.figma.com/proto/fIiO0gr1url64n6KwFo9SZ?node-id=0-1&t=zxQZ34xTOIVy5WPa-6',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'desktop',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'desktop',
               images: [
                 { src: './assets/naman1.png', alt: 'UI Screen 1' },
                 { src: './assets/naman2.png', alt: 'UI Screen 2' },
@@ -915,22 +937,22 @@
           ],
         },
         {
-          id:         'p3',
+          id: 'p3',
           shortTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          fullTitle:  'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
-          cardDesc:   'Thiết kế UX/UI cho module Bán hàng B2B của hệ thống ERP Wonder Wood, với prototype Figma và bộ màn hình giao diện desktop đầy đủ.',
+          fullTitle: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
+          cardDesc: 'Thiết kế UX/UI cho module Bán hàng B2B của hệ thống ERP Wonder Wood, với prototype Figma và bộ màn hình giao diện desktop đầy đủ.',
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/ww0.jpg',
-              bannerAlt:     'UX Design — Wonder Wood',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/ww0.jpg',
+              bannerAlt: 'UX Design — Wonder Wood',
               prototypeHref: 'https://www.figma.com/proto/2HehjZbfGb7sVbxCL5WLJI?node-id=2710-55767&t=zxQZ34xTOIVy5WPa-6',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'desktop',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'desktop',
               images: [
                 { src: './assets/ww1.png', alt: 'UI Screen 1' },
                 { src: './assets/ww2.png', alt: 'UI Screen 2' },
@@ -945,22 +967,22 @@
           ],
         },
         {
-          id:         'p4',
+          id: 'p4',
           shortTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          fullTitle:  'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
-          cardDesc:   'Thiết kế UX/UI cho hệ thống quản lý vị trí sản phẩm The SHEA trên nền tảng Mobile, với bộ màn hình portrait hoàn chỉnh.',
+          fullTitle: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG THE SHEA',
+          cardDesc: 'Thiết kế UX/UI cho hệ thống quản lý vị trí sản phẩm The SHEA trên nền tảng Mobile, với bộ màn hình portrait hoàn chỉnh.',
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/theshea0.jpg',
-              bannerAlt:     'UX Design — The SHEA',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/theshea0.jpg',
+              bannerAlt: 'UX Design — The SHEA',
               prototypeHref: 'https://www.figma.com/proto/8J0etnuarMbnytQxAjK553?node-id=4-0&t=zxQZ34xTOIVy5WPa-6',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'mobile',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'mobile',
               images: [
                 { src: './assets/theshea1.png', alt: 'Mobile Screen 1' },
                 { src: './assets/theshea2.png', alt: 'Mobile Screen 2' },
@@ -975,22 +997,22 @@
 
       en: [
         {
-          id:         'p1',
+          id: 'p1',
           shortTitle: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
-          fullTitle:  'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
-          cardDesc:   'UI/UX design for the ERP Production & HR module of Singapore Yummy Tofu Brand, featuring an interactive Figma prototype and a complete set of interface screens.',
+          fullTitle: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
+          cardDesc: 'UI/UX design for the ERP Production & HR module of Singapore Yummy Tofu Brand, featuring an interactive Figma prototype and a complete set of interface screens.',
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/yummy0.jpg',
-              bannerAlt:     'UX Design — Singapore Yummy',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/yummy0.jpg',
+              bannerAlt: 'UX Design — Singapore Yummy',
               prototypeHref: 'https://www.figma.com/proto/NRuushQ45tYzRi72LHbkEo/Yummy?node-id=1412-72506&p=f&t=61rOmjiGgHpBDyLm-0&scaling=min-zoom&content-scaling=fixed&page-id=718%3A50376&starting-point-node-id=1412%3A72506&show-proto-sidebar=1',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'desktop',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'desktop',
               images: [
                 { src: './assets/yummy1.png', alt: 'UI Screen 1' },
                 { src: './assets/yummy2.png', alt: 'UI Screen 2' },
@@ -1001,23 +1023,23 @@
           ],
         },
         {
-          id:         'p2',
+          id: 'p2',
           shortTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          fullTitle:  "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
-          cardDesc:   "UI/UX design for the Finance module of Nam An Bird's Nest ERP system, including an interactive Figma prototype and a full set of desktop interface screens.",
+          fullTitle: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
+          cardDesc: "UI/UX design for the Finance module of Nam An Bird's Nest ERP system, including an interactive Figma prototype and a full set of desktop interface screens.",
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/naman0.jpg',
-              bannerAlt:     "UX Design — Nam An Bird's Nest",
-              bannerSize:    'sm',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/naman0.jpg',
+              bannerAlt: "UX Design — Nam An Bird's Nest",
+              bannerSize: 'sm',
               prototypeHref: '#',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'desktop',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'desktop',
               images: [
                 { src: './assets/naman1.png', alt: 'UI Screen 1' },
                 { src: './assets/naman2.png', alt: 'UI Screen 2' },
@@ -1028,22 +1050,22 @@
           ],
         },
         {
-          id:         'p3',
+          id: 'p3',
           shortTitle: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
-          fullTitle:  'ERP SYSTEM FOR WONDER WOOD CO., LTD',
-          cardDesc:   'UI/UX design for the B2B Sales module of Wonder Wood ERP system, with a Figma prototype and a complete set of desktop interface screens.',
+          fullTitle: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
+          cardDesc: 'UI/UX design for the B2B Sales module of Wonder Wood ERP system, with a Figma prototype and a complete set of desktop interface screens.',
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/ww0.jpg',
-              bannerAlt:     'UX Design — Wonder Wood',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/ww0.jpg',
+              bannerAlt: 'UX Design — Wonder Wood',
               prototypeHref: '#',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'desktop',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'desktop',
               images: [
                 { src: './assets/ww1.png', alt: 'UI Screen 1' },
                 { src: './assets/ww2.png', alt: 'UI Screen 2' },
@@ -1054,22 +1076,22 @@
           ],
         },
         {
-          id:         'p4',
+          id: 'p4',
           shortTitle: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
-          fullTitle:  'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
-          cardDesc:   "UI/UX design for The SHEA's product position management system on mobile platform, featuring a complete set of portrait mobile screen mockups.",
+          fullTitle: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
+          cardDesc: "UI/UX design for The SHEA's product position management system on mobile platform, featuring a complete set of portrait mobile screen mockups.",
           sections: [
             {
-              type:          'ux',
-              heading:       'UX DESIGN',
-              bannerSrc:     './assets/theshea0.jpg',
-              bannerAlt:     'UX Design — The SHEA',
+              type: 'ux',
+              heading: 'UX DESIGN',
+              bannerSrc: './assets/theshea0.jpg',
+              bannerAlt: 'UX Design — The SHEA',
               prototypeHref: '#',
             },
             {
-              type:      'ui',
-              heading:   'UI DESIGN',
-              uiLayout:  'mobile',
+              type: 'ui',
+              heading: 'UI DESIGN',
+              uiLayout: 'mobile',
               images: [
                 { src: './assets/theshea1.png', alt: 'Mobile Screen 1' },
                 { src: './assets/theshea2.png', alt: 'Mobile Screen 2' },
@@ -1097,21 +1119,25 @@
           id: 'p1',
           title: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
           cardDesc: 'Xây dựng một hệ thống ERP được thiết kế riêng cho đặc thù ngành F&B chuỗi, giúp số hóa toàn bộ luồng vận hành từ sản xuất, kho bãi, bán hàng, nhân sự đến tài chính - thay thế các quy trình thủ công đang phụ thuộc vào Excel, Zalo và ghi chép tay.',
+          logoSrc: './assets/yummy_logo.jpg',
         },
         {
           id: 'p2',
           title: 'HỆ THỐNG ERP YẾN SÀO NAM AN - CÔNG TY TNHH NAM VIỆT PHƯƠNG',
           cardDesc: 'Xây dựng hệ thống ERP được thiết kế giúp số hóa toàn bộ luồng vận hành từ thu hoạch, sơ chế, tinh chế, kho bãi đến bán hàng và tài chính — thay thế các quy trình thủ công đang phụ thuộc vào Sapo, Excel và chứng từ giấy rời rạc.',
+          logoSrc: './assets/naman_logo.jpg',
         },
         {
           id: 'p3',
           title: 'HỆ THỐNG ERP CHO CÔNG TY TNHH WONDER WOOD',
           cardDesc: 'Xây dựng hệ thống ERP được thiết kế riêng giúp số hóa toàn bộ luồng vận hành từ nhập nguyên vật liệu, sản xuất, kiểm soát chất lượng, kho bãi đến bán hàng B2B, nhằm thay thế các quy trình thủ công đang phụ thuộc vào Excel và Google Sheet.',
+          logoSrc: './assets/wonderwood_logo.jpg',
         },
         {
           id: 'p4',
           title: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG – THE SHEA',
           cardDesc: 'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
+          logoSrc: './assets/theshea_logo.jpg',
         },
       ],
       en: [
@@ -1119,21 +1145,25 @@
           id: 'p1',
           title: 'ERP SYSTEM FOR SINGAPORE YUMMY TOFU BRAND',
           cardDesc: 'Building a custom ERP system designed specifically for the F&B chain industry, digitizing the entire operational workflow from production, warehousing, sales, HR to finance — replacing manual processes dependent on Excel, Zalo and handwritten notes.',
+          logoSrc: './assets/yummy_logo.jpg',
         },
         {
           id: 'p2',
           title: "NAM AN BIRD'S NEST ERP SYSTEM — NAM VIET PHUONG CO., LTD",
           cardDesc: "Building an ERP system to digitize the entire operational workflow from harvesting, processing, refining, warehousing to sales and finance — replacing manual processes dependent on Sapo, Excel and scattered paper documents.",
+          logoSrc: './assets/naman_logo.jpg',
         },
         {
           id: 'p3',
           title: 'ERP SYSTEM FOR WONDER WOOD CO., LTD',
           cardDesc: 'Building a custom ERP system to digitize the entire operational workflow from raw material import, production, quality control, warehousing to B2B sales — replacing manual processes dependent on Excel and Google Sheet.',
+          logoSrc: './assets/wonderwood_logo.jpg',
         },
         {
           id: 'p4',
           title: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
           cardDesc: 'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
+          logoSrc: './assets/theshea_logo.jpg',
         },
       ],
     };
@@ -1147,8 +1177,8 @@
         {
           id: 'vc1',
           shortTitle: 'DEMO ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          fullTitle:  'DEMO ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          cardDesc:   'Ứng dụng Vibe Coding để xây dựng nhanh bản demo giao diện tương tác cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy.',
+          fullTitle: 'DEMO ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          cardDesc: 'Ứng dụng Vibe Coding để xây dựng nhanh bản demo giao diện tương tác cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy.',
           sections: [
             {
               type: 'overview',
@@ -1166,8 +1196,8 @@
         {
           id: 'vc1',
           shortTitle: 'ERP DEMO FOR SINGAPORE YUMMY TOFU BRAND',
-          fullTitle:  'ERP DEMO FOR SINGAPORE YUMMY TOFU BRAND',
-          cardDesc:   'Applying Vibe Coding to rapidly build an interactive UI demo for the ERP Production & HR module of Singapore Yummy Tofu Brand.',
+          fullTitle: 'ERP DEMO FOR SINGAPORE YUMMY TOFU BRAND',
+          cardDesc: 'Applying Vibe Coding to rapidly build an interactive UI demo for the ERP Production & HR module of Singapore Yummy Tofu Brand.',
           sections: [
             {
               type: 'overview',
@@ -1238,9 +1268,9 @@
     );
 
     function ContactColIcon({ type, className }) {
-      if (type === 'email')    return <IconMail     className={className} />;
+      if (type === 'email') return <IconMail className={className} />;
       if (type === 'linkedin') return <IconLinkedIn className={className} />;
-      if (type === 'phone')    return <IconPhone    className={className} />;
+      if (type === 'phone') return <IconPhone className={className} />;
       return null;
     }
 
@@ -1311,12 +1341,12 @@
 
     /* Map skill id -> icon component */
     const SKILL_ICONS = {
-      system:      IconSystemDesign,
-      uiux:        IconUiUxDesign,
-      vibe:        IconVibeCoding,
+      system: IconSystemDesign,
+      uiux: IconUiUxDesign,
+      vibe: IconVibeCoding,
       elicitation: IconElicitation,
-      agile:       IconAgile,
-      testing:     IconTesting,
+      agile: IconAgile,
+      testing: IconTesting,
     };
 
 
@@ -1444,9 +1474,9 @@
 
       /* Circular chain: system -> uiux -> vibecoding -> system */
       const NAV_CHAIN = {
-        system:      { prev: 'vibecoding', prevLabel: s.nextVibeCoding,  next: 'uiux',        nextLabel: s.nextUiux },
-        uiux:        { prev: 'system',     prevLabel: s.nextSystem,      next: 'vibecoding',  nextLabel: s.nextVibeCoding },
-        vibecoding:  { prev: 'uiux',       prevLabel: s.nextUiux,        next: 'system',      nextLabel: s.nextSystem },
+        system: { prev: 'vibecoding', prevLabel: s.nextVibeCoding, next: 'uiux', nextLabel: s.nextUiux },
+        uiux: { prev: 'system', prevLabel: s.nextSystem, next: 'vibecoding', nextLabel: s.nextVibeCoding },
+        vibecoding: { prev: 'uiux', prevLabel: s.nextUiux, next: 'system', nextLabel: s.nextSystem },
       };
       const chain = NAV_CHAIN[page] || NAV_CHAIN.system;
 
@@ -1488,7 +1518,7 @@
       const projects = PROJECTS[lang];
       const currentIndex = projects.findIndex(p => p.id === selectedProject);
       const isFirst = currentIndex <= 0;
-      const isLast  = currentIndex >= projects.length - 1;
+      const isLast = currentIndex >= projects.length - 1;
 
       const goToPrev = () => {
         if (isFirst) {
@@ -1791,27 +1821,36 @@
               <div className="flex-1 h-px bg-gray-300" />
             </div>
 
-            {/* Project cards — Grid 2 cột */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Project cards — Grid 2 cột, Thumbnail layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col"
+                  className="border border-gray-200 rounded-xl py-6 px-8 md:py-8 md:px-10 bg-white flex flex-col h-full justify-between shadow-sm hover:shadow-md hover:border-navy transition-all"
                 >
-                  <h3 className="font-heading font-extrabold text-base text-navy uppercase leading-relaxed tracking-normal mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="font-body text-base text-gray-500 leading-relaxed flex-grow">
-                    {project.cardDesc}
-                  </p>
-                  <div className="flex justify-end mt-5">
-                    <button
-                      onClick={() => handleViewMore(project.id)}
-                      className="pill font-heading bg-navy text-white text-[11px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all whitespace-nowrap"
-                    >
-                      {p.viewMore}
-                    </button>
+                  <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-center w-full">
+                    {/* Cột Trái — Logo */}
+                    <img
+                      src={project.logoSrc}
+                      alt={project.title}
+                      className="w-32 h-32 md:w-40 md:h-40 object-contain flex-shrink-0 bg-white drop-shadow-sm"
+                    />
+                    {/* Cột Phải — Nội dung */}
+                    <div className="flex-1 flex flex-col w-full">
+                      <h3 className="font-heading font-extrabold text-base text-navy uppercase leading-relaxed tracking-normal mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="font-body text-base text-gray-500 leading-relaxed text-left">
+                        {project.cardDesc}
+                      </p>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => handleViewMore(project.id)}
+                    className="mt-6 self-end pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all"
+                  >
+                    {p.viewMore}
+                  </button>
                 </div>
               ))}
             </div>
@@ -1989,7 +2028,7 @@
     function HomeView({ lang, navigate, setSelectedProject, setCurrentPage }) {
       return (
         <>
-          <HeroSection   lang={lang} setCurrentPage={setCurrentPage} />
+          <HeroSection lang={lang} setCurrentPage={setCurrentPage} />
           <SkillsSection lang={lang} navigate={navigate} />
           <ProjectsSection lang={lang} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />
           <ContactFooter lang={lang} />
@@ -2002,7 +2041,7 @@
        9c. CV VIEW
     ════════════════════════════════════════════════════════════ */
     function CvView({ lang, navigate }) {
-      const s      = SHARED_DICT[lang];
+      const s = SHARED_DICT[lang];
       const cvPath = lang === 'vi' ? './assets/cv_vi.pdf' : './assets/cv_en.pdf';
 
       return (
@@ -2096,7 +2135,7 @@
         <div className="py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <TextCard heading={intro.heading} paragraphs={intro.paragraphs} />
-            <TextCard heading={scope.heading}  paragraphs={scope.paragraphs}  />
+            <TextCard heading={scope.heading} paragraphs={scope.paragraphs} />
           </div>
         </div>
       );
@@ -2143,7 +2182,7 @@
               {images.map((img, i) => (
                 <div key={i} className={
                   img.size === 'sm' ? 'max-w-lg mx-auto w-full' :
-                  img.size === 'md' ? 'max-w-2xl mx-auto w-full' : 'w-full'
+                    img.size === 'md' ? 'max-w-2xl mx-auto w-full' : 'w-full'
                 }>
                   <DiagramImage {...img} />
                 </div>
@@ -2209,7 +2248,7 @@
     /* ── SystemDesignView ── */
     function SystemDesignView({ lang, navigate }) {
       const projects = SYSTEM_PROJECTS[lang];
-      const shared   = SHARED_DICT[lang];
+      const shared = SHARED_DICT[lang];
       return (
         <>
           <PageHero pageTitle={shared.systemPageTitle} />
@@ -2328,7 +2367,7 @@
     /* ── UiUxDesignView ── */
     function UiUxDesignView({ lang, navigate }) {
       const projects = UIUX_PROJECTS[lang];
-      const shared   = SHARED_DICT[lang];
+      const shared = SHARED_DICT[lang];
       return (
         <>
           <PageHero pageTitle={shared.uiuxPageTitle} />
@@ -2376,7 +2415,7 @@
     /* ── VibeCodingView ── */
     function VibeCodingView({ lang, navigate }) {
       const projects = VIBE_PROJECTS[lang];
-      const shared   = SHARED_DICT[lang];
+      const shared = SHARED_DICT[lang];
       return (
         <>
           <PageHero pageTitle={shared.vibeCodingPageTitle} />
@@ -2399,7 +2438,7 @@
 
       /* Find matching project data from SYSTEM_PROJECTS and UIUX_PROJECTS */
       const systemProject = SYSTEM_PROJECTS[lang].find(p => p.id === selectedProject);
-      const uiuxProject   = UIUX_PROJECTS[lang].find(p => p.id === selectedProject);
+      const uiuxProject = UIUX_PROJECTS[lang].find(p => p.id === selectedProject);
 
       /* Use system project for title (fallback to uiux) */
       const projectTitle = systemProject
@@ -2515,11 +2554,11 @@
        10. APP ROOT
     ════════════════════════════════════════════════════════════ */
     function App() {
-      const [lang, setLang]                       = useState('vi');
-      const [currentPage, setCurrentPage]         = useState('home');
-      const [activeSection, setActiveSection]      = useState('home');
-      const [scrollTarget, setScrollTarget]        = useState(null);
-      const [selectedProject, setSelectedProject]  = useState(null);
+      const [lang, setLang] = useState('vi');
+      const [currentPage, setCurrentPage] = useState('home');
+      const [activeSection, setActiveSection] = useState('home');
+      const [scrollTarget, setScrollTarget] = useState(null);
+      const [selectedProject, setSelectedProject] = useState(null);
 
       /* navigate helper — always scrolls to top, optionally to a section after render */
       const navigate = (page, section = null) => {
@@ -2571,12 +2610,12 @@
             activeSection={activeSection}
           />
           <main>
-            {currentPage === 'home'           && <HomeView         lang={lang} navigate={navigate} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
-            {currentPage === 'system'         && <SystemDesignView lang={lang} navigate={navigate} />}
-            {currentPage === 'uiux'           && <UiUxDesignView   lang={lang} navigate={navigate} />}
-            {currentPage === 'vibecoding'     && <VibeCodingView   lang={lang} navigate={navigate} />}
+            {currentPage === 'home' && <HomeView lang={lang} navigate={navigate} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
+            {currentPage === 'system' && <SystemDesignView lang={lang} navigate={navigate} />}
+            {currentPage === 'uiux' && <UiUxDesignView lang={lang} navigate={navigate} />}
+            {currentPage === 'vibecoding' && <VibeCodingView lang={lang} navigate={navigate} />}
             {currentPage === 'project_detail' && <ProjectDetailView lang={lang} navigate={navigate} selectedProject={selectedProject} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />}
-            {currentPage === 'cv'             && <CvView           lang={lang} navigate={navigate} />}
+            {currentPage === 'cv' && <CvView lang={lang} navigate={navigate} />}
           </main>
           <BackToTop />
         </div>
@@ -2587,4 +2626,5 @@
   </script>
 
 </body>
+
 </html>
