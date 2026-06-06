@@ -71,7 +71,7 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useState, useEffect } = React;
+    const { useState, useEffect, useRef } = React;
 
     /* ════════════════════════════════════════════════════════════
        1.  HOME CONTENT
@@ -270,6 +270,9 @@
         nextVibeCoding: 'Xem tiếp: Vibe Coding',
         systemDesignBanner: 'THIẾT KẾ HỆ THỐNG',
         uiuxDesignBanner: 'THIẾT KẾ UI/UX',
+        sequenceDiagramHeading: 'BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)',
+        erdHeading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
+        apiSpecsHeading: 'ĐẶC TẢ API',
         cvTitle: 'HỒ SƠ NĂNG LỰC',
         downloadPdf: 'Tải xuống bản PDF',
         copyright: '2026 | Tran Khanh Huyen | Business Analyst',
@@ -289,6 +292,9 @@
         nextVibeCoding: 'Next: Vibe Coding',
         systemDesignBanner: 'SYSTEM DESIGN',
         uiuxDesignBanner: 'UI/UX DESIGN',
+        sequenceDiagramHeading: 'SEQUENCE DIAGRAMS',
+        erdHeading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
+        apiSpecsHeading: 'API SPECIFICATION',
         cvTitle: 'CURRICULUM VITAE',
         downloadPdf: 'Download PDF',
         copyright: '2026 | Tran Khanh Huyen | Business Analyst',
@@ -372,6 +378,15 @@
               ],
             },
             {
+              type: 'sequence-diagram',
+              heading: 'BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-yummy-sanxuat.png', alt: 'Sequence Diagram - Vận hành Sản xuất', caption: 'Sequence Diagram - Vận hành Sản xuất' },
+                { src: './assets/sequence-diagram-yummy-nhansu.png', alt: 'Sequence Diagram - Quản lý Nhân sự', caption: 'Sequence Diagram - Quản lý Nhân sự' },
+              ],
+            },
+            {
               type: 'erd',
               heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
               layout: 'multi',
@@ -446,6 +461,14 @@
               images: [
                 { src: './assets/naman-ad1.png', alt: 'Activity Diagram 1', caption: 'Activity Diagram — UC6.2.1. Thêm nguồn quỹ' },
                 { src: './assets/naman-ad2.png', alt: 'Activity Diagram 2', caption: 'Activity Diagram — UC-6.4.1b. Xem chi tiết công nợ nhà cung cấp' },
+              ],
+            },
+            {
+              type: 'sequence-diagram',
+              heading: 'BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-naman-taichinh.png', alt: 'Sequence Diagram - Quản lý Tài chính & Công nợ', caption: 'Sequence Diagram - Quản lý Tài chính & Công nợ' },
               ],
             },
             {
@@ -525,11 +548,74 @@
               ],
             },
             {
+              type: 'sequence-diagram',
+              heading: 'BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-ww-banhang.png', alt: 'Sequence Diagram - Quy trình Bán hàng', caption: 'Sequence Diagram - Quy trình Bán hàng' },
+              ],
+            },
+            {
               type: 'erd',
               heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
               layout: 'full',
               images: [
                 { src: './assets/wonderwood-erd.png', alt: 'ERD — Wonder Wood', caption: 'ERD Bán Hàng - Wonder Wood' },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'financial-ai-agent',
+          shortTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
+          fullTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
+          cardDesc: 'Xây dựng hệ thống đầu tư tài chính tự động ứng dụng AI Agent, được thiết kế chuyên biệt cho thị trường chứng khoán. Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch, thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.',
+          sections: [
+            {
+              type: 'overview',
+              intro: {
+                heading: 'GIỚI THIỆU',
+                paragraphs: [
+                  'Dự án Hệ thống Agentic AI đầu tư tài chính tự động được xây dựng chuyên biệt cho thị trường chứng khoán, nhằm thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.'
+                ]
+              },
+              scope: {
+                heading: 'PHẠM VI',
+                paragraphs: [
+                  'Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch.'
+                ]
+              }
+            },
+            {
+              type: 'erd',
+              heading: 'SƠ ĐỒ THỰC THỂ MỐI QUAN HỆ (ERD)',
+              layout: 'full',
+              images: [
+                { src: './assets/aiagent_erd.png', alt: 'ERD — Hệ Thống Agentic AI Đầu Tư Tài Chính', caption: 'ERD — Hệ Thống Agentic AI Đầu Tư Tài Chính Tự Động' },
+              ],
+            },
+            {
+              type: 'sequence-diagram',
+              heading: 'BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-aiagent-dulieuthitruong.png', alt: 'Sequence Diagram - Dữ liệu thị trường', caption: 'Sequence Diagram - Dữ liệu thị trường' },
+                { src: './assets/sequence-diagram-aiagent-quanlydautu.png', alt: 'Sequence Diagram - Quản lý đầu tư', caption: 'Sequence Diagram - Quản lý đầu tư' },
+                { src: './assets/sequence-diagram-aiagent-taikhoan.png', alt: 'Sequence Diagram - Quản lý tài khoản', caption: 'Sequence Diagram - Quản lý tài khoản' },
+              ],
+            },
+            {
+              type: 'api-specs',
+              heading: 'TÀI LIỆU ĐẶC TẢ API & DATA MAPPING',
+              specs: [
+                {
+                  title: 'API Thêm mục đầu tư mới (POST /api/investments/setup)',
+                  src: './assets/aiagent_api_document1.pdf',
+                },
+                {
+                  title: 'API Thêm dữ liệu thị trường EOD (POST /api/market-data/daily)',
+                  src: './assets/aiagent_api_document2.pdf',
+                },
               ],
             },
           ],
@@ -584,33 +670,6 @@
               ],
             },
           ],
-        },
-        {
-          id: 'financial-ai-agent',
-          shortTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
-          fullTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
-          cardDesc: 'Xây dựng hệ thống đầu tư tài chính tự động ứng dụng AI Agent, được thiết kế chuyên biệt cho thị trường chứng khoán. Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch, thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.',
-          sections: [
-            {
-              type: 'overview',
-              intro: {
-                heading: 'GIỚI THIỆU',
-                paragraphs: [
-                  'Dự án Hệ thống Agentic AI đầu tư tài chính tự động được xây dựng chuyên biệt cho thị trường chứng khoán, nhằm thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.'
-                ]
-              },
-              scope: {
-                heading: 'PHẠM VI',
-                paragraphs: [
-                  'Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch.'
-                ]
-              }
-            },
-            {
-              type: 'placeholder',
-              text: 'Tài liệu Thiết kế đang được cập nhật...'
-            }
-          ]
         }
       ],
 
@@ -681,6 +740,15 @@
               images: [
                 { src: './assets/yummy-ad1.png', alt: 'Activity Diagram — UC3.2.5.1. Add Production Plan', caption: 'Activity Diagram — UC3.2.5.1. Add Production Plan' },
                 { src: './assets/yummy-ad2.png', alt: 'Activity Diagram — UC5.2.3.1b. View Attendance Details', caption: 'Activity Diagram — UC5.2.3.1b. View Attendance Details' },
+              ],
+            },
+            {
+              type: 'sequence-diagram',
+              heading: 'SEQUENCE DIAGRAMS',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-yummy-sanxuat.png', alt: 'Sequence Diagram — Production Operations', caption: 'Sequence Diagram — Production Operations' },
+                { src: './assets/sequence-diagram-yummy-nhansu.png', alt: 'Sequence Diagram — HR Management', caption: 'Sequence Diagram — HR Management' },
               ],
             },
             {
@@ -761,6 +829,14 @@
               ],
             },
             {
+              type: 'sequence-diagram',
+              heading: 'SEQUENCE DIAGRAMS',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-naman-taichinh.png', alt: 'Sequence Diagram — Finance & Accounts Receivable/Payable Management', caption: 'Sequence Diagram — Finance & Accounts Receivable/Payable Management' },
+              ],
+            },
+            {
               type: 'erd',
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
               layout: 'full',
@@ -837,11 +913,74 @@
               ],
             },
             {
+              type: 'sequence-diagram',
+              heading: 'SEQUENCE DIAGRAMS',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-ww-banhang.png', alt: 'Sequence Diagram — Sales Process', caption: 'Sequence Diagram — Sales Process' },
+              ],
+            },
+            {
               type: 'erd',
               heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
               layout: 'full',
               images: [
                 { src: './assets/wonderwood-erd.png', alt: 'ERD — B2B Sales Module — Wonder Wood', caption: 'ERD — B2B Sales Module — Wonder Wood' },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'financial-ai-agent',
+          shortTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
+          fullTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
+          cardDesc: 'Building an automated financial investment system powered by Agentic AI, specifically tailored for the stock market. The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support, replacing manual investment processes, minimizing errors, and optimizing portfolio efficiency.',
+          sections: [
+            {
+              type: 'overview',
+              intro: {
+                heading: 'INTRODUCTION',
+                paragraphs: [
+                  'The Automated Financial Investment Agentic AI System is specifically tailored for the stock market, aiming to replace manual investment processes, minimize errors, and optimize portfolio efficiency.'
+                ]
+              },
+              scope: {
+                heading: 'SCOPE',
+                paragraphs: [
+                  'The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support.'
+                ]
+              }
+            },
+            {
+              type: 'erd',
+              heading: 'ENTITY RELATIONSHIP DIAGRAM (ERD)',
+              layout: 'full',
+              images: [
+                { src: './assets/aiagent_erd.png', alt: 'ERD — Agentic AI Financial Investment System', caption: 'ERD — Automated Financial Investment Agentic AI System' },
+              ],
+            },
+            {
+              type: 'sequence-diagram',
+              heading: 'SEQUENCE DIAGRAMS',
+              layout: 'full',
+              images: [
+                { src: './assets/sequence-diagram-aiagent-dulieuthitruong.png', alt: 'Sequence Diagram — Market Data', caption: 'Sequence Diagram — Market Data' },
+                { src: './assets/sequence-diagram-aiagent-quanlydautu.png', alt: 'Sequence Diagram — Investment Management', caption: 'Sequence Diagram — Investment Management' },
+                { src: './assets/sequence-diagram-aiagent-taikhoan.png', alt: 'Sequence Diagram — Account Management', caption: 'Sequence Diagram — Account Management' },
+              ],
+            },
+            {
+              type: 'api-specs',
+              heading: 'API SPECIFICATION & DATA MAPPING',
+              specs: [
+                {
+                  title: 'API Add New Investment Entry (POST /api/investments/setup)',
+                  src: './assets/aiagent_api_document1.pdf',
+                },
+                {
+                  title: 'API Add EOD Market Data (POST /api/market-data/daily)',
+                  src: './assets/aiagent_api_document2.pdf',
+                },
               ],
             },
           ],
@@ -896,33 +1035,6 @@
               ],
             },
           ],
-        },
-        {
-          id: 'financial-ai-agent',
-          shortTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
-          fullTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
-          cardDesc: 'Building an automated financial investment system powered by Agentic AI, specifically tailored for the stock market. The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support, replacing manual investment processes, minimizing errors, and optimizing portfolio efficiency.',
-          sections: [
-            {
-              type: 'overview',
-              intro: {
-                heading: 'INTRODUCTION',
-                paragraphs: [
-                  'The Automated Financial Investment Agentic AI System is specifically tailored for the stock market, aiming to replace manual investment processes, minimize errors, and optimize portfolio efficiency.'
-                ]
-              },
-              scope: {
-                heading: 'SCOPE',
-                paragraphs: [
-                  'The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support.'
-                ]
-              }
-            },
-            {
-              type: 'placeholder',
-              text: 'Design documentation is being updated...'
-            }
-          ]
         }
       ],
     };
@@ -1046,18 +1158,6 @@
               ],
             },
           ],
-        },
-        {
-          id: 'financial-ai-agent',
-          shortTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
-          fullTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
-          cardDesc: 'Xây dựng hệ thống đầu tư tài chính tự động ứng dụng AI Agent, được thiết kế chuyên biệt cho thị trường chứng khoán. Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch, thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.',
-          sections: [
-            {
-              type: 'placeholder',
-              text: 'Tài liệu Thiết kế đang được cập nhật...'
-            }
-          ]
         }
       ],
 
@@ -1084,6 +1184,9 @@
                 { src: './assets/yummy2.png', alt: 'UI Screen 2' },
                 { src: './assets/yummy3.png', alt: 'UI Screen 3' },
                 { src: './assets/yummy4.png', alt: 'UI Screen 4' },
+                { src: './assets/yummy5.png', alt: 'UI Screen 5' },
+                { src: './assets/yummy6.png', alt: 'UI Screen 6' },
+                { src: './assets/yummy7.png', alt: 'UI Screen 7' },
               ],
             },
           ],
@@ -1111,6 +1214,8 @@
                 { src: './assets/naman2.png', alt: 'UI Screen 2' },
                 { src: './assets/naman3.png', alt: 'UI Screen 3' },
                 { src: './assets/naman4.png', alt: 'UI Screen 4' },
+                { src: './assets/naman5.png', alt: 'UI Screen 5' },
+                { src: './assets/naman6.png', alt: 'UI Screen 6' },
               ],
             },
           ],
@@ -1137,6 +1242,10 @@
                 { src: './assets/ww2.png', alt: 'UI Screen 2' },
                 { src: './assets/ww3.png', alt: 'UI Screen 3' },
                 { src: './assets/ww4.png', alt: 'UI Screen 4' },
+                { src: './assets/ww5.png', alt: 'UI Screen 5' },
+                { src: './assets/ww6.png', alt: 'UI Screen 6' },
+                { src: './assets/ww7.png', alt: 'UI Screen 7' },
+                { src: './assets/ww8.png', alt: 'UI Screen 8' },
               ],
             },
           ],
@@ -1164,24 +1273,9 @@
                 { src: './assets/theshea3.png', alt: 'Mobile Screen 3' },
                 { src: './assets/theshea4.png', alt: 'Mobile Screen 4' },
                 { src: './assets/theshea5.png', alt: 'Mobile Screen 5' },
-                { src: './assets/theshea6.png', alt: 'Mobile Screen 6' },
-                { src: './assets/theshea7.png', alt: 'Mobile Screen 7' },
-                { src: './assets/theshea8.png', alt: 'Mobile Screen 8' },
               ],
             },
           ],
-        },
-        {
-          id: 'financial-ai-agent',
-          shortTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
-          fullTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
-          cardDesc: 'Building an automated financial investment system powered by Agentic AI, specifically tailored for the stock market. The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support, replacing manual investment processes, minimizing errors, and optimizing portfolio efficiency.',
-          sections: [
-            {
-              type: 'placeholder',
-              text: 'Design documentation is being updated...'
-            }
-          ]
         }
       ],
     };
@@ -1215,19 +1309,19 @@
           logoSrc: './assets/wonderwood_logo.jpg',
         },
         {
-          id: 'p4',
-          domain: 'Quản lý kho hàng',
-          title: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG – THE SHEA',
-          cardDesc: 'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
-          logoSrc: './assets/theshea_logo.jpg',
-        },
-        {
           id: 'financial-ai-agent',
           title: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
           domain: 'AI Agent',
           logoSrc: './assets/ai_agent_logo.png',
           cardDesc: 'Xây dựng hệ thống đầu tư tài chính tự động ứng dụng AI Agent, được thiết kế chuyên biệt cho thị trường chứng khoán. Hệ thống tự động hóa toàn bộ luồng vận hành đầu tư, từ thu thập và xử lý dữ liệu thị trường, phân tích báo cáo tài chính đến quản trị dòng tiền và hỗ trợ ra quyết định giao dịch, thay thế các quy trình đầu tư thủ công, giảm thiểu sai sót và nâng cao hiệu quả danh mục.'
         },
+        {
+          id: 'p4',
+          domain: 'Quản lý kho hàng',
+          title: 'HỆ THỐNG QUẢN LÝ VỊ TRÍ SẢN PHẨM TRÊN KỆ KHO VÀ CỬA HÀNG – THE SHEA',
+          cardDesc: 'Dự án tập trung vào việc phân tích và thiết kế hệ thống quản lý vị trí hàng hóa trên kệ kho và cửa hàng cho The SHEA đảm bảo hệ thống được đặc tả rõ ràng, logic và sát với thực tế vận hành của doanh nghiệp.',
+          logoSrc: './assets/theshea_logo.jpg',
+        }
       ],
       en: [
         {
@@ -1252,19 +1346,19 @@
           logoSrc: './assets/wonderwood_logo.jpg',
         },
         {
-          id: 'p4',
-          domain: 'Warehousing Management',
-          title: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
-          cardDesc: 'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
-          logoSrc: './assets/theshea_logo.jpg',
-        },
-        {
           id: 'financial-ai-agent',
           title: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
           domain: 'AI Agent',
           logoSrc: './assets/ai_agent_logo.png',
           cardDesc: 'Building an automated financial investment system powered by Agentic AI, specifically tailored for the stock market. The system automates the entire investment workflow, from market data gathering and processing, financial statement analysis to cash flow management and trading decision support, replacing manual investment processes, minimizing errors, and optimizing portfolio efficiency.'
         },
+        {
+          id: 'p4',
+          domain: 'Warehousing Management',
+          title: 'PRODUCT POSITION MANAGEMENT SYSTEM FOR THE SHEA WAREHOUSE & STORE SHELVES',
+          cardDesc: 'Analysis and design of a shelf-slot-based product position management system, enabling fast stock retrieval and accurate inventory control for The SHEA cosmetics chain.',
+          logoSrc: './assets/theshea_logo.jpg',
+        }
       ],
     };
 
@@ -1276,17 +1370,25 @@
       vi: [
         {
           id: 'vc1',
-          shortTitle: 'DEMO ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
-          fullTitle: 'DEMO ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          shortTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
+          fullTitle: 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY',
           cardDesc: 'Ứng dụng Vibe Coding để xây dựng nhanh bản demo giao diện tương tác cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy.',
+          video_demo_url: './assets/demo-vibecoding-yummy.mp4',
+          gallery: [
+            { src: './assets/login-yummy-vibecode.png', caption: 'Màn hình Đăng nhập' },
+            { src: './assets/dashboard-yummy-vibecode.png', caption: 'Màn hình Tổng quan - Dashboard' },
+            { src: './assets/listview-yummy-vibecode.png', caption: 'Màn hình Danh sách dạng Listview' },
+            { src: './assets/add-yummy-vibecode.png', caption: 'Giao diện Thêm mới chi tiết' },
+            { src: './assets/popup-success-yummy-vibecode.png', caption: 'Thông báo thao tác thành công' },
+            { src: './assets/popup-delete-yummy-vibecode.png', caption: 'Cảnh báo xác nhận xóa dữ liệu' },
+          ],
           sections: [
             {
               type: 'overview',
               intro: {
                 heading: 'GIỚI THIỆU',
-                paragraphs: [
-                  'Dự án ERP cho Thương hiệu Tàu Hũ Singapore Yummy được ứng dụng Vibe Coding (sử dụng AI hỗ trợ lập trình) để nhanh chóng xây dựng bản demo giao diện tương tác. Việc này giúp khách hàng sớm trải nghiệm luồng nghiệp vụ thực tế trên hệ thống, từ đó đưa ra phản hồi kịp thời và rút ngắn đáng kể thời gian chốt yêu cầu.',
-                ],
+                project_desc: 'Ứng dụng Vibe Coding để xây dựng nhanh bản demo giao diện tương tác cho hệ thống ERP module Sản xuất & Nhân sự của Singapore Yummy.',
+                tool_desc: 'Dự án được phát triển hoàn toàn bằng phương pháp Vibe Coding, sử dụng Claude làm trợ lý lập trình chính để xây dựng giao diện và cấu trúc mã nguồn.',
               },
             },
           ],
@@ -1296,19 +1398,27 @@
           shortTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
           fullTitle: 'HỆ THỐNG AGENTIC AI ĐẦU TƯ TÀI CHÍNH TỰ ĐỘNG',
           cardDesc: 'Ứng dụng Vibe Coding và các công cụ AI tạo sinh để mô phỏng nhanh luồng tương tác và giao tiếp giữa các AI Agent (thu thập dữ liệu, phân tích, ra quyết định).',
+          video_demo_url: '',
+          gallery: [
+            { src: './assets/login-aiagent-vibecode.png', caption: 'Màn hình Đăng nhập' },
+            { src: './assets/dashboard-aiagent-vibecode.png', caption: 'Màn hình Tổng quan - Dashboard' },
+            { src: './assets/marketdata-aiagent-vibecode.png', caption: 'Dữ liệu Thị trường' },
+            { src: './assets/mck-aiagent-vibecode.png', caption: 'Chi tiết Mã chứng khoán' },
+            { src: './assets/bctc-aiagent-vibecode.png', caption: 'Báo cáo Tài chính' },
+            { src: './assets/news-aiagent-vibecode.png', caption: 'Tin tức Thị trường' },
+            { src: './assets/mucdautu_aiagent_vibecode.png', caption: 'Quản lý Mục đầu tư' },
+            { src: './assets/wallet-aiagent-vibecode.png', caption: 'Quản lý Ví tiền' },
+            { src: './assets/add-aiagent-vibecode.png', caption: 'Thêm mới Mục đầu tư' },
+            { src: './assets/chitiet-aiagent-vibecode.png', caption: 'Chi tiết Mục đầu tư - Lịch sử đầu tư' },
+          ],
           sections: [
             {
               type: 'overview',
               intro: {
                 heading: 'GIỚI THIỆU',
-                paragraphs: [
-                  'Ứng dụng Vibe Coding và các công cụ AI tạo sinh để mô phỏng nhanh luồng tương tác và giao tiếp giữa các AI Agent (thu thập dữ liệu, phân tích, ra quyết định). Quá trình này giúp hình dung trực quan cách các Agent hoạt động độc lập và phối hợp trong hệ thống đầu tư tài chính trước khi tiến hành viết mã lõi.'
-                ]
+                project_desc: 'Ứng dụng Vibe Coding và các công cụ AI tạo sinh để mô phỏng nhanh luồng tương tác và giao tiếp giữa các AI Agent (thu thập dữ liệu, phân tích, ra quyết định).',
+                tool_desc: 'Dự án được phát triển hoàn toàn bằng phương pháp Vibe Coding, sử dụng Claude làm trợ lý lập trình chính để xây dựng giao diện và cấu trúc mã nguồn.',
               }
-            },
-            {
-              type: 'placeholder',
-              text: 'Bản Demo Vibe Coding đang được hoàn thiện...'
             }
           ]
         }
@@ -1319,14 +1429,22 @@
           shortTitle: 'ERP DEMO FOR SINGAPORE YUMMY TOFU BRAND',
           fullTitle: 'ERP DEMO FOR SINGAPORE YUMMY TOFU BRAND',
           cardDesc: 'Applying Vibe Coding to rapidly build an interactive UI demo for the ERP Production & HR module of Singapore Yummy Tofu Brand.',
+          video_demo_url: './assets/demo-vibecoding-yummy.mp4',
+          gallery: [
+            { src: './assets/login-yummy-vibecode.png', caption: 'Login Screen' },
+            { src: './assets/dashboard-yummy-vibecode.png', caption: 'Dashboard Overview' },
+            { src: './assets/listview-yummy-vibecode.png', caption: 'List View Screen' },
+            { src: './assets/add-yummy-vibecode.png', caption: 'Add New Item Interface' },
+            { src: './assets/popup-success-yummy-vibecode.png', caption: 'Success Notification' },
+            { src: './assets/popup-delete-yummy-vibecode.png', caption: 'Delete Confirmation Warning' },
+          ],
           sections: [
             {
               type: 'overview',
               intro: {
                 heading: 'INTRODUCTION',
-                paragraphs: [
-                  'The ERP project for Singapore Yummy Tofu Brand leveraged Vibe Coding (AI-assisted programming) to rapidly build an interactive UI demo. This enabled the client to experience actual business workflows on the system early on, provide timely feedback, and significantly shorten the requirement finalization process.',
-                ],
+                project_desc: 'Applying Vibe Coding to rapidly build an interactive UI demo for the ERP Production & HR module of Singapore Yummy Tofu Brand.',
+                tool_desc: 'The project was developed entirely using the Vibe Coding approach, utilizing Claude as the primary programming assistant to build the interface and source code structure.',
               },
             },
           ],
@@ -1336,19 +1454,27 @@
           shortTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
           fullTitle: 'AUTOMATED FINANCIAL INVESTMENT AGENTIC AI SYSTEM',
           cardDesc: 'Applying Vibe Coding and generative AI tools to rapidly simulate the interaction and communication flow between AI Agents (data gathering, analysis, decision making). This process helps visually conceptualize how Agents operate independently and collaborate within the financial investment system before proceeding with core coding.',
+          video_demo_url: '',
+          gallery: [
+            { src: './assets/login-aiagent-vibecode.png', caption: 'Login Screen' },
+            { src: './assets/dashboard-aiagent-vibecode.png', caption: 'Dashboard Overview' },
+            { src: './assets/marketdata-aiagent-vibecode.png', caption: 'Market Data' },
+            { src: './assets/mck-aiagent-vibecode.png', caption: 'Stock Details' },
+            { src: './assets/bctc-aiagent-vibecode.png', caption: 'Financial Reports' },
+            { src: './assets/news-aiagent-vibecode.png', caption: 'Market News' },
+            { src: './assets/mucdautu_aiagent_vibecode.png', caption: 'Investment Recommendations' },
+            { src: './assets/wallet-aiagent-vibecode.png', caption: 'Portfolio Management' },
+            { src: './assets/add-aiagent-vibecode.png', caption: 'New Transaction' },
+            { src: './assets/chitiet-aiagent-vibecode.png', caption: 'Transaction Details' },
+          ],
           sections: [
             {
               type: 'overview',
               intro: {
                 heading: 'INTRODUCTION',
-                paragraphs: [
-                  'Applying Vibe Coding and generative AI tools to rapidly simulate the interaction and communication flow between AI Agents (data gathering, analysis, decision making). This process helps visually conceptualize how Agents operate independently and collaborate within the financial investment system before proceeding with core coding.'
-                ]
+                project_desc: 'Applying Vibe Coding and generative AI tools to rapidly simulate the interaction and communication flow between AI Agents (data gathering, analysis, decision making).',
+                tool_desc: 'The project was developed entirely using the Vibe Coding approach, utilizing Claude as the primary programming assistant to build the interface and source code structure.',
               }
-            },
-            {
-              type: 'placeholder',
-              text: 'Vibe Coding Demo is under construction...'
             }
           ]
         }
@@ -1766,29 +1892,50 @@
     }
 
     /* ── ProjectNavCard + ProjectNavMenu (shared) ── */
-    function ProjectNavCard({ project, viewMore }) {
-      const hasData = project.sections.length > 0;
+    function ProjectNavCard({ project, viewMore, lang }) {
+      const hasData = project.sections && project.sections.length > 0;
+      let mainId = project.id;
+      if (mainId === 'vc1') mainId = 'p1';
+      const mainProject = PROJECTS[lang] ? PROJECTS[lang].find(p => p.id === mainId) : null;
+
       return (
-        <div className="border border-gray-200 rounded-xl p-6 bg-white flex flex-col shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200">
-          <h3 className="font-heading font-extrabold text-base text-navy uppercase leading-relaxed tracking-normal mb-3">
-            {project.shortTitle}
-          </h3>
-          <p className="font-body text-base text-gray-500 leading-relaxed flex-grow">
+        <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col h-full">
+          {/* Header: Logo + Tiêu đề + Tag */}
+          <div className="flex flex-row items-start gap-4 mb-4">
+            {mainProject && mainProject.logoSrc && (
+              <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
+                <img src={mainProject.logoSrc} alt={project.shortTitle} className="max-w-full max-h-full object-contain" />
+              </div>
+            )}
+            <div className="flex flex-col gap-2 flex-1">
+              <h3 className="font-heading text-base md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
+                {project.shortTitle}
+              </h3>
+              {mainProject && mainProject.domain && (
+                <span className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none w-fit">
+                  {mainProject.domain}
+                </span>
+              )}
+            </div>
+          </div>
+          {/* Body: Mô tả */}
+          <p className="font-body text-gray-500 text-base leading-relaxed mb-6 flex-1">
             {project.cardDesc}
           </p>
-          <div className="flex justify-end mt-5">
+          {/* Footer: Nút xem thêm */}
+          <div className="mt-auto self-end">
             {hasData ? (
               <button
                 onClick={() => {
                   const el = document.getElementById(project.id);
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-4 py-1.5 hover:opacity-90 transition-all"
+                className="pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all"
               >
                 {viewMore}
               </button>
             ) : (
-              <span className="font-heading bg-gray-200 text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-4 py-1.5 cursor-not-allowed select-none">
+              <span className="font-heading bg-gray-200 text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 cursor-not-allowed select-none">
                 {viewMore}
               </span>
             )}
@@ -1797,13 +1944,13 @@
       );
     }
 
-    function ProjectNavMenu({ projects, viewMore }) {
+    function ProjectNavMenu({ projects, viewMore, lang }) {
       return (
         <div className="bg-gray-50 border-b border-gray-200 py-10 px-[10px]">
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {projects.map((project) => (
-                <ProjectNavCard key={project.id} project={project} viewMore={viewMore} />
+                <ProjectNavCard key={project.id} project={project} viewMore={viewMore} lang={lang} />
               ))}
             </div>
           </div>
@@ -1831,13 +1978,18 @@
           <div className="relative z-10 max-w-6xl mx-auto w-full px-6 py-16 md:py-24">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 items-center">
 
-              {/* Avatar — 1/3 width, no background color, only rounded + shadow */}
+              {/* Avatar — pastel minimal style */}
               <div className="flex justify-center md:col-span-1">
-                <div className="w-56 h-64 md:w-full md:h-80 rounded-2xl overflow-hidden shadow-xl">
+                <div className="relative group w-fit mx-auto md:mx-0">
+
+                  {/* Pastel rotated background frame */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-lavender/60 to-pink-100/60 rounded-2xl -rotate-2 transition-transform duration-300 group-hover:-rotate-3"></div>
+
+                  {/* Avatar image */}
                   <img
                     src="./avatar.jpg"
                     alt="Trần Khánh Huyền"
-                    className="w-full h-full object-cover object-top"
+                    className="relative z-10 w-64 h-80 md:w-80 md:h-96 rounded-2xl border-4 border-white shadow-sm object-cover object-top transition-transform duration-300 group-hover:-translate-y-1"
                     onError={(e) => {
                       e.target.src = './avatar.png';
                       e.target.onerror = () => {
@@ -1847,6 +1999,7 @@
                       };
                     }}
                   />
+
                 </div>
               </div>
 
@@ -1941,44 +2094,43 @@
 
             {/* Section heading with line */}
             <div className="flex items-center gap-5 mb-10">
-              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
+              <h2 className="font-heading text-2xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
                 {p.heading}
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
             </div>
 
-            {/* Project cards — Grid 2 cột, Thumbnail layout */}
+            {/* Project cards — Grid 2 cột, Compact layout */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="border border-gray-200 rounded-xl py-6 px-8 md:py-8 md:px-10 bg-white flex flex-col h-full justify-between shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200"
+                  className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col h-full"
                 >
-                  <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-center w-full">
-                    {/* Cột Trái — Logo */}
-                    <img
-                      src={project.logoSrc}
-                      alt={project.title}
-                      className="w-32 h-32 md:w-40 md:h-40 object-contain flex-shrink-0 bg-white drop-shadow-sm"
-                    />
-                    {/* Cột Phải — Nội dung */}
-                    <div className="flex-1 flex flex-col w-full">
-                      <h3 className="font-heading font-extrabold text-base text-navy uppercase leading-relaxed tracking-normal">
+                  {/* Header: Logo + Tiêu đề + Tag */}
+                  <div className="flex flex-row items-start gap-4 mb-4">
+                    <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
+                      <img src={project.logoSrc} alt={project.title} className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <div className="flex flex-col gap-2 flex-1">
+                      <h3 className="font-heading text-base md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
                         {project.title}
                       </h3>
                       {project.domain && (
-                        <div className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none w-fit mt-2 mb-3">
+                        <span className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none w-fit">
                           {project.domain}
-                        </div>
+                        </span>
                       )}
-                      <p className="font-body text-base text-gray-500 leading-relaxed text-left">
-                        {project.cardDesc}
-                      </p>
                     </div>
                   </div>
+                  {/* Body: Mô tả */}
+                  <p className="font-body text-gray-500 text-base leading-relaxed mb-6 flex-1">
+                    {project.cardDesc}
+                  </p>
+                  {/* Footer: Nút xem thêm */}
                   <button
                     onClick={() => handleViewMore(project.id)}
-                    className="mt-6 self-end pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all"
+                    className="mt-auto self-end pill font-heading bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 hover:opacity-90 transition-all"
                   >
                     {p.viewMore}
                   </button>
@@ -2007,7 +2159,7 @@
 
             {/* Section heading with line */}
             <div className="flex items-center gap-5 mb-10">
-              <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
+              <h2 className="font-heading text-2xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
                 {s.heading}
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
@@ -2080,7 +2232,7 @@
             <div className="max-w-6xl mx-auto px-6">
 
               <div className="flex items-center gap-5 mb-10">
-                <h2 className="font-heading text-3xl md:text-4xl font-black text-navy tracking-tight whitespace-nowrap">
+                <h2 className="font-heading text-2xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
                   {c.heading}
                 </h2>
                 <div className="flex-1 h-px bg-gray-300" />
@@ -2362,16 +2514,42 @@
       );
     }
 
+    /* ── ApiSpecsBlock ── */
+    function ApiSpecsBlock({ data }) {
+      const { heading, specs } = data;
+      return (
+        <div className="py-8">
+          <h4 className="text-xl font-heading font-bold text-navy mt-12 mb-6">{heading}</h4>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {specs.map((spec, i) => (
+              <div key={i}>
+                <h5 className="font-semibold text-gray-800 mb-3">{spec.title}</h5>
+                <iframe
+                  src={spec.src}
+                  className="w-full h-[600px] border border-gray-200 rounded-xl shadow-sm"
+                  title={spec.title}
+                ></iframe>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     /* ── SystemSectionBlock ── */
     function SystemSectionBlock({ data }) {
       if (data.type === 'overview') return <OverviewBlock data={data} />;
       if (data.type === 'placeholder') return <PlaceholderBlock data={data} />;
+      if (data.type === 'api-specs') return <ApiSpecsBlock data={data} />;
       return <ImageBlock data={data} />;
     }
 
+
+
     /* ── SystemProjectSection ── */
-    function SystemProjectSection({ project }) {
+    function SystemProjectSection({ project, lang }) {
       if (project.sections.length === 0) return null;
+      const shared = SHARED_DICT[lang] || SHARED_DICT['vi'];
       return (
         <section id={project.id} className="py-10 px-[10px] border-b border-gray-100">
           <div>
@@ -2395,9 +2573,9 @@
       return (
         <>
           <PageHero pageTitle={shared.systemPageTitle} />
-          <ProjectNavMenu projects={projects} viewMore={shared.viewMore} />
+          <ProjectNavMenu projects={projects} viewMore={shared.viewMore} lang={lang} />
           {projects.map((project) => (
-            <SystemProjectSection key={project.id} project={project} />
+            <SystemProjectSection key={project.id} project={project} lang={lang} />
           ))}
           <BottomNav page="system" navigate={navigate} lang={lang} />
           <CopyrightFooter lang={lang} />
@@ -2515,7 +2693,7 @@
       return (
         <>
           <PageHero pageTitle={shared.uiuxPageTitle} />
-          <ProjectNavMenu projects={projects} viewMore={shared.viewMore} />
+          <ProjectNavMenu projects={projects} viewMore={shared.viewMore} lang={lang} />
           {projects.map((project) => (
             <UiUxProjectSection key={project.id} project={project} lang={lang} />
           ))}
@@ -2530,26 +2708,194 @@
        9d. VIBE CODING VIEW
     ════════════════════════════════════════════════════════════ */
 
+    /* ── VideoDemoBlock ── */
+    function VideoDemoBlock({ url }) {
+      const videoRef = useRef(null);
+      const [isPlaying, setIsPlaying] = useState(false);
+      const [isMuted, setIsMuted] = useState(true);
+
+      const handleTogglePlay = () => {
+        if (!videoRef.current) return;
+        if (videoRef.current.paused) {
+          videoRef.current.play();
+          setIsPlaying(true);
+        } else {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        }
+      };
+
+      const handleToggleMute = (e) => {
+        e.stopPropagation(); // prevent triggering play/pause
+        if (!videoRef.current) return;
+        videoRef.current.muted = !videoRef.current.muted;
+        setIsMuted(videoRef.current.muted);
+      };
+
+      if (url) {
+        return (
+          <div className="flex justify-center w-full mt-10">
+            <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-md border border-gray-100 bg-gray-50" onClick={handleTogglePlay}>
+              <video
+                ref={videoRef}
+                src={url}
+                className="max-w-full max-h-[600px] w-auto h-auto block"
+                muted={isMuted}
+                playsInline
+                onEnded={() => setIsPlaying(false)}
+              />
+              {/* Play/Pause Overlay */}
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity">
+                  <div className="bg-white/90 rounded-full p-4 shadow-lg text-navy">
+                    <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+              
+              {/* Unmute/Mute Toggle Button */}
+              <div className={`absolute bottom-4 right-4 transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                <button
+                  onClick={handleToggleMute}
+                  className="bg-black/60 hover:bg-black/80 text-white rounded-full p-2.5 backdrop-blur-sm transition-colors border border-white/20 shadow-lg"
+                  title={isMuted ? "Bật tiếng" : "Tắt tiếng"}
+                >
+                  {isMuted ? (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.627L5.586 15z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.627L5.586 15z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+      return (
+        <div className="w-full h-80 md:h-[500px] rounded-xl bg-gray-50 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-3 mt-10">
+          <svg className="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <p className="font-body text-sm text-gray-400 text-center leading-relaxed">
+            Video Demo đang được cập nhật<br />
+            <span className="text-xs text-gray-300">Coming Soon</span>
+          </p>
+        </div>
+      );
+    }
+
+    /* ── VibeGalleryBlock ── */
+    function VibeGalleryBlock({ gallery }) {
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pb-10">
+          {gallery.map((item, i) => (
+            <div key={i} className="flex flex-col gap-2">
+              <img
+                src={item.src}
+                alt={item.caption}
+                className="w-full h-auto object-contain border border-gray-200 bg-white"
+              />
+              {item.caption && (
+                <p className="font-body text-center text-sm italic text-gray-400 mt-1">{item.caption}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    /* ── VibeOverviewBlock ── */
+    function VibeOverviewBlock({ data, lang = 'vi' }) {
+      const { intro } = data;
+      if (intro.project_desc) {
+        return (
+          <div className="py-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm flex flex-col">
+                <h3 className="text-lg font-heading font-bold text-navy uppercase mb-4">
+                  {lang === 'vi' ? 'Giới thiệu' : 'Introduction'}
+                </h3>
+                <p className="font-body text-gray-600 leading-relaxed">{intro.project_desc}</p>
+              </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm flex flex-col">
+                <h3 className="text-lg font-heading font-bold text-navy uppercase mb-4">
+                  {lang === 'vi' ? 'Công cụ sử dụng' : 'Tools Used'}
+                </h3>
+                <p className="font-body text-gray-600 leading-relaxed">{intro.tool_desc}</p>
+              </div>
+            </div>
+          </div>
+        );
+      }
+      return (
+        <div className="py-8">
+          <div className="rounded-3xl border border-gray-200 bg-white p-7">
+            <h3 className="font-heading font-extrabold text-base text-navy tracking-normal uppercase mb-4">
+              {intro.heading}
+            </h3>
+            <div className="flex flex-col gap-3">
+              {intro.paragraphs.map((p, i) => (
+                <p key={i} className="font-body text-base text-gray-500 leading-relaxed">{p}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     /* ── VibeCodingSectionBlock ── */
-    function VibeCodingSectionBlock({ data }) {
-      if (data.type === 'overview') return <OverviewBlock data={data} />;
+    function VibeCodingSectionBlock({ data, lang = 'vi' }) {
+      if (data.type === 'overview') return <VibeOverviewBlock data={data} lang={lang} />;
       if (data.type === 'demo') return <ImageBlock data={data} />;
       if (data.type === 'placeholder') return <PlaceholderBlock data={data} />;
       return null;
     }
 
     /* ── VibeCodingProjectSection ── */
-    function VibeCodingProjectSection({ project }) {
+    function VibeCodingProjectSection({ project, lang = 'vi' }) {
       if (project.sections.length === 0) return null;
+      const overviewSection = project.sections.find(s => s.type === 'overview');
+      const otherSections = project.sections.filter(s => s.type !== 'overview');
+      const hasVideoOrGallery = 'video_demo_url' in project || (project.gallery && project.gallery.length > 0);
       return (
         <section id={project.id} className="py-10 px-[10px] border-b border-gray-100">
           <div>
             <div className="overflow-hidden">
               <ProjectHeader project={project} />
-              <div className="bg-white px-[10px] md:px-[10px] divide-y divide-gray-100">
-                {project.sections.map((section, i) => (
-                  <VibeCodingSectionBlock key={i} data={section} />
-                ))}
+              <div className="bg-white px-[10px] md:px-[10px]">
+
+                {/* Part 1 — Overview */}
+                {overviewSection && <VibeOverviewBlock data={overviewSection} lang={lang} />}
+
+                {hasVideoOrGallery && (
+                  <div className="max-w-6xl mx-auto">
+                    {/* Part 2 — Video Demo */}
+                    {'video_demo_url' in project && (
+                      <VideoDemoBlock url={project.video_demo_url} />
+                    )}
+
+                    {/* Part 3 — Vibe Gallery */}
+                    {project.gallery && project.gallery.length > 0 && (
+                      <VibeGalleryBlock gallery={project.gallery} />
+                    )}
+                  </div>
+                )}
+
+                {/* Other sections (placeholder, etc.) */}
+                {otherSections.length > 0 && (
+                  <div className="divide-y divide-gray-100">
+                    {otherSections.map((section, i) => (
+                      <VibeCodingSectionBlock key={i} data={section} lang={lang} />
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -2564,9 +2910,9 @@
       return (
         <>
           <PageHero pageTitle={shared.vibeCodingPageTitle} />
-          <ProjectNavMenu projects={projects} viewMore={shared.viewMore} />
+          <ProjectNavMenu projects={projects} viewMore={shared.viewMore} lang={lang} />
           {projects.map((project) => (
-            <VibeCodingProjectSection key={project.id} project={project} />
+            <VibeCodingProjectSection key={project.id} project={project} lang={lang} />
           ))}
           <BottomNav page="vibecoding" navigate={navigate} lang={lang} />
           <CopyrightFooter lang={lang} />
@@ -2624,11 +2970,15 @@
       let systemDiagramSections = systemProject
         ? systemProject.sections.filter(s => s.type !== 'overview')
         : [];
-      if (isAiAgent) systemDiagramSections = systemDiagramSections.filter(s => s.type !== 'placeholder');
+      systemDiagramSections = systemDiagramSections.filter(s => s.type !== 'placeholder');
 
       /* UIUX sections */
       let uiuxSections = uiuxProject ? uiuxProject.sections : [];
       if (isAiAgent) uiuxSections = uiuxSections.filter(s => s.type !== 'placeholder');
+
+      /* Vibe Coding sections */
+      const vibeProjectId = selectedProject === 'p1' ? 'vc1' : selectedProject;
+      const vibeProject = VIBE_PROJECTS[lang].find(p => p.id === vibeProjectId);
 
       return (
         <>
@@ -2672,28 +3022,6 @@
             </>
           )}
 
-          {/* AI AGENT PLACEHOLDER */}
-          {isAiAgent && (
-            <>
-              <div className="bg-navy text-white py-4 text-center">
-                <h2 className="font-heading font-bold text-xl tracking-normal">
-                  {shared.systemDesignBanner}
-                </h2>
-              </div>
-              <div className="bg-white px-6 py-20">
-                <div className="max-w-4xl mx-auto border-2 border-dashed border-gray-200 rounded-3xl bg-gray-50 flex flex-col items-center justify-center p-12 text-center">
-                  <IconImagePlaceholder />
-                  <h3 className="font-heading font-bold text-navy mt-4 mb-2 uppercase tracking-wide">
-                    System Architecture Design & Agent Workflow under optimization
-                  </h3>
-                  <p className="font-body text-sm text-gray-500">
-                    {lang === 'vi' ? 'Dự án đang trong giai đoạn phát triển và bảo mật.' : 'Project is currently under development and confidential.'}
-                  </p>
-                </div>
-              </div>
-            </>
-          )}
-
           {/* THIẾT KẾ UI/UX banner + uiux sections */}
           {uiuxSections.length > 0 && (
             <>
@@ -2707,6 +3035,41 @@
                   {uiuxSections.map((section, i) => (
                     <UiUxSectionBlock key={i} data={section} lang={lang} />
                   ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* VIBE CODING banner + vibe sections */}
+          {vibeProject && (
+            <>
+              <div className="bg-navy text-white py-4 text-center">
+                <h2 className="font-heading font-bold text-xl tracking-normal">
+                  VIBE CODING
+                </h2>
+              </div>
+              <div className="bg-white px-6 pb-10">
+                <div className="max-w-6xl mx-auto">
+                  {vibeProject.sections.find(s => s.type === 'overview') && (
+                    <VibeOverviewBlock data={vibeProject.sections.find(s => s.type === 'overview')} lang={lang} />
+                  )}
+                  {('video_demo_url' in vibeProject || (vibeProject.gallery && vibeProject.gallery.length > 0)) && (
+                    <div className="max-w-6xl mx-auto">
+                      {'video_demo_url' in vibeProject && (
+                        <VideoDemoBlock url={vibeProject.video_demo_url} />
+                      )}
+                      {vibeProject.gallery && vibeProject.gallery.length > 0 && (
+                        <VibeGalleryBlock gallery={vibeProject.gallery} />
+                      )}
+                    </div>
+                  )}
+                  {vibeProject.sections.filter(s => s.type !== 'overview').length > 0 && (
+                    <div className="divide-y divide-gray-100 mt-8">
+                      {vibeProject.sections.filter(s => s.type !== 'overview').map((section, i) => (
+                        <VibeCodingSectionBlock key={i} data={section} lang={lang} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </>

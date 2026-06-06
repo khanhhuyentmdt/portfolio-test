@@ -34,8 +34,8 @@ Do là SPA, giao diện sẽ được quyết định bởi state `currentPage` 
  │
  ├── <VibeCodingView> (Khi currentPage === 'vibecoding')
  │    ├── <PageHero>         — Tiêu đề "VIBE CODING"
- │    ├── <ProjectNavMenu>   — Lưới dự án (Render 2 card: Yummy và Agentic AI)
- │    ├── <ProjectSection>   — Render khối Giới thiệu (OverviewBlock) và Demo của dự án được chọn
+ │    ├── <ProjectNavMenu>   — Menu ngang chọn dự án (Render 2 tab: Yummy và Agentic AI)
+ │    ├── <ProjectSection>   — Render khối Giới thiệu (OverviewBlock), <VideoDemoPlaceholder> và <VibeGalleryGrid>
  │    └── <BottomNav>        — Điều hướng ma trận
  └── <BackToTop>             — Nút cuộn lên đầu trang (Fixed góc dưới phải)
  ├── <CvView> (Khi currentPage === 'cv')
@@ -75,13 +75,30 @@ Tập trung toàn bộ text vào các Object:
 - `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design `{ vi: [...], en: [...] }`. Bổ sung thêm trường `domain` cho từng dự án (Yummy: F&B, Nam An: Sản xuất B2C, WonderWood: Sản xuất B2B, TheShea: Quản lý kho bãi).
 - `VIBE_PROJECTS`: Object chứa dữ liệu dự án cho trang Vibe Coding (Bao gồm Yummy và Agentic AI).
 - `SHARED`: Các nhãn dùng chung (nút bấm, điều hướng, footer, title).
-- `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design { vi: [...], en: [...] }. 
+- `PROJECTS`: Object chứa mảng dự án chi tiết cho System Design `{ vi: [...], en: [...] }`. 
+  Bổ sung mảng `sequence_diagrams` vào cấu trúc của từng dự án để hiển thị trong tab System Design:
+  1. Dự án Yummy (F&B): Thêm 2 biểu đồ tuần tự:
+     - Quản lý Nhân sự: `./assets/sequence-diagram-yummy-nhansu.jpg`
+     - Vận hành Sản xuất: `./assets/sequence-diagram-yummy-sanxuat.jpg`
+  2. Dự án Nam An (Sản xuất B2C - Yến sào): Thêm 1 biểu đồ:
+     - Quản lý Tài chính/Công nợ: `./assets/sequence-diagram-naman-taichinh.jpg`
+  3. Dự án Wonder Wood (Sản xuất B2B - Gỗ ghép thanh): Thêm 1 biểu đồ:
+     - Quy trình Bán hàng: `./assets/sequence-diagram-ww-banhang.jpg`
+- `VIBE_PROJECTS`: Object chứa dữ liệu dự án cho trang Vibe Coding. Bổ sung các trường dữ liệu cho dự án Yummy:
+  + `video_demo_url`: "#" (Để tạm chờ cập nhật video)
+  + `gallery`: Mảng các đối tượng chứa thông tin ảnh vibecode để tạo Grid:
+    * `[ { src: "./assets/login-yummy-vibecode.jpg", caption: "Màn hình Đăng nhập" }, { src: "./assets/dashboard-yummy-vibecode.png", caption: "Màn hình Tổng quan - Dashboard" }, ... ]`
   Danh sách bao gồm 5 dự án với các nhãn lĩnh vực (domain) tương ứng:
   1. Dự án Yummy — Lĩnh vực: F&B
   2. Dự án Nam An — Lĩnh vực: Sản xuất B2C
   3. Dự án Wonder Wood — Lĩnh vực: Sản xuất B2B (Quy trình gỗ ghép thanh/finger joint)
   4. Dự án The SHEA — Lĩnh vực: Quản lý kho hàng
-  5. Dự án Agentic AI Đầu Tư Tài Chính — Lĩnh vực: AI Agent (Mới bổ sung)
+  5. Dự án Agentic AI Đầu Tư Tài Chính — Lĩnh vực: AI Agent
+     - `erd`: "./assets/aiagent_erd.jpg"
+     - `sequence_diagrams`: [...]
+     - `api_specs`: (Mảng chứa đường dẫn file PDF)
+       * `{ title: "API Thêm mục đầu tư mới (POST /api/investments/setup)", src: "./assets/aiagent_api_document1.pdf" }`
+       * `{ title: "API Thêm dữ liệu thị trường EOD (POST /api/market-data/daily)", src: "./assets/aiagent_api_document2.pdf" }`
 
 ## 5. Thiết kế giao diện (UI/UX)
 Màu sắc & Typography
@@ -108,11 +125,16 @@ Nút đổi ngôn ngữ (VI | EN): Dạng text thuần (không nền), ngôn ng�
   + Phần Trái (Icon container): Bọc icon trong một thẻ div có class `w-16 h-16 md:w-20 md:h-20 flex-shrink-0 flex items-center justify-center p-2 md:p-3 border border-gray-200 rounded-2xl bg-white` (Thêm viền bo góc giống Figma).
   + SVG Component bên trong: Phải giữ nguyên `viewBox`, class `w-full h-full text-navy`. Áp dụng đúng `fill="none"`, `stroke="currentColor"` và ĐẶC BIỆT phải thiết lập thuộc tính `strokeWidth="0.8"` (hoặc `stroke-width="0.8"`) cho toàn bộ thẻ `<svg>` và các `<path>` bên trong để đảm bảo nét vẽ cực kỳ thanh mảnh. Tuyệt đối không dùng `fill-current`.
   + Phần Phải (Nội dung): Chứa Tiêu đề, Tags, Mô tả và Nút xem thêm (`flex-1`). Nút xem thêm nằm ở góc dưới cùng bên phải.
+  ### System Design View (Chi tiết Kỹ năng)
+- **Hiển thị Biểu đồ Tuần tự (Sequence Diagrams):** Bên dưới các sơ đồ Use Case hoặc ERD hiện có, tạo một section riêng có tiêu đề "BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAMS)".
+- Layout ảnh: Các ảnh sequence diagram thường có chiều dọc dài, do đó cần bọc trong một thẻ `div` có class `w-full bg-gray-50 rounded-xl p-4 border border-gray-200 overflow-x-auto flex justify-center`. Ảnh bên trong sử dụng class `max-w-full h-auto object-contain`. Thêm chú thích (caption) in nghiêng, màu xám ở dưới mỗi ảnh.
 - **Dự án (ProjectsSection):** 
  + Bố cục tổng thể: Lưới 2 cột (`grid grid-cols-1 lg:grid-cols-2 gap-6`). Mỗi thẻ dự án chiếm 1 ô trong lưới.
   + Bố cục bên trong thẻ (Thumbnail Layout): Sử dụng Flexbox ngang và căn giữa theo chiều dọc. Thiết lập khoảng cách hai bên lớn hơn trên dưới (`py-6 px-8 md:py-8 md:px-10`). Khoảng cách giữa logo và chữ rộng rãi hơn (`gap-8`).
   + Cột trái của thẻ: Chứa Logo thương hiệu của dự án, kích thước lớn để cân bằng với chiều cao nội dung (`w-32 h-32 md:w-40 md:h-40 flex-shrink-0 object-contain drop-shadow-sm`). Không bo tròn cắt xén.
   + Cột phải của thẻ: Chứa Tiêu đề (màu Navy, in hoa), Thẻ Lĩnh vực (Domain tag), Mô tả ngắn và Nút "XEM THÊM" nền navy bo tròn. Nút xem thêm được đẩy xuống góc dưới cùng bên phải (`mt-auto self-end`). Thẻ Lĩnh vực thiết kế dạng tag nhỏ (`bg-lavender/30 text-navy px-3 py-1 rounded-full text-xs font-semibold w-fit mb-3`).
+- **Hiển thị Đặc tả API:** Dưới phần Sequence Diagram, tạo section có tiêu đề "TÀI LIỆU ĐẶC TẢ API & DATA MAPPING".
+- Trình bày dạng lưới 2 cột (`grid grid-cols-1 lg:grid-cols-2 gap-8`). Trong mỗi cột, hiển thị tiêu đề của API và sử dụng thẻ `<iframe src="...">` với chiều cao cố định (ví dụ: `h-[600px]`) để nhúng trực tiếp file PDF lên web.
 Contact Section (Footer)
 Container: Nền trắng (bg-white), padding rộng.
 
@@ -134,6 +156,8 @@ BackToTop: Nút tròn nhỏ góc dưới phải (fixed bottom-8 right-8 z-50). C
 - Nút "DOWNLOAD CV" ở Trang chủ sẽ gọi `setCurrentPage('cv')` thay vì tải trực tiếp.
 - Bên trong CvView có một nút "Tải xuống bản PDF" để phòng trường hợp trình duyệt không hỗ trợ xem trực tiếp.
 
+- **Vibe Coding Gallery:** Dùng `grid grid-cols-1 md:grid-cols-2 gap-6`. Mỗi ảnh được bọc trong một thẻ div chứa ảnh (`w-full object-cover rounded-lg shadow-sm border border-gray-200`) và đoạn text chú thích nhỏ (`text-sm text-gray-500 mt-2 text-center`).
+- **Video Placeholder:** Một div khối lớn nền xám nhạt (`bg-gray-100 rounded-xl h-96 flex items-center justify-center border-2 border-dashed border-gray-300`), có icon play và text "Video Demo đang được cập nhật".
 ## 6. Khung HTML cơ bản
 HTML
 <!DOCTYPE html>

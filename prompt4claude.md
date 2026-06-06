@@ -537,10 +537,193 @@ Bắt buộc giữ nguyên toàn bộ thiết kế giao diện (UI/UX), đặc b
 
 Hãy trả về một block code HTML duy nhất chứa toàn bộ SPA đã được tích hợp Hash Routing hoàn chỉnh.
 ============================================================================
+Claude, hãy cập nhật trang Vibe Coding View trong ứng dụng SPA React Portfolio (file index.html) dựa trên những thay đổi về yêu cầu giao diện và dữ liệu sau.
+
+1. Bổ sung Dữ liệu VIBE_PROJECTS (trong khối DATA):
+
+Tìm đến biến chứa dữ liệu cho Vibe Coding. Đối với dự án ERP Yummy, hãy thêm các trường thông tin sau (cho cả bản Tiếng Việt và Tiếng Anh):
+
+video_demo_url: (tạm để chuỗi rỗng hoặc '#').
+
+gallery: Tạo mảng gồm 6 đối tượng (Object) đại diện cho 6 hình ảnh vibecode. Sử dụng chính xác đường dẫn tương đối và chú thích sau:
+
+{ src: "./assets/login-yummy-vibecode.jpg", caption: "Màn hình Đăng nhập" }
+
+{ src: "./assets/dashboard-yummy-vibecode.png", caption: "Màn hình Tổng quan - Dashboard" }
+
+{ src: "./assets/listview-yummy-vibecode.png", caption: "Màn hình Danh sách dạng Listview" }
+
+{ src: "./assets/add-yummy-vibecode.png", caption: "Giao diện Thêm mới chi tiết" }
+
+{ src: "./assets/popup-success-yummy-vibecode.jpg", caption: "Thông báo thao tác thành công" }
+
+{ src: "./assets/popup-delete-yummy-vibecode.jpg", caption: "Cảnh báo xác nhận xóa dữ liệu" }
+
+2. Cập nhật Component <VibeCodingView>:
+
+Cấu trúc lại phần nội dung (ProjectSection) để hiển thị chi tiết thông tin của dự án đang được chọn (selected tab).
+
+Phần 1 - Overview: Giữ nguyên khối giới thiệu văn bản.
+
+Phần 2 - Video Demo: Ngay dưới khối Overview, render một div hiển thị khung video.
+
+Thiết kế: Khối to (w-full h-80 md:h-[500px]), bo góc (rounded-xl), nền màu #F9FAFB, viền đứt nét (border-2 border-dashed border-gray-300).
+
+Nội dung: Căn giữa (flex center). Dùng icon Play (SVG) màu xám và dòng chữ 'Video Demo đang được cập nhật / Coming Soon'.
+
+Phần 3 - Vibe Gallery (Lưới hình ảnh):
+
+Tạo một lưới hình ảnh sử dụng CSS Grid: grid grid-cols-1 md:grid-cols-2 gap-8 mt-12.
+
+Map qua mảng gallery trong dữ liệu để render từng item. Mỗi item gồm:
+
+Thẻ <img> (Sử dụng class: w-full h-auto rounded-lg shadow-md border border-gray-100).
+
+Thẻ <p> bên dưới ảnh (Sử dụng class: text-sm text-gray-500 text-center mt-3 font-body) để hiển thị caption.
+
+3. Quy chuẩn UI chung:
+
+Duy trì font chữ Nunito Sans cho phần nội dung và Plus Jakarta Sans cho các tiêu đề.
+
+Đảm bảo các thành phần này nằm gọn trong Container giới hạn chiều rộng của trang và có padding chuẩn xác.
+
+Hãy cung cấp lại toàn bộ đoạn mã của component VibeCodingView (và hằng số DATA liên quan nếu bạn tách ra) để tôi cập nhật vào file index.html.
 ============================================================================
+Claude, hãy giúp tôi làm nổi bật ảnh đại diện trong phần <HeroSection> của trang Portfolio (file index.html). Hiện tại, ảnh trông hơi đơn điệu.
+
+Tôi muốn bạn bọc thẻ <img> hiện tại vào một container mới và sử dụng các class của TailwindCSS để tạo hiệu ứng chiều sâu (3D offset) và tương tác khi hover, dựa trên dải màu navy và lavender đã định cấu hình.
+
+Hãy cập nhật mã theo cấu trúc sau:
+
+JavaScript
+{/* Container bọc ngoài cùng với class group để bắt sự kiện hover */}
+<div className="relative group w-fit mx-auto md:mx-0">
+  
+  {/* Lớp 1: Khối màu lệch (Offset background) tạo hiệu ứng 3D */}
+  <div className="absolute inset-0 bg-lavender rounded-2xl translate-x-3 translate-y-3 -z-10 transition-transform duration-300 group-hover:translate-x-5 group-hover:translate-y-5"></div>
+  
+  {/* Lớp 2: Hiệu ứng Glow/Phát sáng nhẹ phía sau */}
+  <div className="absolute -inset-1 bg-gradient-to-br from-navy to-lavender rounded-2xl opacity-0 group-hover:opacity-30 blur-lg transition-opacity duration-500 -z-20"></div>
+  
+  {/* Lớp 3: Ảnh đại diện chính */}
+  <img 
+    src="./avatar.png" 
+    alt="Trần Khánh Huyền" 
+    className="relative z-10 w-64 md:w-72 h-auto rounded-2xl shadow-xl object-cover transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-[1.02] group-hover:shadow-2xl" 
+  />
+  
+</div>
+Yêu cầu triển khai:
+
+Tìm đến component <HeroSection>.
+
+Thay thế thẻ <img> avatar cũ bằng khối mã trên. Đảm bảo giữ nguyên thuộc tính src trỏ đúng đến file ảnh hiện tại.
+
+Cập nhật lại và cho tôi biết nếu cần điều chỉnh thêm kích thước cho màn hình di động.
 ============================================================================
+Claude, hãy giúp tôi cập nhật dữ liệu và giao diện cho phần Kỹ năng System Design trong ứng dụng React SPA (file index.html). Tôi vừa bổ sung thêm các bản vẽ Sequence Diagram cho các dự án.
+
+1. Cập nhật Dữ liệu (Biến PROJECTS):
+Vui lòng tìm biến lưu trữ dữ liệu chi tiết của các dự án và bổ sung thêm mảng sequence_diagrams cho 3 dự án sau (cập nhật cho cả ngôn ngữ vi và en):
+
+Dự án Yummy:
+
+Thêm: { title: "Sequence Diagram - Quản lý Nhân sự", src: "./assets/sequence-diagram-yummy-nhansu.jpg" }
+
+Thêm: { title: "Sequence Diagram - Vận hành Sản xuất", src: "./assets/sequence-diagram-yummy-sanxuat.jpg" }
+
+Dự án Nam An:
+
+Thêm: { title: "Sequence Diagram - Quản lý Tài chính & Công nợ", src: "./assets/sequence-diagram-naman-taichinh.jpg" }
+
+Dự án Wonder Wood:
+
+Thêm: { title: "Sequence Diagram - Quy trình Bán hàng", src: "./assets/sequence-diagram-ww-banhang.jpg" }
+
+2. Cập nhật Component render chi tiết System Design:
+
+Tìm Component chịu trách nhiệm render nội dung chi tiết của một dự án trong chế độ xem System Design (có thể là <SystemDesignView> hoặc <ProjectContent>).
+
+Thêm logic kiểm tra: Nếu dự án hiện tại có tồn tại mảng sequence_diagrams, hãy render một khối giao diện mới.
+
+Thiết kế khối giao diện:
+
+Tiêu đề phân cách: Sử dụng một thanh ngang hoặc tiêu đề phụ (ví dụ: <h4 className="text-xl font-heading font-bold text-navy mt-12 mb-6">BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)</h4>).
+
+Layout render ảnh: Map qua mảng sequence_diagrams. Với mỗi biểu đồ, tạo một khung chứa (container) có nền sáng, viền mỏng và cho phép cuộn ngang nếu ảnh quá to: <div className="w-full bg-gray-50 rounded-xl p-4 md:p-8 border border-gray-200 mb-8 overflow-x-auto flex flex-col items-center">
+
+Hình ảnh: <img src={diagram.src} alt={diagram.title} className="max-w-full h-auto shadow-sm rounded" />
+
+Chú thích: Thêm một thẻ <p className="mt-4 text-sm text-gray-500 italic text-center"> để hiển thị diagram.title.
+
+Hãy cung cấp lại cho tôi đoạn mã khai báo dữ liệu đã được cập nhật và component render giao diện để tôi thay thế vào file index.html.
 ============================================================================
+Claude, hãy giúp tôi cập nhật dữ liệu và giao diện phần Kỹ năng System Design cho dự án Agentic AI Đầu Tư Tài Chính trong file index.html. Thay vì hiển thị text đặc tả API thông thường, tôi muốn nhúng trực tiếp các file PDF tài liệu thành 2 cột song song.
+
+1. Cập nhật Dữ liệu (Biến PROJECTS):
+Trong object dữ liệu của dự án Agentic AI, hãy thay đổi mảng api_specs thành cấu trúc chứa đường dẫn PDF như sau (áp dụng cho cả vi và en):
+
+JavaScript
+api_specs: [
+  {
+    title: "API Thêm mục đầu tư mới (POST /api/investments/setup)",
+    src: "./assets/aiagent_api_document1.pdf"
+  },
+  {
+    title: "API Thêm dữ liệu thị trường EOD (POST /api/market-data/daily)",
+    src: "./assets/aiagent_api_document2.pdf"
+  }
+]
+2. Cập nhật Component render giao diện API:
+
+Thay đổi tiêu đề của section thành: <h4 className="text-xl font-heading font-bold text-navy mt-12 mb-6">TÀI LIỆU ĐẶC TẢ API & DATA MAPPING</h4>.
+
+Render mảng api_specs ra giao diện theo cấu trúc lưới 2 cột: <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">.
+
+Bên trong mỗi cột (mỗi item của mảng), hiển thị:
+
+Thẻ <h5 className="font-semibold text-gray-800 mb-3"> chứa api.title.
+
+Thẻ <iframe src={api.src} className="w-full h-[600px] border border-gray-200 rounded-xl shadow-sm" title={api.title}></iframe> để nhúng file PDF trực tiếp lên trình duyệt.
+
+Hãy cung cấp cho tôi đoạn mã khai báo dữ liệu đã được cập nhật và component render giao diện để tôi dán vào file index.html.
 ============================================================================
+Claude, hãy giúp tôi cập nhật trang Vibe Coding View trong ứng dụng React SPA (file index.html). Tôi muốn đổi tên dự án và cấu trúc lại phần giới thiệu (Overview) thành bố cục 2 cột.
+
+1. Cập nhật Dữ liệu (Biến VIBE_PROJECTS):
+Tìm biến chứa dữ liệu cho trang Vibe Coding và thực hiện các thay đổi sau (áp dụng cho ngôn ngữ vi):
+
+Đổi tên dự án Yummy: Đổi title từ 'DEMO ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY' thành 'HỆ THỐNG ERP CHO THƯƠNG HIỆU TÀU HŨ SINGAPORE YUMMY'.
+
+Thay đổi cấu trúc phần giới thiệu (cho CẢ dự án Yummy và Agentic AI): Thay vì một chuỗi text đơn thuần, hãy tách phần overview (hoặc description) thành một object gồm 2 trường: project_desc và tool_desc.
+
+Gợi ý nội dung cho Yummy:
+project_desc: "Hệ thống Quản trị Doanh nghiệp (ERP) thiết kế chuyên biệt cho chuỗi Tàu Hũ Singapore Yummy, bao phủ các nghiệp vụ cốt lõi từ Quản lý Bán hàng, Kho, Sản xuất đến Nhân sự..." (Sử dụng lại nội dung cũ của tôi).
+tool_desc: "Dự án được xây dựng và hoàn thiện bằng phương pháp Vibe Coding, sử dụng trợ lý AI Claude Code làm đối tác lập trình chính. Thay vì tự gõ từng dòng code, tôi đóng vai trò là một System Architect & Product Manager, điều phối AI thông qua các prompt kỹ thuật (như thiết kế ERD, Sequence Diagram, API Specs) để tạo ra mã nguồn React và TailwindCSS nhanh chóng, chính xác."
+
+Gợi ý nội dung cho Agentic AI:
+project_desc: "Nền tảng ứng dụng AI Agent trong phân tích và ra quyết định đầu tư tài chính..." (Sử dụng lại nội dung cũ của tôi).
+tool_desc: "Dự án áp dụng sức mạnh của Claude Code để xử lý các logic phức tạp trong hệ thống AI Agent. Việc sử dụng AI để code AI giúp tối ưu hóa thời gian xây dựng cấu trúc cơ sở dữ liệu, viết luồng API EOD (End of Day) và xây dựng giao diện Dashboard mượt mà."
+
+2. Cập nhật Component render giao diện (Bên trong <VibeCodingView>):
+
+Tìm phần render khối Giới thiệu (OverviewBlock).
+
+Thay thế container cũ bằng cấu trúc Grid 2 cột của Tailwind: <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">.
+
+Cột 1 (Về Dự Án):
+
+Tiêu đề: <h3 className="text-lg font-heading font-bold text-navy mb-3">VỀ DỰ ÁN</h3>
+
+Nội dung: Render biến project_desc với text màu xám (text-gray-600 leading-relaxed).
+
+Cột 2 (Về Công Cụ - Vibe Coding):
+
+Tiêu đề: <h3 className="text-lg font-heading font-bold text-navy mb-3">CÔNG CỤ PHÁT TRIỂN (CLAUDE CODE)</h3>
+
+Nội dung: Render biến tool_desc với một chút highlight (ví dụ: bọc khối này trong một div có nền sáng như bg-indigo-50/50 p-5 rounded-xl border border-indigo-100 để nhấn mạnh yếu tố Vibe Coding).
+
+Hãy cung cấp lại cho tôi phần khai báo dữ liệu đã được cập nhật và component render giao diện khối Overview để tôi dán vào file index.html.
 ============================================================================
 ============================================================================
 ============================================================================
