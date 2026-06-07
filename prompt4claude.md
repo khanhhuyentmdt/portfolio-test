@@ -725,6 +725,56 @@ Nội dung: Render biến tool_desc với một chút highlight (ví dụ: bọc
 
 Hãy cung cấp lại cho tôi phần khai báo dữ liệu đã được cập nhật và component render giao diện khối Overview để tôi dán vào file index.html.
 ============================================================================
+Claude, hãy giúp tôi thiết kế lại giao diện của các thẻ dự án trong component <ProjectsSection> (thuộc <HomeView>) trong file index.html. Hiện tại logo đang chiếm quá nhiều diện tích khiến thẻ bị dài và cồng kềnh.
+
+Tôi muốn thay đổi cấu trúc bên trong của MỖI THẺ dự án theo layout dàn ngang tối ưu diện tích như sau:
+
+1. Thay đổi cấu trúc HTML & Tailwind CSS của thẻ:
+Bỏ cấu trúc chia 2 cột (trái logo, phải nội dung) cũ. Sử dụng cấu trúc Flexbox dọc (Top-Bottom) như sau:
+
+JavaScript
+<div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
+  
+  {/* Phần Header: Logo nằm ngang hàng với Tiêu đề và Tag */}
+  <div className="flex flex-row items-start gap-4 mb-4">
+    {/* Logo thu nhỏ lại */}
+    <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
+      <img src={project.logo} alt={project.title} className="max-w-full max-h-full object-contain" />
+    </div>
+    
+    {/* Tiêu đề & Tag */}
+    <div className="flex flex-col gap-2 flex-1">
+      <h3 className="text-base md:text-lg font-heading font-bold text-navy uppercase leading-tight">
+        {project.title}
+      </h3>
+      <span className="bg-lavender/30 text-navy px-3 py-1 rounded-full text-xs font-semibold w-fit">
+        {project.domain}
+      </span>
+    </div>
+  </div>
+
+  {/* Phần Body: Đoạn mô tả dàn đều full chiều ngang thẻ */}
+  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+    {project.description}
+  </p>
+
+  {/* Phần Footer: Nút xem thêm */}
+  <button 
+    onClick={() => handleViewProject(project.id)}
+    className="mt-auto self-end bg-navy text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-navy/90 transition-colors"
+  >
+    XEM THÊM
+  </button>
+</div>
+2. Yêu cầu triển khai:
+
+Giữ nguyên lưới tổng thể là grid grid-cols-1 lg:grid-cols-2 gap-6.
+
+Cập nhật cấu trúc trên vào hàm render danh sách dự án (map).
+
+Đảm bảo các biến dữ liệu như project.logo, project.title, project.domain, project.description được map đúng với state/dữ liệu hiện tại của dự án.
+
+Hãy cập nhật và cung cấp lại component <ProjectsSection> cho tôi.
 ============================================================================
 ============================================================================
 ============================================================================

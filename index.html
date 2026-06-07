@@ -268,6 +268,9 @@
         nextUiux: 'Xem tiếp: Thiết kế UI/UX',
         nextSystem: 'Xem tiếp: Thiết kế Hệ thống',
         nextVibeCoding: 'Xem tiếp: Vibe Coding',
+        sectionSystem: 'Thiết kế Hệ thống',
+        sectionUiux: 'Thiết kế UI/UX',
+        sectionVibeCoding: 'Vibe Coding',
         systemDesignBanner: 'THIẾT KẾ HỆ THỐNG',
         uiuxDesignBanner: 'THIẾT KẾ UI/UX',
         sequenceDiagramHeading: 'BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM)',
@@ -290,6 +293,9 @@
         nextUiux: 'Next: UI/UX Design',
         nextSystem: 'Next: System Design',
         nextVibeCoding: 'Next: Vibe Coding',
+        sectionSystem: 'System Design',
+        sectionUiux: 'UI/UX Design',
+        sectionVibeCoding: 'Vibe Coding',
         systemDesignBanner: 'SYSTEM DESIGN',
         uiuxDesignBanner: 'UI/UX DESIGN',
         sequenceDiagramHeading: 'SEQUENCE DIAGRAMS',
@@ -1664,10 +1670,10 @@
 
       return (
         <header className="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+          <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-3 md:py-4 flex items-center justify-between gap-4 md:gap-6">
 
             <a href="#home" onClick={handleLogoClick} className="flex-shrink-0 min-w-0 cursor-pointer">
-              <div className="font-heading text-sm md:text-base tracking-widest text-navy flex items-baseline gap-1.5 whitespace-nowrap">
+              <div className="font-heading text-xs md:text-base tracking-widest text-navy flex items-baseline gap-1 md:gap-1.5 whitespace-nowrap">
                 <span className="font-black">TRẦN KHÁNH HUYỀN</span>
                 <span className="text-gray-300 font-normal">/</span>
                 <span className="font-normal underline underline-offset-2 decoration-navy/50">BUSINESS ANALYST</span>
@@ -1696,7 +1702,7 @@
               <LangToggle lang={lang} setLang={setLang} />
             </nav>
 
-            <div className="flex md:hidden items-center gap-3 flex-shrink-0">
+            <div className="flex md:hidden items-center gap-2 flex-shrink-0">
               <LangToggle lang={lang} setLang={setLang} />
               <button
                 onClick={() => setOpen(!open)}
@@ -1709,7 +1715,7 @@
           </div>
 
           {open && (
-            <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-1">
+            <div className="md:hidden border-t border-gray-100 bg-white px-4 py-3 flex flex-col gap-1">
               {c.nav.map((item) => {
                 const isActive = currentPage === 'home' && activeSection === item.section;
                 return (
@@ -1732,93 +1738,33 @@
       );
     }
 
-    /* ── BottomNav (3-way: system <-> uiux <-> vibecoding) ── */
-    function BottomNav({ page, navigate, lang }) {
-      const s = SHARED_DICT[lang];
-
-      /* Circular chain: system -> uiux -> vibecoding -> system */
-      const NAV_CHAIN = {
-        system: { prev: 'vibecoding', prevLabel: s.nextVibeCoding, next: 'uiux', nextLabel: s.nextUiux },
-        uiux: { prev: 'system', prevLabel: s.nextSystem, next: 'vibecoding', nextLabel: s.nextVibeCoding },
-        vibecoding: { prev: 'uiux', prevLabel: s.nextUiux, next: 'system', nextLabel: s.nextSystem },
+    /* ── BottomNav (text-link style: prev / home / next) ── */
+    function BottomNav({ prevTitle, nextTitle, onPrev, onNext, onHome, lang }) {
+      const DICT = {
+        vi: { prevPrefix: 'Xem lại:', nextPrefix: 'Xem tiếp:', home: 'Trở về Trang chủ' },
+        en: { prevPrefix: 'Previous:', nextPrefix: 'Read next:', home: 'Back to Home' },
       };
-      const chain = NAV_CHAIN[page] || NAV_CHAIN.system;
+      const d = DICT[lang] || DICT.vi;
+      const btnCls = "flex items-center gap-1.5 md:gap-2 text-navy font-bold hover:opacity-70 transition-opacity uppercase text-xs md:text-sm";
 
       return (
-        <div className="border-t border-gray-200 py-10 px-[10px]">
-          <div className="max-w-6xl mx-auto flex justify-between items-center gap-4 flex-wrap">
-            <button
-              onClick={() => navigate(chain.prev)}
-              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:-translate-x-0.5">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              <span className="truncate">{chain.prevLabel}</span>
+        <div className="border-t border-gray-200 py-6 md:py-10 px-4 md:px-8">
+          <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+            {prevTitle ? (
+              <button onClick={onPrev} className={btnCls}>
+                <span>{'<'}</span>
+                <span className="truncate max-w-[60vw] md:max-w-[30vw]">{d.prevPrefix} {prevTitle}</span>
+              </button>
+            ) : <div />}
+            <button onClick={onHome} className={btnCls}>
+              {d.home}
             </button>
-            <button
-              onClick={() => navigate('home')}
-              className="group inline-flex items-center gap-2 bg-navy/10 text-navy rounded-full px-5 py-2 font-heading text-sm font-bold tracking-wide hover:bg-navy hover:text-white transition-all"
-            >
-              {s.backHome}
-            </button>
-            <button
-              onClick={() => navigate(chain.next)}
-              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity"
-            >
-              <span className="truncate">{chain.nextLabel}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      );
-    }
-
-    /* ── ProjectDetailBottomNav (matrix navigation: prev/next project) ── */
-    function ProjectDetailBottomNav({ navigate, lang, selectedProject, setSelectedProject, setCurrentPage }) {
-      const s = SHARED_DICT[lang];
-      const projects = PROJECTS[lang];
-      const currentIndex = projects.findIndex(p => p.id === selectedProject);
-
-      const goToPrev = () => {
-        if (currentIndex > 0) {
-          window.location.hash = 'project/' + projects[currentIndex - 1].id;
-        } else {
-          navigate('home', 'projects');
-        }
-      };
-
-      const goToNext = () => {
-        if (currentIndex < projects.length - 1) {
-          window.location.hash = 'project/' + projects[currentIndex + 1].id;
-        } else {
-          navigate('home', 'projects');
-        }
-      };
-
-      return (
-        <div className="border-t border-gray-200 py-10 px-6">
-          <div className="max-w-6xl mx-auto flex justify-between items-center gap-4 flex-wrap">
-            <button
-              onClick={goToPrev}
-              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity max-w-[45%]"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:-translate-x-0.5">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              <span className="truncate">{currentIndex <= 0 ? s.backHome : (lang === 'vi' ? 'Dự án trước' : 'Previous')}</span>
-            </button>
-            <button
-              onClick={goToNext}
-              className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity max-w-[45%]"
-            >
-              <span className="truncate">{currentIndex >= projects.length - 1 ? s.backHome : (lang === 'vi' ? 'Dự án tiếp theo' : 'Next project')}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
+            {nextTitle ? (
+              <button onClick={onNext} className={btnCls}>
+                <span className="truncate max-w-[60vw] md:max-w-[30vw]">{d.nextPrefix} {nextTitle}</span>
+                <span>{'>'}</span>
+              </button>
+            ) : <div />}
           </div>
         </div>
       );
@@ -1828,8 +1774,8 @@
     function CopyrightFooter({ lang }) {
       const c = SHARED_DICT[lang];
       return (
-        <footer className="bg-white border-t border-gray-200 py-4 px-[10px]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+        <footer className="bg-white border-t border-gray-200 py-4 px-4 md:px-8">
+          <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="font-body text-sm text-gray-500 font-medium tracking-wider whitespace-nowrap">
               {c.copyright}
             </p>
@@ -1866,11 +1812,11 @@
     /* ── PageHero (subpages) ── */
     function PageHero({ pageTitle }) {
       return (
-        <div className="bg-white py-12 px-[10px]">
-          <div>
-            <div className="flex items-center gap-5">
+        <div className="bg-white py-8 md:py-12 px-4 md:px-8">
+          <div className="w-full max-w-7xl mx-auto">
+            <div className="flex items-center gap-3 md:gap-5">
               <div className="flex-1 h-px bg-gray-200" />
-              <h1 className="font-heading font-black text-navy text-xl md:text-2xl tracking-normal whitespace-nowrap">
+              <h1 className="font-heading font-black text-navy text-base md:text-2xl tracking-normal text-center leading-snug">
                 {pageTitle}
               </h1>
               <div className="flex-1 h-px bg-gray-200" />
@@ -1883,8 +1829,8 @@
     /* ── ProjectHeader (shared subpage component) ── */
     function ProjectHeader({ project }) {
       return (
-        <div className="bg-navy text-white px-[10px] py-6 text-center">
-          <h2 className="font-heading font-black text-lg md:text-xl tracking-normal leading-snug">
+        <div className="bg-navy text-white px-4 md:px-8 py-4 md:py-6 text-center">
+          <h2 className="font-heading font-black text-sm md:text-xl tracking-normal leading-snug">
             {project.fullTitle}
           </h2>
         </div>
@@ -1899,27 +1845,27 @@
       const mainProject = PROJECTS[lang] ? PROJECTS[lang].find(p => p.id === mainId) : null;
 
       return (
-        <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col h-full">
+        <div className="border border-gray-200 rounded-xl p-4 md:p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col h-full">
           {/* Header: Logo + Tiêu đề + Tag */}
-          <div className="flex flex-row items-start gap-4 mb-4">
+          <div className="flex flex-row items-start gap-3 md:gap-4 mb-3 md:mb-4">
             {mainProject && mainProject.logoSrc && (
-              <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
+              <div className="w-12 h-12 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
                 <img src={mainProject.logoSrc} alt={project.shortTitle} className="max-w-full max-h-full object-contain" />
               </div>
             )}
-            <div className="flex flex-col gap-2 flex-1">
-              <h3 className="font-heading text-base md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
+            <div className="flex flex-col gap-1.5 md:gap-2 flex-1">
+              <h3 className="font-heading text-sm md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
                 {project.shortTitle}
               </h3>
               {mainProject && mainProject.domain && (
-                <span className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none w-fit">
+                <span className="tag font-body border border-gray-300 text-gray-700 rounded-full px-3 md:px-4 py-0.5 md:py-1 text-xs md:text-sm font-semibold shadow-sm cursor-default select-none w-fit">
                   {mainProject.domain}
                 </span>
               )}
             </div>
           </div>
           {/* Body: Mô tả */}
-          <p className="font-body text-gray-500 text-base leading-relaxed mb-6 flex-1">
+          <p className="font-body text-gray-500 text-sm md:text-base leading-relaxed mb-4 md:mb-6 flex-1">
             {project.cardDesc}
           </p>
           {/* Footer: Nút xem thêm */}
@@ -1946,9 +1892,9 @@
 
     function ProjectNavMenu({ projects, viewMore, lang }) {
       return (
-        <div className="bg-gray-50 border-b border-gray-200 py-10 px-[10px]">
-          <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="bg-gray-50 border-b border-gray-200 py-8 md:py-10 px-4 md:px-8">
+          <div className="w-full max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               {projects.map((project) => (
                 <ProjectNavCard key={project.id} project={project} viewMore={viewMore} lang={lang} />
               ))}
@@ -1967,19 +1913,41 @@
     function HeroSection({ lang, setCurrentPage }) {
       const h = HOME_CONTENT[lang].hero;
       return (
-        <section id="home" className="relative min-h-[calc(100vh-72px)] flex items-center bg-white overflow-hidden">
+        <section id="home" className="relative min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-72px)] flex items-center bg-white overflow-hidden">
 
-          {/* Decorative background pattern */}
-          <div
-            className="absolute inset-0 bg-[url('./assets/hero-bg.png')] bg-no-repeat bg-right-bottom bg-contain opacity-50 pointer-events-none"
-            aria-hidden="true"
-          />
+          {/* Decorative diagonal light streaks */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+            {/* Streak 1 — top-right to center, navy-tinted */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '-10%',
+                right: '-5%',
+                width: '70%',
+                height: '140%',
+                background: 'linear-gradient(135deg, transparent 38%, rgba(192,188,220,0.35) 44%, rgba(192,188,220,0.18) 48%, transparent 52%)',
+                transform: 'rotate(-8deg)',
+              }}
+            />
+            {/* Streak 2 — parallel, slightly offset */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '-15%',
+                right: '10%',
+                width: '60%',
+                height: '140%',
+                background: 'linear-gradient(135deg, transparent 40%, rgba(210,206,235,0.28) 46%, rgba(210,206,235,0.12) 50%, transparent 54%)',
+                transform: 'rotate(-8deg)',
+              }}
+            />
+          </div>
 
-          <div className="relative z-10 max-w-6xl mx-auto w-full px-6 py-16 md:py-24">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 items-center">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-24">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
 
               {/* Avatar — pastel minimal style */}
-              <div className="flex justify-center md:col-span-1">
+              <div className="flex justify-center flex-shrink-0">
                 <div className="relative group w-fit mx-auto md:mx-0">
 
                   {/* Pastel rotated background frame */}
@@ -1989,7 +1957,7 @@
                   <img
                     src="./avatar.jpg"
                     alt="Trần Khánh Huyền"
-                    className="relative z-10 w-64 h-80 md:w-80 md:h-96 rounded-2xl border-4 border-white shadow-sm object-cover object-top transition-transform duration-300 group-hover:-translate-y-1"
+                    className="relative z-10 w-48 h-60 sm:w-56 sm:h-72 md:w-72 md:h-[22rem] lg:w-80 lg:h-96 rounded-2xl border-4 border-white shadow-sm object-cover object-top transition-transform duration-300 group-hover:-translate-y-1"
                     onError={(e) => {
                       e.target.src = './avatar.png';
                       e.target.onerror = () => {
@@ -2003,44 +1971,44 @@
                 </div>
               </div>
 
-              {/* Info — 2/3 width */}
-              <div className="md:col-span-2 flex flex-col gap-6 text-center md:text-left">
+              {/* Info — fills remaining width */}
+              <div className="flex-1 min-w-0 flex flex-col gap-5 md:gap-6 text-center md:text-left">
 
                 {/* Name + title */}
                 <div>
-                  <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-navy leading-tight tracking-tight">
+                  <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-navy leading-tight tracking-tight">
                     {h.name}
                   </h1>
-                  <p className="font-body mt-2 text-xs md:text-sm font-semibold tracking-[0.3em] text-gray-400 uppercase">
+                  <p className="font-body mt-1.5 md:mt-2 text-[10px] md:text-sm font-semibold tracking-[0.3em] text-gray-400 uppercase">
                     {h.title}
                   </p>
                 </div>
 
                 {/* Contact info — inline text with icons, pipe-separated */}
-                <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 justify-center md:justify-start">
                   <a
                     href={h.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-body inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-navy transition-colors"
+                    className="font-body inline-flex items-center gap-1 md:gap-1.5 text-xs md:text-sm text-gray-500 hover:text-navy transition-colors"
                   >
-                    <IconLinkedIn className="w-4 h-4 flex-shrink-0" />
+                    <IconLinkedIn className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0" />
                     {h.linkedinLabel}
                   </a>
-                  <span className="text-gray-300">|</span>
+                  <span className="text-gray-300 hidden sm:inline">|</span>
                   <a
                     href={`mailto:${h.email}`}
-                    className="font-body inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-navy transition-colors"
+                    className="font-body inline-flex items-center gap-1 md:gap-1.5 text-xs md:text-sm text-gray-500 hover:text-navy transition-colors"
                   >
-                    <IconMail className="w-4 h-4 flex-shrink-0" />
+                    <IconMail className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0" />
                     {h.email}
                   </a>
-                  <span className="text-gray-300">|</span>
+                  <span className="text-gray-300 hidden sm:inline">|</span>
                   <a
                     href={`tel:${h.phone.replace(/\s/g, '')}`}
-                    className="font-body inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-navy transition-colors"
+                    className="font-body inline-flex items-center gap-1 md:gap-1.5 text-xs md:text-sm text-gray-500 hover:text-navy transition-colors"
                   >
-                    <IconPhone className="w-4 h-4 flex-shrink-0" />
+                    <IconPhone className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0" />
                     {h.phone}
                   </a>
                 </div>
@@ -2054,10 +2022,10 @@
 
                 {/* Domain tags */}
                 <div>
-                  <p className="font-heading font-bold text-navy text-[15px] mt-2 mb-3">{h.domainLabel}</p>
-                  <div className="flex flex-wrap gap-3 mb-6">
+                  <p className="font-heading font-bold text-navy text-sm md:text-[15px] mt-1 md:mt-2 mb-2 md:mb-3">{h.domainLabel}</p>
+                  <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6 justify-center md:justify-start">
                     {h.domains.map((d, i) => (
-                      <span key={i} className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none">{d}</span>
+                      <span key={i} className="tag font-body border border-gray-300 text-gray-700 rounded-full px-3 md:px-4 py-0.5 md:py-1 text-xs md:text-sm font-semibold shadow-sm cursor-default select-none">{d}</span>
                     ))}
                   </div>
                 </div>
@@ -2089,12 +2057,12 @@
       };
 
       return (
-        <section id="projects" className="bg-white py-20 md:py-28">
-          <div className="max-w-6xl mx-auto px-6">
+        <section id="projects" className="bg-white py-14 md:py-28">
+          <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
 
             {/* Section heading with line */}
-            <div className="flex items-center gap-5 mb-10">
-              <h2 className="font-heading text-2xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
+            <div className="flex items-center gap-3 md:gap-5 mb-8 md:mb-10">
+              <h2 className="font-heading text-xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
                 {p.heading}
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
@@ -2105,26 +2073,26 @@
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col h-full"
+                  className="border border-gray-200 rounded-xl p-4 md:p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 flex flex-col h-full"
                 >
                   {/* Header: Logo + Tiêu đề + Tag */}
-                  <div className="flex flex-row items-start gap-4 mb-4">
-                    <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
+                  <div className="flex flex-row items-start gap-3 md:gap-4 mb-3 md:mb-4">
+                    <div className="w-12 h-12 md:w-20 md:h-20 flex-shrink-0 bg-white border border-gray-100 rounded-lg p-1 flex items-center justify-center">
                       <img src={project.logoSrc} alt={project.title} className="max-w-full max-h-full object-contain" />
                     </div>
-                    <div className="flex flex-col gap-2 flex-1">
-                      <h3 className="font-heading text-base md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
+                    <div className="flex flex-col gap-1.5 md:gap-2 flex-1">
+                      <h3 className="font-heading text-sm md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
                         {project.title}
                       </h3>
                       {project.domain && (
-                        <span className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none w-fit">
+                        <span className="tag font-body border border-gray-300 text-gray-700 rounded-full px-3 md:px-4 py-0.5 md:py-1 text-xs md:text-sm font-semibold shadow-sm cursor-default select-none w-fit">
                           {project.domain}
                         </span>
                       )}
                     </div>
                   </div>
                   {/* Body: Mô tả */}
-                  <p className="font-body text-gray-500 text-base leading-relaxed mb-6 flex-1">
+                  <p className="font-body text-gray-500 text-sm md:text-base leading-relaxed mb-4 md:mb-6 flex-1">
                     {project.cardDesc}
                   </p>
                   {/* Footer: Nút xem thêm */}
@@ -2154,42 +2122,42 @@
       };
 
       return (
-        <section id="skills" className="bg-gray-50 py-20 md:py-28">
-          <div className="max-w-6xl mx-auto px-6">
+        <section id="skills" className="bg-gray-50 py-14 md:py-28">
+          <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
 
             {/* Section heading with line */}
-            <div className="flex items-center gap-5 mb-10">
-              <h2 className="font-heading text-2xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
+            <div className="flex items-center gap-3 md:gap-5 mb-8 md:mb-10">
+              <h2 className="font-heading text-xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
                 {s.heading}
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
             </div>
 
             {/* Full-width single column layout with icon */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 md:gap-6">
               {s.cards.map((card) => {
                 const SkillIconComponent = SKILL_ICONS[card.id];
                 return (
                   <div key={card.id} className="border border-gray-200 rounded-xl bg-white shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200">
-                    <div className="flex flex-col md:flex-row gap-6 md:gap-8 p-6 items-start">
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-8 p-4 md:p-6 items-start">
 
                       {/* Icon column — wrapped in bordered container */}
                       {SkillIconComponent && (
-                        <div className="w-16 h-16 md:w-24 md:h-24 flex-shrink-0 flex items-center justify-center p-3 md:p-4 border border-gray-200 rounded-2xl bg-white">
+                        <div className="w-12 h-12 md:w-24 md:h-24 flex-shrink-0 flex items-center justify-center p-2 md:p-4 border border-gray-200 rounded-xl md:rounded-2xl bg-white">
                           <SkillIconComponent />
                         </div>
                       )}
 
                       {/* Content column */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-4 mb-3">
-                          <h3 className="font-heading text-base md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
+                        <div className="flex items-start justify-between gap-3 md:gap-4 mb-2 md:mb-3">
+                          <h3 className="font-heading text-sm md:text-lg font-extrabold tracking-normal text-navy uppercase leading-relaxed">
                             {card.title}
                           </h3>
                           {card.hasButton && (
                             <button
                               onClick={() => handleSkillNav(card.id)}
-                              className="pill font-heading flex-shrink-0 bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full px-4 py-1.5 hover:opacity-90 transition-all"
+                              className="pill font-heading flex-shrink-0 bg-navy text-white text-[9px] md:text-[10px] font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase rounded-full px-3 md:px-4 py-1 md:py-1.5 hover:opacity-90 transition-all"
                             >
                               {s.viewMore}
                             </button>
@@ -2201,7 +2169,7 @@
                             {card.tags.map((tag) => (
                               <span
                                 key={tag}
-                                className="tag font-body border border-gray-300 text-gray-700 rounded-full px-4 py-1 text-sm font-semibold shadow-sm cursor-default select-none"
+                                className="tag font-body border border-gray-300 text-gray-700 rounded-full px-3 md:px-4 py-0.5 md:py-1 text-xs md:text-sm font-semibold shadow-sm cursor-default select-none"
                               >
                                 {tag}
                               </span>
@@ -2209,7 +2177,7 @@
                           </div>
                         )}
 
-                        <p className="font-body text-gray-500 text-base leading-relaxed">{card.desc}</p>
+                        <p className="font-body text-gray-500 text-sm md:text-base leading-relaxed">{card.desc}</p>
                       </div>
 
                     </div>
@@ -2228,11 +2196,11 @@
       const c = HOME_CONTENT[lang].contact;
       return (
         <footer id="contact">
-          <div className="bg-white py-20 md:py-28">
-            <div className="max-w-6xl mx-auto px-6">
+          <div className="bg-white py-14 md:py-28">
+            <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
 
-              <div className="flex items-center gap-5 mb-10">
-                <h2 className="font-heading text-2xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
+              <div className="flex items-center gap-3 md:gap-5 mb-8 md:mb-10">
+                <h2 className="font-heading text-xl md:text-3xl font-black text-navy tracking-tight whitespace-nowrap">
                   {c.heading}
                 </h2>
                 <div className="flex-1 h-px bg-gray-300" />
@@ -2271,8 +2239,8 @@
             </div>
           </div>
 
-          <div className="bg-white border-t border-gray-200 py-4 px-6">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="bg-white border-t border-gray-200 py-4 px-4 md:px-8">
+            <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
               <p className="font-body text-sm text-gray-500 font-medium tracking-wider whitespace-nowrap">
                 {c.copyright}
               </p>
@@ -2332,15 +2300,15 @@
           <PageHero pageTitle={s.cvTitle} />
 
           {/* Download button + iframe wrapper */}
-          <div className="bg-white pb-12 px-6">
-            <div className="max-w-6xl mx-auto">
+          <div className="bg-white pb-8 md:pb-12 px-4 md:px-8">
+            <div className="w-full max-w-7xl mx-auto">
 
               {/* Top-right download button */}
-              <div className="flex justify-end mb-4">
+              <div className="flex justify-end mb-3 md:mb-4">
                 <a
                   href={cvPath}
                   download
-                  className="pill font-heading inline-flex items-center gap-2 bg-navy text-white text-xs font-bold tracking-[0.2em] uppercase rounded-full px-6 py-2.5 hover:opacity-90 transition-all shadow-md"
+                  className="pill font-heading inline-flex items-center gap-2 bg-navy text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase rounded-full px-4 md:px-6 py-2 md:py-2.5 hover:opacity-90 transition-all shadow-md"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -2356,15 +2324,15 @@
                 src={cvPath}
                 title={s.cvTitle}
                 className="w-full rounded-xl border border-gray-200 shadow-sm"
-                style={{ height: '80vh', minHeight: '600px' }}
+                style={{ height: '60vh', minHeight: '400px' }}
               />
 
             </div>
           </div>
 
           {/* Bottom nav — only back home */}
-          <div className="border-t border-gray-200 py-10 px-6">
-            <div className="max-w-6xl mx-auto flex justify-center">
+          <div className="border-t border-gray-200 py-8 md:py-10 px-4 md:px-8">
+            <div className="w-full max-w-7xl mx-auto flex justify-center">
               <button
                 onClick={() => navigate('home')}
                 className="group inline-flex items-center gap-2 bg-navy text-white rounded-full px-6 py-2.5 font-heading text-sm font-bold tracking-wide hover:opacity-75 transition-opacity"
@@ -2519,14 +2487,14 @@
       const { heading, specs } = data;
       return (
         <div className="py-8">
-          <h4 className="text-xl font-heading font-bold text-navy mt-12 mb-6">{heading}</h4>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <h4 className="text-lg md:text-xl font-heading font-bold text-navy mt-8 md:mt-12 mb-4 md:mb-6">{heading}</h4>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {specs.map((spec, i) => (
               <div key={i}>
-                <h5 className="font-semibold text-gray-800 mb-3">{spec.title}</h5>
+                <h5 className="font-semibold text-gray-800 text-sm md:text-base mb-2 md:mb-3">{spec.title}</h5>
                 <iframe
                   src={spec.src}
-                  className="w-full h-[600px] border border-gray-200 rounded-xl shadow-sm"
+                  className="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-xl shadow-sm"
                   title={spec.title}
                 ></iframe>
               </div>
@@ -2551,11 +2519,11 @@
       if (project.sections.length === 0) return null;
       const shared = SHARED_DICT[lang] || SHARED_DICT['vi'];
       return (
-        <section id={project.id} className="py-10 px-[10px] border-b border-gray-100">
-          <div>
+        <section id={project.id} className="py-8 md:py-10 px-4 md:px-8 border-b border-gray-100">
+          <div className="w-full max-w-7xl mx-auto">
             <div className="overflow-hidden">
               <ProjectHeader project={project} />
-              <div className="bg-white px-[10px] md:px-[10px] divide-y divide-gray-100">
+              <div className="bg-white px-2 md:px-4 divide-y divide-gray-100">
                 {project.sections.map((section, i) => (
                   <SystemSectionBlock key={i} data={section} />
                 ))}
@@ -2577,7 +2545,14 @@
           {projects.map((project) => (
             <SystemProjectSection key={project.id} project={project} lang={lang} />
           ))}
-          <BottomNav page="system" navigate={navigate} lang={lang} />
+          <BottomNav
+            lang={lang}
+            prevTitle={shared.sectionVibeCoding}
+            nextTitle={shared.sectionUiux}
+            onPrev={() => navigate('vibecoding')}
+            onNext={() => navigate('uiux')}
+            onHome={() => navigate('home')}
+          />
           <CopyrightFooter lang={lang} />
         </>
       );
@@ -2646,12 +2621,12 @@
             {heading}
           </p>
           {uiLayout === 'desktop' && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
               {images.map((img, i) => <MockupImage key={i} src={img.src} alt={img.alt} />)}
             </div>
           )}
           {uiLayout === 'mobile' && (
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
               {images.map((img, i) => <MockupImage key={i} src={img.src} alt={img.alt} />)}
             </div>
           )}
@@ -2671,11 +2646,11 @@
     function UiUxProjectSection({ project, lang }) {
       if (project.sections.length === 0) return null;
       return (
-        <section id={project.id} className="py-10 px-[10px] border-b border-gray-100">
-          <div>
+        <section id={project.id} className="py-8 md:py-10 px-4 md:px-8 border-b border-gray-100">
+          <div className="w-full max-w-7xl mx-auto">
             <div className="overflow-hidden">
               <ProjectHeader project={project} />
-              <div className="bg-white px-[10px] divide-y divide-gray-100">
+              <div className="bg-white px-2 md:px-4 divide-y divide-gray-100">
                 {project.sections.map((section, i) => (
                   <UiUxSectionBlock key={i} data={section} lang={lang} />
                 ))}
@@ -2697,7 +2672,14 @@
           {projects.map((project) => (
             <UiUxProjectSection key={project.id} project={project} lang={lang} />
           ))}
-          <BottomNav page="uiux" navigate={navigate} lang={lang} />
+          <BottomNav
+            lang={lang}
+            prevTitle={shared.sectionSystem}
+            nextTitle={shared.sectionVibeCoding}
+            onPrev={() => navigate('system')}
+            onNext={() => navigate('vibecoding')}
+            onHome={() => navigate('home')}
+          />
           <CopyrightFooter lang={lang} />
         </>
       );
@@ -2734,12 +2716,12 @@
 
       if (url) {
         return (
-          <div className="flex justify-center w-full mt-10">
-            <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-md border border-gray-100 bg-gray-50" onClick={handleTogglePlay}>
+          <div className="flex justify-center w-full mt-8 md:mt-10">
+            <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-md border border-gray-100 bg-gray-50 w-full md:w-auto" onClick={handleTogglePlay}>
               <video
                 ref={videoRef}
                 src={url}
-                className="max-w-full max-h-[600px] w-auto h-auto block"
+                className="w-full md:max-w-full max-h-[400px] md:max-h-[600px] md:w-auto h-auto block"
                 muted={isMuted}
                 playsInline
                 onEnded={() => setIsPlaying(false)}
@@ -2865,11 +2847,11 @@
       const otherSections = project.sections.filter(s => s.type !== 'overview');
       const hasVideoOrGallery = 'video_demo_url' in project || (project.gallery && project.gallery.length > 0);
       return (
-        <section id={project.id} className="py-10 px-[10px] border-b border-gray-100">
-          <div>
+        <section id={project.id} className="py-8 md:py-10 px-4 md:px-8 border-b border-gray-100">
+          <div className="w-full max-w-7xl mx-auto">
             <div className="overflow-hidden">
               <ProjectHeader project={project} />
-              <div className="bg-white px-[10px] md:px-[10px]">
+              <div className="bg-white px-2 md:px-4">
 
                 {/* Part 1 — Overview */}
                 {overviewSection && <VibeOverviewBlock data={overviewSection} lang={lang} />}
@@ -2914,7 +2896,14 @@
           {projects.map((project) => (
             <VibeCodingProjectSection key={project.id} project={project} lang={lang} />
           ))}
-          <BottomNav page="vibecoding" navigate={navigate} lang={lang} />
+          <BottomNav
+            lang={lang}
+            prevTitle={shared.sectionUiux}
+            nextTitle={shared.sectionSystem}
+            onPrev={() => navigate('uiux')}
+            onNext={() => navigate('system')}
+            onHome={() => navigate('home')}
+          />
           <CopyrightFooter lang={lang} />
         </>
       );
@@ -2928,7 +2917,11 @@
       const shared = SHARED_DICT[lang];
 
       const isAiAgent = selectedProject === 'financial-ai-agent';
-      const baseProject = PROJECTS[lang].find(p => p.id === selectedProject);
+      const allProjects = PROJECTS[lang];
+      const baseProject = allProjects.find(p => p.id === selectedProject);
+      const currentIdx = allProjects.findIndex(p => p.id === selectedProject);
+      const prevProject = currentIdx > 0 ? allProjects[currentIdx - 1] : null;
+      const nextProject = currentIdx < allProjects.length - 1 ? allProjects[currentIdx + 1] : null;
 
       /* Find matching project data from SYSTEM_PROJECTS and UIUX_PROJECTS */
       const systemProject = SYSTEM_PROJECTS[lang].find(p => p.id === selectedProject);
@@ -2983,11 +2976,11 @@
       return (
         <>
           {/* PageHero — project title with lines on both sides */}
-          <div className="bg-white py-12 px-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-center gap-5">
+          <div className="bg-white py-8 md:py-12 px-4 md:px-8">
+            <div className="w-full max-w-7xl mx-auto">
+              <div className="flex items-center gap-3 md:gap-5">
                 <div className="flex-1 h-px bg-gray-300" />
-                <h1 className="font-heading font-black text-navy text-lg md:text-2xl tracking-normal text-center leading-snug">
+                <h1 className="font-heading font-black text-navy text-sm md:text-2xl tracking-normal text-center leading-snug">
                   {projectTitle}
                 </h1>
                 <div className="flex-1 h-px bg-gray-300" />
@@ -2997,8 +2990,8 @@
 
           {/* Overview: intro + scope as 2-column grid */}
           {overviewSection && (
-            <div className="bg-white px-6 pb-10">
-              <div className="max-w-6xl mx-auto">
+            <div className="bg-white px-4 md:px-8 pb-8 md:pb-10">
+              <div className="w-full max-w-7xl mx-auto">
                 <OverviewBlock data={overviewSection} />
               </div>
             </div>
@@ -3007,13 +3000,13 @@
           {/* THIẾT KẾ HỆ THỐNG banner + system sections */}
           {systemDiagramSections.length > 0 && (
             <>
-              <div className="bg-navy text-white py-4 text-center">
-                <h2 className="font-heading font-bold text-xl tracking-normal">
+              <div className="bg-navy text-white py-3 md:py-4 text-center">
+                <h2 className="font-heading font-bold text-base md:text-xl tracking-normal">
                   {shared.systemDesignBanner}
                 </h2>
               </div>
-              <div className="bg-white px-6">
-                <div className="max-w-6xl mx-auto divide-y divide-gray-100">
+              <div className="bg-white px-4 md:px-8">
+                <div className="w-full max-w-7xl mx-auto divide-y divide-gray-100">
                   {systemDiagramSections.map((section, i) => (
                     <SystemSectionBlock key={i} data={section} />
                   ))}
@@ -3025,13 +3018,13 @@
           {/* THIẾT KẾ UI/UX banner + uiux sections */}
           {uiuxSections.length > 0 && (
             <>
-              <div className="bg-navy text-white py-4 text-center">
-                <h2 className="font-heading font-bold text-xl tracking-normal">
+              <div className="bg-navy text-white py-3 md:py-4 text-center">
+                <h2 className="font-heading font-bold text-base md:text-xl tracking-normal">
                   {shared.uiuxDesignBanner}
                 </h2>
               </div>
-              <div className="bg-white px-6">
-                <div className="max-w-6xl mx-auto divide-y divide-gray-100">
+              <div className="bg-white px-4 md:px-8">
+                <div className="w-full max-w-7xl mx-auto divide-y divide-gray-100">
                   {uiuxSections.map((section, i) => (
                     <UiUxSectionBlock key={i} data={section} lang={lang} />
                   ))}
@@ -3043,13 +3036,13 @@
           {/* VIBE CODING banner + vibe sections */}
           {vibeProject && (
             <>
-              <div className="bg-navy text-white py-4 text-center">
-                <h2 className="font-heading font-bold text-xl tracking-normal">
+              <div className="bg-navy text-white py-3 md:py-4 text-center">
+                <h2 className="font-heading font-bold text-base md:text-xl tracking-normal">
                   VIBE CODING
                 </h2>
               </div>
-              <div className="bg-white px-6 pb-10">
-                <div className="max-w-6xl mx-auto">
+              <div className="bg-white px-4 md:px-8 pb-8 md:pb-10">
+                <div className="w-full max-w-7xl mx-auto">
                   {vibeProject.sections.find(s => s.type === 'overview') && (
                     <VibeOverviewBlock data={vibeProject.sections.find(s => s.type === 'overview')} lang={lang} />
                   )}
@@ -3076,7 +3069,14 @@
           )}
 
           {/* Bottom navigation */}
-          <ProjectDetailBottomNav navigate={navigate} lang={lang} selectedProject={selectedProject} setSelectedProject={setSelectedProject} setCurrentPage={setCurrentPage} />
+          <BottomNav
+            lang={lang}
+            prevTitle={prevProject ? prevProject.title : null}
+            nextTitle={nextProject ? nextProject.title : null}
+            onPrev={prevProject ? () => { window.location.hash = 'project/' + prevProject.id; } : undefined}
+            onNext={nextProject ? () => { window.location.hash = 'project/' + nextProject.id; } : undefined}
+            onHome={() => navigate('home', 'projects')}
+          />
           <CopyrightFooter lang={lang} />
         </>
       );
@@ -3096,7 +3096,7 @@
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Back to top"
           className={[
-            'fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-navy text-white shadow-lg flex items-center justify-center transition-opacity duration-300',
+            'fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy text-white shadow-lg flex items-center justify-center transition-opacity duration-300',
             visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
           ].join(' ')}
         >
