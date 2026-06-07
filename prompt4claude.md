@@ -776,6 +776,126 @@ Cập nhật cấu trúc trên vào hàm render danh sách dự án (map).
 
 Hãy cập nhật và cung cấp lại component <ProjectsSection> cho tôi.
 ============================================================================
+Claude, hãy giúp tôi đồng bộ và thiết kế lại component <BottomNav> trong ứng dụng React SPA (file index.html) để phù hợp với phong cách tối giản của trang.
+
+Hiện tại các nút điều hướng đang dùng dạng khối bo tròn có màu nền (Pill buttons). Tôi muốn đổi chúng thành dạng văn bản (Text links) không có khung bo, đồng thời cập nhật nội dung văn bản.
+
+1. Cập nhật giao diện Component <BottomNav>:
+
+Gỡ bỏ các class tạo nền và viền (như bg-navy, bg-gray-200, text-white, rounded-full, v.v.).
+
+Đổi cấu trúc các nút thành dạng văn bản màu navy: <button className="flex items-center gap-2 text-navy font-bold hover:text-blue-600 transition-colors uppercase text-sm md:text-base">
+
+Giữ cấu trúc Flexbox dàn đều 3 phần: Nút Trái (Previous), Nút Giữa (Home), Nút Phải (Next). Nếu không có nút Trái/Phải thì để thẻ div rỗng nhằm giữ layout cân bằng.
+
+2. Cập nhật nội dung văn bản (Props & Logic):
+
+Thêm các props để nhận tên của dự án/kỹ năng liền kề: prevTitle và nextTitle.
+
+Nút Trái (Previous):
+
+Hiển thị icon < ở đầu.
+
+Text VI: {prevTitle ? \Xem lại: ${prevTitle}` : ''}`
+
+Text EN: {prevTitle ? \Previous: ${prevTitle}` : ''}`
+
+Nút Giữa (Home):
+
+Luôn luôn hiển thị nút này ở tất cả các trang gọi <BottomNav>.
+
+Text VI: Trở về Trang chủ
+
+Text EN: Back to Home
+
+Nút Phải (Next):
+
+Hiển thị icon > ở cuối.
+
+Text VI: {nextTitle ? \Xem tiếp: ${nextTitle}` : ''}`
+
+Text EN: {nextTitle ? \Read next: ${nextTitle}` : ''}`
+
+(Lưu ý: Bạn có thể dùng object từ điển để render dựa trên state lang hiện tại).
+
+3. Cập nhật các Component cha gọi <BottomNav>:
+
+Tìm đến các component đang gọi <BottomNav> (như <ProjectDetailView>, <SystemDesignView>, <UiUxDesignView>, v.v.).
+
+Đảm bảo truyền đủ các hàm onPrev, onNext, onHome.
+
+Quan trọng: Tính toán và truyền thêm prevTitle và nextTitle dựa vào index của mảng dữ liệu (PROJECTS, SKILLS, v.v.) vào <BottomNav>. Nếu là item đầu tiên thì prevTitle = null, nếu là item cuối cùng thì nextTitle = null.
+
+Hãy cung cấp lại cho tôi mã code đã cập nhật của component <BottomNav> và một ví dụ về cách gọi nó trong <ProjectDetailView> để tôi kiểm tra và dán vào file index.html.
+============================================================================
+Claude, trang Portfolio (file index.html) của tôi hiện đang hiển thị không tốt trên các thiết bị di động. Hãy giúp tôi tái cấu trúc toàn bộ các component để đảm bảo tính Responsive hoàn hảo, áp dụng triệt để phương pháp 'Mobile-First' của Tailwind CSS.
+
+Hãy rà soát và cập nhật mã nguồn theo các chỉ dẫn sau:
+
+1. Bố cục tổng thể & Container:
+
+Đảm bảo các vùng chứa (Container) sử dụng class như w-full max-w-7xl mx-auto px-4 md:px-8. Trên mobile, padding hai bên (px-4) nhỏ hơn so với desktop (md:px-8).
+
+2. Header & NavMenu:
+
+Trên mobile, nếu thanh menu (Trang chủ | Dự án | Kỹ năng...) quá dài, hãy cho phép cuộn ngang ẩn thanh cuộn: flex overflow-x-auto whitespace-nowrap no-scrollbar pb-2 md:pb-0.
+
+Giảm kích thước chữ của Logo và Nav items trên mobile (ví dụ: text-base md:text-lg).
+
+3. Hero Section (Trang chủ):
+
+Chuyển bố cục thành dọc trên mobile và ngang trên desktop: <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">.
+
+Căn giữa ảnh đại diện và văn bản trên mobile (text-center md:text-left), sau đó dàn đều thẻ Tags (Lĩnh vực) sử dụng flex-wrap justify-center md:justify-start.
+
+4. Lưới hiển thị (Skills, Projects, Vibe Coding, API Specs):
+
+Tất cả các lưới (Grid) phải mặc định là 1 cột trên mobile: grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6.
+
+Đối với lưới hình ảnh (Vibe Gallery): Đảm bảo ảnh sử dụng w-full h-auto.
+
+5. Kích thước nhúng (PDF Viewer & Video):
+
+Cập nhật chiều cao của thẻ iframe nhúng PDF/Video để phù hợp với mobile: className="w-full h-[400px] md:h-[600px]".
+
+6. Thanh điều hướng cuối trang (BottomNav):
+
+Sắp xếp các nút điều hướng (Previous, Home, Next) sao cho trên màn hình điện thoại nhỏ vẫn không bị gãy dòng. Cân nhắc dùng flex-col md:flex-row hoặc thu nhỏ chữ text-xs md:text-base.
+
+Hãy cập nhật toàn bộ các component bị ảnh hưởng và cung cấp lại cho tôi mã nguồn hoàn chỉnh để đảm bảo trang hoạt động mượt mà trên mọi kích thước màn hình.
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
+============================================================================
 ============================================================================
 ============================================================================
 ============================================================================
