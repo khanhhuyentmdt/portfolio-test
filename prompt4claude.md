@@ -864,6 +864,41 @@ Sắp xếp các nút điều hướng (Previous, Home, Next) sao cho trên màn
 
 Hãy cập nhật toàn bộ các component bị ảnh hưởng và cung cấp lại cho tôi mã nguồn hoàn chỉnh để đảm bảo trang hoạt động mượt mà trên mọi kích thước màn hình.
 ============================================================================
+Claude, hãy giúp tôi cập nhật cơ chế quản lý ngôn ngữ trong file index.html của trang Portfolio.
+Hiện tại, tôi muốn có đường dẫn URL khác nhau cho bản tiếng Anh và tiếng Việt (sử dụng URL Parameters như ?lang=en và ?lang=vi) để có thể gắn link riêng biệt vào CV.
+
+Hãy rà soát component Root (nơi chứa state lang) và thực hiện các bước sau:
+
+1. Cập nhật khởi tạo State lang (Đọc URL):
+Thay vì khởi tạo mặc định luôn là 'vi', hãy đọc giá trị từ URL trước.
+
+JavaScript
+// Mẫu logic:
+const urlParams = new URLSearchParams(window.location.search);
+const initialLang = urlParams.get('lang') === 'en' ? 'en' : 'vi';
+const [lang, setLang] = React.useState(initialLang);
+2. Tạo hàm xử lý đổi ngôn ngữ (Change Language & Update URL):
+Viết một hàm để vừa cập nhật state lang, vừa cập nhật tham số trên thanh địa chỉ trình duyệt mà không làm reload trang.
+> // Mẫu logic:
+> const handleLanguageChange = (newLang) => {
+>   setLang(newLang);
+>   const url = new URL(window.location);
+>   url.searchParams.set('lang', newLang);
+>   window.history.pushState({}, '', url);
+> };
+> ```
+>
+> **3. Cập nhật Component `<LangToggle>`:**
+> Chỉnh sửa component chuyển đổi ngôn ngữ trên thanh Header. Khi người dùng click chọn VI hoặc EN, hãy gọi hàm `handleLanguageChange` thay vì gọi trực tiếp `setLang`.
+>
+> **4. Cập nhật Component `<BottomNav>` và các liên kết nội bộ (nếu có):**
+> Đảm bảo rằng việc thay đổi ngôn ngữ không làm ảnh hưởng đến các logic cuộn trang (scroll) hay điều hướng đang có.
+>
+> Hãy cung cấp lại cho tôi phần mã logic đã được cập nhật của Component chính (`<App>` hoặc component bọc ngoài cùng) và `<LangToggle>` để tôi dán vào dự án."
+
+Sau khi Claude hoàn tất và bạn áp dụng mã nguồn mới, bạn có thể thử thêm `?lang=en` vào sau link dự án để kiểm tra xem nó có tự động mở bản tiếng Anh không.
+
+Bạn có muốn tôi hướng dẫn thêm cách thiết lập thẻ meta SEO tự động thay đổi thẻ tiêu đề (Title) dựa trên ngôn ngữ URL để khi bạn gửi link qua tin nhắn, ảnh xem trước cũng hiển thị đúng tiếng Anh hoặc tiếng Việt không?
 ============================================================================
 ============================================================================
 ============================================================================
