@@ -1629,14 +1629,14 @@
     ════════════════════════════════════════════════════════════ */
 
     /* ── LangToggle ── */
-    function LangToggle({ lang, setLang }) {
+    function LangToggle({ lang, setLang: onLangChange }) {
       return (
         <div className="flex items-center gap-1.5">
           {['vi', 'en'].map((l, i) => (
             <React.Fragment key={l}>
               {i > 0 && <span className="text-gray-300 text-xs select-none font-normal">|</span>}
               <button
-                onClick={() => setLang(l)}
+                onClick={() => onLangChange(l)}
                 className={[
                   'font-heading text-xs tracking-widest uppercase transition-colors',
                   lang === l ? 'font-bold text-navy' : 'font-normal text-gray-400 hover:text-gray-600',
@@ -3110,7 +3110,15 @@
 
     function App() {
       const initialRoute = parseHash();
-      const [lang, setLang] = useState('vi');
+      const initialLang = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'vi';
+      const [lang, setLang] = useState(initialLang);
+
+      const handleLanguageChange = (newLang) => {
+        setLang(newLang);
+        const url = new URL(window.location);
+        url.searchParams.set('lang', newLang);
+        window.history.pushState({}, '', url);
+      };
       const [currentPage, setCurrentPage] = useState(initialRoute.page);
       const [activeSection, setActiveSection] = useState('home');
       const [scrollTarget, setScrollTarget] = useState(initialRoute.section);
@@ -3178,7 +3186,7 @@
         <div>
           <Header
             lang={lang}
-            setLang={setLang}
+            setLang={handleLanguageChange}
             currentPage={currentPage}
             navigate={navigate}
             activeSection={activeSection}
