@@ -7,9 +7,9 @@
   <title>Trần Khánh Huyền — Business Analyst Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.6/babel.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -3115,9 +3115,12 @@
 
       const handleLanguageChange = (newLang) => {
         setLang(newLang);
-        const url = new URL(window.location);
-        url.searchParams.set('lang', newLang);
-        window.history.pushState({}, '', url);
+        // Only update the URL when the page is not opened as a local file.
+        if (window.location.protocol !== 'file:') {
+          const url = new URL(window.location);
+          url.searchParams.set('lang', newLang);
+          window.history.pushState({}, '', url);
+        }
       };
       const [currentPage, setCurrentPage] = useState(initialRoute.page);
       const [activeSection, setActiveSection] = useState('home');
